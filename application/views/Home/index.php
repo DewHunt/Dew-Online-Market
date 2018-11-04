@@ -14,8 +14,8 @@
 		<!-- <link rel="stylesheet" type="text/css" href="../assets/materialize/css/materialize.css"> -->
 
 		<!-- Font Awesome CSS file include -->
-		<!-- <?= link_tag('assets/font-awesome-4.7.0/css/font-awesome.css'); ?> -->
-		<link rel="stylesheet" type="text/css" href="../assets/font-awesome-4.7.0/css/font-awesome.css">
+		<?= link_tag('assets/font-awesome-4.7.0/css/font-awesome.css'); ?>
+		<!-- <link rel="stylesheet" type="text/css" href="../assets/font-awesome-4.7.0/css/font-awesome.css"> -->
 
 		<!-- Material Icons CSS file Include -->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -60,6 +60,52 @@
 				color: black;
 				text-decoration: underline;
 			}
+
+			#set-social-icon li{
+				display: inline;
+			}
+
+			#set-social-icon a{
+				color: white;
+				padding: 10px 15px;
+				border: 1px solid white;
+			}
+
+			#set-search{
+				width: 35%;
+				height: 42px;
+				border: 1px solid white;
+				border-top-left-radius: 5px;
+				border-bottom-left-radius: 5px;
+				margin-left: 8%;
+				padding-left: 10px;
+			}
+
+			#set-search-button{
+				background: white;
+				height: 44px;
+				line-height: 44%;
+				color: green;
+				margin-top: -5px;
+				margin-left: -5px;
+				box-shadow: none;
+				border-radius: 0px;
+				border-top-right-radius: 5px;
+				border-bottom-right-radius: 5px;
+				width: 10%;
+			}
+
+			#set-mobile-search{
+				border: 1px solid white;
+				border-radius: 5px;
+				box-shadow: none;
+				padding-left: 10px;
+				margin-left: -6px; 
+			}
+
+			form{
+				display: inline;
+			}
 		</style>
 	</head>
 	<body>
@@ -86,7 +132,14 @@
 
 		<nav class="green">
 			<div class="wrapper">
-				<a href="#" class="brand-log left">&nbsp;&nbsp;&nbsp;DOM - Dew Online Market</a>
+				<a href="<?= base_url('index.php/Home/index') ?>" class="brand-log left">&nbsp;&nbsp;&nbsp;DOM - Dew Online Market</a>
+
+				<!-- Search Box Section Start -->
+				<?= form_open(); ?>
+					<input type="text" name="" class="hide-on-med-and-down" id="set-search" placeholder="Search Products and Brands">
+					<button type="submit" class="hide-on-med-and-down" id="set-search-button" class="btn waves-effect waves-light"><b>Search</b></button>
+				<?= form_close(); ?>
+				<!-- Search Box Section End -->
 
 				<!-- Menu Button Section Start -->
 
@@ -99,12 +152,13 @@
 				<!-- Mobile Menu Section Start -->
 
 				<ul class="sidenav" id="mobile-menu">
-					<li><a href="">Electronics</a></li>
-					<li><a href="">Men Fashion</a></li>
-					<li><a href="">Women Fashiuon</a></li>
-					<li><a href="">Home & Furniture</a></li>
-					<li><a href="">Sports & Statinary</a></li>
-					<li><a href="">Daily Needs</a></li>
+					<li><a href="#!" class="green white-text">Products Category</a></li>
+					<li><a href="<?= base_url('index.php/Home/mobileElectronicMenu'); ?>">Electronics</a></li>
+					<li><a href="<?= base_url('index.php/Home/mobileMenFashionMenu'); ?>">Men Fashion</a></li>
+					<li><a href="<?= base_url('index.php/Home/mobileWomenFashionMenu'); ?>">Women Fashiuon</a></li>
+					<li><a href="<?= base_url('index.php/Home/mobileHomeAndFurnitureMenu') ?>">Home & Furniture</a></li>
+					<li><a href="<?= base_url('index.php/Home/mobileSportsAndStationeryMenu') ?>">Sports & Stationery</a></li>
+					<li><a href="<?= base_url('index.php/Home/mobileDailyNeedsMenu') ?>">Daily Needs</a></li>
 				</ul>
 
 				<!-- Mobile Menu Section End -->
@@ -155,7 +209,7 @@
 									<ul id="set-ele-menu">
 										<a href="#">Headphone</a>
 										<a href="#">Power Bank</a>
-										<a href="#">Screen Card</a>
+										<a href="#">Screen Guard</a>
 										<a href="#">Memory Card</a>
 										<a href="#">Chargers</a>
 										<a href="#">Gorila Class</a>
@@ -631,6 +685,16 @@
 
 		<!-- Menubar Section End -->
 
+		<!-- Mobile Search Box Section Start -->
+		<div class="green hide-on-med-and-up" style="padding: 10px;">
+			<center>
+				<?= form_open(); ?>
+					<input type="text" name="" id="set-mobile-search" placeholder="Search Products and Brands">
+				<?= form_close(); ?>
+			</center>
+		</div>
+		<!-- Mobile Search Box Section End -->
+
 		<!-- Image Slider Section Start -->
 
 		<div class="carousel carousel-slider">
@@ -827,6 +891,19 @@
 
 		<!-- Electronics Products Section End -->
 
+		<!-- Men Fashion Banner Image Section Start -->
+
+		<div class="row">
+			<div class="col l6 m6 s12">
+				<img src="<?= base_url('assets/images/banner/banner_men_fashion_00.jpg'); ?>" class="responsive-img">
+			</div>
+			<div class="col l6 m6 s12">
+				<img src="<?= base_url('assets/images/banner/banner_men_fashion_01.jpg'); ?>" class="responsive-img">
+			</div>
+		</div>
+
+		<!-- Men Fashion Banner Image Section End -->
+
 		<!-- Men Fashion Products Section Start -->
 
 		<h5>Men Fashion Products</h5>
@@ -911,6 +988,19 @@
 		</div>
 
 		<!-- Men Fashion Products Section End -->
+
+		<!-- Women Fashion Banner Image Section Start -->
+
+		<div class="row">
+			<div class="col l6 m6 s12">
+				<img src="<?= base_url('assets/images/banner/banner_women_fashion_00.png'); ?>" class="responsive-img">
+			</div>
+			<div class="col l6 m6 s12">
+				<img src="<?= base_url('assets/images/banner/banner_women_fashion_01.jpg'); ?>" class="responsive-img">
+			</div>
+		</div>
+
+		<!-- Women Fashion Banner Image Section End -->
 
 		<!-- Women Fashion Products Section Start -->
 
@@ -997,6 +1087,19 @@
 
 		<!-- Women Fashion Products Section End -->
 
+		<!-- Home & Furnioture Banner Image Section Start -->
+
+		<div class="row">
+			<div class="col l6 m6 s12">
+				<img src="<?= base_url('assets/images/banner/banner_furniture_02.jpg'); ?>" class="responsive-img">
+			</div>
+			<div class="col l6 m6 s12">
+				<img src="<?= base_url('assets/images/banner/banner_home_01.jpg'); ?>" class="responsive-img">
+			</div>
+		</div>
+
+		<!-- Home & Furnioture Banner Image Section End -->
+
 		<!-- Home & Furniture Products Section Start -->
 
 		<h5>Home & Furniture Products</h5>
@@ -1082,9 +1185,22 @@
 
 		<!-- Home & Furniture Products Section End -->
 
-		<!-- Sports & Stationary Products Section Start -->
+		<!-- Sports & Stationery Banner Image Section Start -->
 
-		<h5>Sports & Stationary Products</h5>
+		<div class="row">
+			<div class="col l6 m6 s12">
+				<img src="<?= base_url('assets/images/banner/banner_sports_00.jpg'); ?>" class="responsive-img">
+			</div>
+			<div class="col l6 m6 s12">
+				<img src="<?= base_url('assets/images/banner/banner_stationery_01.jpg'); ?>" class="responsive-img">
+			</div>
+		</div>
+
+		<!-- Sports & Stationery Banner Image Section End -->
+
+		<!-- Sports & Stationery Products Section Start -->
+
+		<h5>Sports & Stationery Products</h5>
 		<div class="row">
 			<div class="col l2 m4 s12">
 				<div class="card">
@@ -1213,6 +1329,16 @@
 					<p><span class="fa fa-phone"></span>&nbsp;&nbsp;+88 017 66 328 322</p>
 					<p><span class="fa fa-envelope"></span>&nbsp;&nbsp;dewhunt@gmail.com</p>
 					<p><span class="fa fa-globe"></span>&nbsp;&nbsp;www.dewsoft.com</p>
+					<br>
+					<!-- Social Media Section Start -->
+					<ul id="set-social-icon">
+						<li><a href=""><span class="fa fa-facebook"></span></a></li>
+						<li><a href=""><span class="fa fa-instagram"></span></a></li>
+						<li><a href=""><span class="fa fa-twitter"></span></a></li>
+						<li><a href=""><span class="fa fa-youtube"></span></a></li>
+						<li><a href=""><span class="fa fa-google"></span></a></li>
+					</ul>
+					<!-- Social Media Section End -->
 				</div>
 			</div>
 
