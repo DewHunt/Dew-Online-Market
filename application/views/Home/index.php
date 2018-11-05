@@ -137,7 +137,7 @@
 				<!-- Search Box Section Start -->
 				<?= form_open(); ?>
 					<input type="text" name="" class="hide-on-med-and-down" id="set-search" placeholder="Search Products and Brands">
-					<button type="submit" class="hide-on-med-and-down" id="set-search-button" class="btn waves-effect waves-light"><b>Search</b></button>
+					<button type="submit" id="set-search-button" class="btn waves-effect waves-light hide-on-med-and-down"><b>Search</b></button>
 				<?= form_close(); ?>
 				<!-- Search Box Section End -->
 
@@ -1317,7 +1317,7 @@
 						<li><a href="#">Login Account</a></li>
 						<li><a href="#">Cart</a></li>
 						<li><a href="#">Offer</a></li>
-						<li><a href="#">Seller Account</a></li>
+						<li><a href="<?= base_url('index.php/Seller/index'); ?>">Seller Account</a></li>
 					</ul>
 				</div>
 				<div class="col l3 m6 s12">
