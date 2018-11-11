@@ -165,7 +165,7 @@
 			}
 
 			.box{
-				width: 10%;
+				width: 50%;
 				height: 2px;
 				background: green;
 				margin-top: 20px;
@@ -179,6 +179,15 @@
 
 			#mobile-username + label, #mobile-password + label{
 				color: green;
+			}
+
+			/*Number Input Type Arrow hide CSS*/
+			input[type=number]::-webkit-inner-spin-button,
+			input[type=number]::-webkit-outer-spin-button{
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				margin: 0px;
 			}
 
 			/*Media Query Section Start*/
@@ -250,15 +259,15 @@
 				<br><br><br><br>
 			</div>
 			<div class="col l4 m4 s12 white" id="register-div">
-				<?= form_open(); ?>
+				<?= form_open("Seller/CreateAccount"); ?>
 					<h5 class="center-align">Register Now</h5>
-					<input type="text" name="" id="company-name" placeholder="Company Name" required>
-					<input type="text" name="" id="email-id" placeholder="Email Address" required>
-					<input type="password" name="" id="password" placeholder="Password" required>
-					<input type="number" name="" id="mobile-number" placeholder="Mobile Number" required>
-					<input type="number" name="" id="pin-code" placeholder="Pin Code" required>
-					<input type="text" name="" id="company-pan-number" placeholder="Company Pan Number" required>
-					<input type="text" name="" id="gst-number" placeholder="GST Number" required>
+					<input type="text" name="company_name" id="company-name" placeholder="Company Name" required>
+					<input type="text" name="email" id="email-id" placeholder="Email Address" required>
+					<input type="password" name="password" id="password" placeholder="Password" required>
+					<input type="number" name="mobile_number" id="mobile-number" placeholder="Mobile Number" required>
+					<input type="number" name="pin_code" id="pin-code" placeholder="Pin Code" required>
+					<input type="text" name="company_pan_number" id="company-pan-number" placeholder="Company Pan Number" required>
+					<input type="text" name="gst_number" id="gst-number" placeholder="GST Number" required>
 					<button type="submit" class="btn waves-effects waves-light" id="register-button">Create Account</button>
 				<?= form_close(); ?>
 			</div>
@@ -277,35 +286,112 @@
 
 		<!-- Custome JS File Include -->
 		<script type="text/javascript">
-			$(document).ready(function(){
-				// Email Validation Section Start
-				$('#email').keyup(function() {
-					var email = $('#email').val();
-					// Checking Empty Fields
-					if ($.trim(email).length == 0) {
-						alert('Enter Email Address');
-						e.preventDefault();
-					}
+			// Email Address Validation Script Start
+			function ValidateEmail(email) {
+				var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+				return expr.test(email);
+			};
 
-					if (validateEmail(email)) {
-						alert('Nice!! your Email is valid, now you can continue..');
-					}
-					else {
-						alert('Invalid Email Address');
-						e.preventDefault();
-					}
-				});
-			});
-			// Function that validates email address through a regular expression.
-			function validateEmail(email) {
-				var filter = /^[w-.+]+@[a-zA-Z0-9.-]+.[a-zA-z0-9]{2,4}$/;
-				if (filter.test(email)) {
-					return true;
+			$("#email-id").keyup(function () {
+				if ($("#email-id").val() == "") {
+					$('#register-button').prop('disabled',false);
 				}
 				else {
-					return false;
+					if (!ValidateEmail($("#email-id").val())) {
+						$('#register-button').prop('disabled',true);
+					}
+					else {
+						$('#register-button').prop('disabled',false);
+					}					
 				}
-			}
+			});
+			// Email Address Validation Start
+
+			// Mobile Number Validation Start
+			$('#mobile-number').keyup(function(){
+				var mobileNumber = $('#mobile-number').val();
+				var mobileNumberLength = $('#mobile-number').val().length;
+
+				if (mobileNumber == "") {
+					$("#register-button").prop('disabled',false);
+				}
+				else {
+					if (mobileNumber > 0) {
+						if (mobileNumberLength == 11) {
+							$('#register-button').prop('disabled',false);
+						}
+						else {
+							$('#register-button').prop('disabled',true);
+						}
+					}
+					else {
+						$('#register-button').prop('disabled',true);
+					}
+				}
+			});
+			// Mobile Number Validation Start
+
+			// Pin Code Validation Start
+			$('#pin-code').keyup(function(){
+				var pinCode = $('#pin-code').val();
+				var pinCodeLength = $('#pin-code').val().length;
+
+				if (pinCode == "") {
+					$("#register-button").prop('disabled',false);
+				}
+				else {
+					if (pinCode > 0) {
+						if (pinCodeLength == 6) {
+							$('#register-button').prop('disabled',false);
+						}
+						else {
+							$('#register-button').prop('disabled',true);
+						}
+					}
+					else {
+						$('#register-button').prop('disabled',true);
+					}
+				}
+			});
+			// Pin Code Validation Start
+
+			// Company Pan Number Validation Start
+			$('#company-pan-number').keyup(function(){
+				var companyPanNumber = $('#company-pan-number').val();
+				var companyPanNumberLength = $('#company-pan-number').val().length;
+
+				if (companyPanNumber == "") {
+					$("#register-button").prop('disabled',false);
+				}
+				else {
+					if (companyPanNumberLength == 10) {
+						$('#register-button').prop('disabled',false);
+					}
+					else {
+						$('#register-button').prop('disabled',true);
+					}
+				}
+			});
+			// Company Pan Number Validation Start
+
+			// GST Number Validation Start
+			$('#gst-number').keyup(function(){
+				var gstNumber = $('#gst-number').val();
+				var gstNumberLength = $('#gst-number').val().length;
+
+				if (gstNumber == "") {
+					$("#register-button").prop('disabled',false);
+				}
+				else {
+					if (gstNumberLength == 12) {
+						$('#register-button').prop('disabled',false);
+					}
+					else {
+						$('#register-button').prop('disabled',true);
+					}
+				}
+			});
+			// GST Number Validation Start
 		</script>
 	</body>
 </html>
