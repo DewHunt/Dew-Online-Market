@@ -13,7 +13,15 @@
 
 		public function index()
 		{
-			$this->load->view('Seller/index');
+			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			{
+				$this->load->view('Seller/index');
+			}
+			else
+			{
+				return redirect('Seller/Dashboard');
+			}
+			
 		}
 
 		public function CreateAccount()
@@ -22,7 +30,7 @@
 			$seller_email = $this->input->post('email');
 			$seller_password = $this->input->post('password');
 
-			$this->load->view('Seller/my-mail','',true);
+			// $this->load->view('Seller/my-mail','',true);
 
 			if ($result) {
 				// $this->load->library('email');
@@ -42,18 +50,60 @@
 				// 	return redirect('Seller/index');
 				// }
 
-				$ssession_data = [
-					'seller_username' = $seller_email;
-					'seller_password' = $seller_password;
+				$session_data = [
+					'seller_username' => $seller_email,
+					'seller_password' => $seller_password
 				];
 				$this->session->set_userdata($session_data);
-
-
-				$this->load->view('session_data');				
+				// $this->load->view('Seller/Dashboard');
+				return redirect('Seller/Dashboard');				
 			}
 			else {
 				return redirect('Seller/index');
 			}
+		}
+
+		public function Login()
+		{
+			$seller_username = $this->input->post('seller-username');
+			$seller_password = $this->input->post('seller-password');
+
+			$result = $this->sm->Login();
+
+			if ($result)
+			{
+				$session_data = [
+					'seller_username' => $seller_username,
+					'seller_password' => $seller_password
+				];
+
+				$this->session->set_userdata($session_data);
+				return redirect('Seller/Dashboard');
+			}
+			else
+			{
+				return redirect('Seller/index');
+			}
+		}
+
+		public function Dashboard()
+		{
+			if($this->session->userdata('seller_email') == "" && $this->session->userdata('seller_password') == "")
+			{
+				return redirect('Seller/index');
+			}
+			else
+			{
+				$this->load->view('Seller/Dashboard');
+			}
+		}
+
+		public function Logout()
+		{
+			$this->session->unset_userdata('seller_username');
+			$this->session->unset_userdata('seller_password');
+
+			return redirect('Seller/index');
 		}
 	}
 ?>

@@ -213,10 +213,10 @@
 		<!-- Top Bar Section Start -->
 		<nav class="green">
 			<div class="nav-wrapper">
-				<?= form_open(); ?>
+				<?= form_open('Seller/Login'); ?>
 				<a href="" class="brand-logo left">&nbsp;Seller Account</a>
-				<input type="text" name="" class="hide-on-med-and-down" id="seller-username" placeholder="User Name or Email">
-				<input type="password" name="" class="hide-on-med-and-down" id="seller-password" placeholder="Password">
+				<input type="text" name="seller-username" class="hide-on-med-and-down" id="seller-username" placeholder="User Name or Email" required="">
+				<input type="password" name="seller-password" class="hide-on-med-and-down" id="seller-password" placeholder="Password" required="">
 				<button type="submit" class="btn waves-effects waves-light hide-on-med-and-down" id="login-button">Login</button>
 				<?= form_close(); ?>
 			</div>
