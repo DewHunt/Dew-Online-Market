@@ -58,14 +58,15 @@
 			}
 
 			#widget{
-				padding: 10px;
+				padding: 0px 10px 0px 10px;
 			}
 
 			#widget-content{
 				border: 1px solid green;
+				margin-top: 20px;
 			}
 
-			#widget-content h6{
+			#widget-content-h6{
 				background: green;
 				margin: 0px;
 				padding: 10px;
@@ -73,10 +74,10 @@
 				color: white;
 			}
 
-			#widget-content h5{
+			#widget-content-h5{
 				color: gray;
 				font-weight: bold;
-				padding-left: 15px;
+				padding: 0px 5px 0px 5px;
 			}
 
 			#set-task li a{
@@ -84,6 +85,58 @@
 				font-weight: bold;
 				padding-left: 15px;
 				line-height: 30px;
+				display: block;
+			}
+
+			#sale-widget{
+				padding: 10px 15px 0px 15px;
+			}
+
+			#sale-widget-content{
+				border: 0px solid green;
+			}
+
+			#sale-widget-content h5:hover{
+				color: green;
+				text-transform: uppercase;
+				border-bottom: 1px solid green;
+			}
+
+			#sale-widget-content-h5{
+				color: silver;
+				margin-top: 0px;
+				border-bottom: 1px solid silver;
+				padding-bottom: 8px;
+			}
+
+			#sale-widget-content-h6{
+				margin-top: -8px;
+				color: gray;
+			}
+
+			#set-tools li a{
+				color: green;
+				font-weight: bold;
+				padding: 0px 15px 0px 15px;
+				line-height: 30px;
+				display: block;
+			}
+
+			#progress-bar{
+				padding: 0px 15px 0px 15px;
+				margin-top: -25px;
+			}
+
+			#promotional-box{
+				margin: 5px 5px 0px 5px;
+				padding: 0px 10px 0px 10px;
+				border: 0px solid black;
+			}
+
+			#promotional-inner-box{
+				margin: 0px 5px 5px 5px;
+				padding: 0px 25px 0px 25px;
+				border: 0px solid black;
 			}
 		</style>
 	</head>
@@ -189,43 +242,43 @@
 		<div class="row">
 			<div class="col l2 m4 s12" id="widget">
 				<div id="widget-content">					
-					<h6>Unread Messages</h6>
-					<h5 style="">05</h5>
+					<h6 id="widget-content-h6">Unread Messages</h6>
+					<h5 id="widget-content-h5">05</h5>
 				</div>
 			</div>
 
 			<div class="col l2 m4 s12" id="widget">
 				<div id="widget-content">
-					<h6>Awaiting Shipment</h6>
-					<h5>07</h5>
+					<h6 id="widget-content-h6">Awaiting Shipment</h6>
+					<h5 id="widget-content-h5">07</h5>
 				</div>
 			</div>
 
 			<div class="col l2 m4 s12" id="widget">
 				<div id="widget-content">
-					<h6>Sales ( Last 31 Days )</h6>
-					<h5>৳ 10,15,500.56</h5>
+					<h6 id="widget-content-h6">Sales ( Last 31 Days )</h6>
+					<h5 id="widget-content-h5">৳ 10,15,500.56</h5>
 				</div>
 			</div>
 
 			<div class="col l2 m4 s12" id="widget">
 				<div id="widget-content">
-					<h6>Today Sales</h6>
-					<h5>৳ 10,945</h5>
+					<h6 id="widget-content-h6">Today Sales</h6>
+					<h5 id="widget-content-h5">৳ 10,945</h5>
 				</div>
 			</div>
 
 			<div class="col l2 m4 s12" id="widget">
 				<div id="widget-content">
-					<h6>Today's Feedback</h6>
-					<h5>0</h5>
+					<h6 id="widget-content-h6">Today's Feedback</h6>
+					<h5 id="widget-content-h5">0</h5>
 				</div>
 			</div>
 
 			<div class="col l2 m4 s12" id="widget">
 				<div id="widget-content">
-					<h6>Seller Level Forecast</h6>
-					<h5>Above Standard</h5>
+					<h6 id="widget-content-h6">Seller Level Forecast</h6>
+					<h5 id="widget-content-h5">Above Standard</h5>
 				</div>
 			</div>
 		</div>
@@ -233,9 +286,10 @@
 
 		<!-- Task & Sales Section Start -->
 		<div class="row">
+			<!-- Task Section Start -->
 			<div class="col l4 m4 s12" id="widget">
 				<div id="widget-content">
-					<h6>Task</h6>
+					<h6 id="widget-content-h6">Task</h6>
 					<ul id="set-task">
 						<li><a href="">Messages <span class="badge green white-text">5</span></a></li>
 						<li><a href="">Shipments <span class="badge green white-text">10</span></a></li>
@@ -243,52 +297,154 @@
 					</ul>
 				</div>
 			</div>
+			<!-- Task Section End -->
 
+			<!-- Sale Section Start -->
 			<div class="col l8 m8 s12" id="widget">
 				<div id="widget-content">
-					<h6>Sales</h6>
+					<!-- Widget Section Start  -->
+					<h6 id="widget-content-h6">Sales</h6>
 					<div class="row">
-						<div class="col l3 m3 s6" id="widget">
-							<div id="widget-content">
+						<div class="col l3 m3 s6" id="sale-widget">
+							<div id="sale-widget-content">
 								<center>
-									<h6>Today</h6>
-									<h5>৳ 30,000</h5>									
+									<h5 id="sale-widget-content-h5">Today</h5>
+									<h6 id="sale-widget-content-h6">৳ 30,000</h6>
 								</center>
 							</div>
 						</div>
 
 
-						<div class="col l3 m3 s6" id="widget">
-							<div id="widget-content">
+						<div class="col l3 m3 s6" id="sale-widget">
+							<div id="sale-widget-content">
 								<center>
-									<h6>Last 7 Days</h6>
-									<h5>৳ 95,000</h5>									
+									<h5 id="sale-widget-content-h5">Last 7 Days</h5>
+									<h6 id="sale-widget-content-h6">৳ 95,000</h6>
 								</center>
 							</div>
 						</div>
 
-						<div class="col l3 m3 s6" id="widget">
-							<div id="widget-content">
+						<div class="col l3 m3 s6" id="sale-widget">
+							<div id="sale-widget-content">
 								<center>
-									<h6>Last 31 Days</h6>
-									<h5>৳ 150,000</h5>									
+									<h5 id="sale-widget-content-h5">Last 31 Days</h5>
+									<h6 id="sale-widget-content-h6">৳ 150,000</h6>
 								</center>
 							</div>
 						</div>
 
-						<div class="col l3 m3 s6" id="widget">
-							<div id="widget-content">
+						<div class="col l3 m3 s6" id="sale-widget">
+							<div id="sale-widget-content">
 								<center>
-									<h6>Last 90 Days</h6>
-									<h5>৳ 350,000</h5>									
+									<h5 id="sale-widget-content-h5">Last 90 Days</h5>
+									<h6 id="sale-widget-content-h6">৳ 350,000</h6>
 								</center>
 							</div>
 						</div>						
 					</div>
-				</div>
+					<!-- Widget Section End -->
+
+					<!-- Progress Bar Section Start -->
+					<div class="row">
+						<div class="col l3 m3 s6" id="progress-bar">
+							<div class="progress" style="height: 10px;">
+								<div class="determinate" style="width: 69%;"></div>
+							</div>
+						</div>
+						
+						<div class="col l3 m3 s6" id="progress-bar">
+							<div class="progress" style="height: 10px;">
+								<div class="determinate" style="width: 56%;"></div>
+							</div>
+						</div>
+						
+						<div class="col l3 m3 s6" id="progress-bar">
+							<div class="progress" style="height: 10px;">
+								<div class="determinate" id="determinate-width" style="width: 48%;"></div>
+							</div>
+						</div>
+
+						<div class="col l3 m3 s6" id="progress-bar">
+							<div class="progress" style="height: 10px;">
+								<div class="determinate" style="width: 73%;"></div>
+							</div>
+						</div>
+					</div>
+					<!-- Progress Bar Section End -->
+				</div>				
 			</div>
+			<!-- Sale Section End -->
 		</div>
 		<!-- Task & Sales Section End -->
+
+		<!-- Selling Tools, Seller Level & Promotional Offers Section Start -->
+		<div class="row">
+			<!-- Selling Tools Section Start -->
+			<div class="col l4 m4 s12" id="widget">
+				<div id="widget-content">
+					<h6 id="widget-content-h6">Selling Tools</h6>
+					<ul id="set-tools">
+						<li><a href="">My Profiles (Profile Name)</a></li>
+						<li><a href="">View My Listings</a></li>
+						<li><a href="">Manage Profile (Profile Name)</a></li>
+						<li><a href="">Create Sale</a></li>
+						<li><a href="">My Performance</a></li>
+						<li><a href=""></a></li>
+						<li><a href=""></a></li>
+						<li><a href=""></a></li>
+						<li><a href=""></a></li>
+						<li><a href=""></a></li>
+						<li><a href=""></a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- Selling Tools Section End -->
+			
+			<!-- Seller Level Section Start -->
+			<div class="col l4 m4 s12" id="widget">
+				<div id="widget-content">
+					<h6 id="widget-content-h6">Seller Level (Region: Name)</h6>
+					<ul id="set-tools">
+						<li><a href="">Current Seller Level<span class="right">Above Standard</span></a></li>
+						<li><a href="">Transaction (Last 12 Months)<span class="right">250</span></a></li>
+						<li><a href="">Sales (Last 12 Months)<span class="right">৳ 25,000</span></a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- Seller Level Section End -->
+
+			<!-- Promotional Offers Section Start -->
+			<div class="col l4 m4 s12" id="widget">
+				<div id="widget-content">
+					<h6 id="widget-content-h6">Promotional Offers</h6>
+					<div id="promotional-box">
+						<h5>Fixed Price Listing</h5>
+						<div id="promotional-inner-box">
+							<p>
+								Start Date: 2018 - 5 -20 <br>
+								End Date: 2018 - 6 - 25
+							</p>
+							<h6>Used/Left: <a href="">250</a>/250</h6>								
+						</div>					
+					</div>
+
+					<hr>
+
+					<div id="promotional-box">
+						<h5>Fixed Price Listing</h5>
+						<div id="promotional-inner-box">
+							<p>
+								Start Date: 2018 - 5 -20 <br>
+								End Date: 2018 - 6 - 25
+							</p>
+							<h6>Used/Left: <a href="">250</a>/250</h6>								
+						</div>					
+					</div>
+				</div>
+			</div>
+			<!-- Promotional Offers Section End -->
+		</div>
+		<!-- Selling Tools, Seller Level & Promotional Offers Section End -->
 
 		<!-- Body Section End -->
 
