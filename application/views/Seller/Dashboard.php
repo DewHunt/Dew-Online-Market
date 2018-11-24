@@ -83,7 +83,7 @@
 			#set-task li a{
 				color: green;
 				font-weight: bold;
-				padding-left: 15px;
+				padding: 0px 15px 0px 15px;
 				line-height: 30px;
 				display: block;
 			}
@@ -122,21 +122,43 @@
 				display: block;
 			}
 
-			#progress-bar{
+/*			#progress-bar{
 				padding: 0px 15px 0px 15px;
 				margin-top: -25px;
-			}
+			}*/
 
 			#promotional-box{
 				margin: 5px 5px 0px 5px;
-				padding: 0px 10px 0px 10px;
-				border: 0px solid black;
+				padding: 0px 5px 0px 5px;
 			}
 
 			#promotional-inner-box{
 				margin: 0px 5px 5px 5px;
-				padding: 0px 25px 0px 25px;
-				border: 0px solid black;
+				padding: 0px 5px 0px 5px;
+			}
+
+			#set-feedback{
+				border-bottom: 1px solid green;
+				margin: 5px;
+
+			}
+
+			#set-feedback li a, #set-recent-feedback li a{
+				color: green;
+				font-weight: bold;
+				padding: 0px 15px 0px 15px;
+				line-height: 30px;
+				display: block;
+			}
+
+			#account-summary-box{
+				margin: 5px 5px 0px 5px;
+				padding: 0px 5px 0px 5px;
+			}
+
+			#account-summary-inner-box{
+				margin: 0px 5px 5px 5px;
+				padding: 0px 5px 0px 5px;
 			}
 		</style>
 	</head>
@@ -145,7 +167,7 @@
 		<!-- Body Section Start -->
 
 		<!-- Top bar Section Start -->
-		<nav class="green" style="height: 35px; line-height: 35px;">
+		<nav class="green hide-on-med-and-down" style="height: 35px; line-height: 35px;">
 			<div class="nav-wrapper">
 				<!-- Left Menu Section Start -->
 				<ul class="left">
@@ -185,7 +207,7 @@
 		</h5>
 
 		<!-- Menu Bar Section Start -->
-		<nav style="box-shadow: none; background: white; border-bottom: 2px solid green;">
+		<nav style="box-shadow: none; background: white; border-bottom: 2px solid green;" class="hide-on-med-and-down">
 			<div class="nav-wrapper">
 				<!-- Left Side Menu Section Start -->
 				<ul class="left" id="left-menu">
@@ -305,72 +327,56 @@
 					<!-- Widget Section Start  -->
 					<h6 id="widget-content-h6">Sales</h6>
 					<div class="row">
-						<div class="col l3 m3 s6" id="sale-widget">
+						<div class="col l3 m3 s12" id="sale-widget">
 							<div id="sale-widget-content">
 								<center>
 									<h5 id="sale-widget-content-h5">Today</h5>
 									<h6 id="sale-widget-content-h6">৳ 30,000</h6>
+							<div class="progress" style="height: 10px;">
+								<div class="determinate" style="width: 69%;"></div>
+							</div>
 								</center>
 							</div>
 						</div>
 
 
-						<div class="col l3 m3 s6" id="sale-widget">
+						<div class="col l3 m3 s12" id="sale-widget">
 							<div id="sale-widget-content">
 								<center>
 									<h5 id="sale-widget-content-h5">Last 7 Days</h5>
 									<h6 id="sale-widget-content-h6">৳ 95,000</h6>
+							<div class="progress" style="height: 10px;">
+								<div class="determinate" style="width: 56%;"></div>
+							</div>
 								</center>
 							</div>
 						</div>
 
-						<div class="col l3 m3 s6" id="sale-widget">
+						<div class="col l3 m3 s12" id="sale-widget">
 							<div id="sale-widget-content">
 								<center>
 									<h5 id="sale-widget-content-h5">Last 31 Days</h5>
 									<h6 id="sale-widget-content-h6">৳ 150,000</h6>
+							<div class="progress" style="height: 10px;">
+								<div class="determinate" style="width: 48%;"></div>
+							</div>
 								</center>
 							</div>
 						</div>
 
-						<div class="col l3 m3 s6" id="sale-widget">
+						<div class="col l3 m3 s12" id="sale-widget">
 							<div id="sale-widget-content">
 								<center>
 									<h5 id="sale-widget-content-h5">Last 90 Days</h5>
 									<h6 id="sale-widget-content-h6">৳ 350,000</h6>
+							<div class="progress" style="height: 10px;">
+								<div class="determinate" style="width: 73%;"></div>
+							</div>
 								</center>
 							</div>
 						</div>						
 					</div>
 					<!-- Widget Section End -->
-
-					<!-- Progress Bar Section Start -->
-					<div class="row">
-						<div class="col l3 m3 s6" id="progress-bar">
-							<div class="progress" style="height: 10px;">
-								<div class="determinate" style="width: 69%;"></div>
-							</div>
-						</div>
-						
-						<div class="col l3 m3 s6" id="progress-bar">
-							<div class="progress" style="height: 10px;">
-								<div class="determinate" style="width: 56%;"></div>
-							</div>
-						</div>
-						
-						<div class="col l3 m3 s6" id="progress-bar">
-							<div class="progress" style="height: 10px;">
-								<div class="determinate" id="determinate-width" style="width: 48%;"></div>
-							</div>
-						</div>
-
-						<div class="col l3 m3 s6" id="progress-bar">
-							<div class="progress" style="height: 10px;">
-								<div class="determinate" style="width: 73%;"></div>
-							</div>
-						</div>
-					</div>
-					<!-- Progress Bar Section End -->
 				</div>				
 			</div>
 			<!-- Sale Section End -->
@@ -420,11 +426,10 @@
 					<div id="promotional-box">
 						<h5>Fixed Price Listing</h5>
 						<div id="promotional-inner-box">
-							<p>
-								Start Date: 2018 - 5 -20 <br>
-								End Date: 2018 - 6 - 25
-							</p>
-							<h6>Used/Left: <a href="">250</a>/250</h6>								
+							<h6>
+								<b>Start Date:</b> 2018-5-20&nbsp;||&nbsp;<b>End Date:</b> 2018-6-25
+							</h6>
+							<h6><b>Used/Left:</b> <a href="">250</a>/250</h6>
 						</div>					
 					</div>
 
@@ -433,11 +438,10 @@
 					<div id="promotional-box">
 						<h5>Fixed Price Listing</h5>
 						<div id="promotional-inner-box">
-							<p>
-								Start Date: 2018 - 5 -20 <br>
-								End Date: 2018 - 6 - 25
-							</p>
-							<h6>Used/Left: <a href="">250</a>/250</h6>								
+							<h6>
+								<b>Start Date:</b> 2018-5-20&nbsp;||&nbsp;<b>End Date:</b> 2018-6-25
+							</h6>
+							<h6><b>Used/Left:</b> <a href="">250</a>/250</h6>
 						</div>					
 					</div>
 				</div>
@@ -445,6 +449,58 @@
 			<!-- Promotional Offers Section End -->
 		</div>
 		<!-- Selling Tools, Seller Level & Promotional Offers Section End -->
+
+		<!-- Feedback, Account Summary & Sales Section Start -->
+		<div class="row">
+			<!-- Feedback Section Start -->
+			<div class="col l6 m6 s12" id="widget">
+				<div id="widget-content">
+					<h6 id="widget-content-h6">Feedback</h6>
+					<ul id="set-feedback">
+						<li><a href="">Positive <span class="badge green white-text">65</span></a></li>
+						<li><a href="">Negative <span class="badge red white-text">10</span></a></li>
+						<li><a href="">Feedbacks <span class="badge green white-text">12</span></a></li>
+					</ul>
+
+					<ul id="set-recent-feedback">
+						<li><a href="">Recent Feedback 01</a></li>
+						<li><a href="">Recent Feedback 02</a></li>
+						<li><a href="">Recent Feedback 03</a></li>
+						<li><a href="">Recent Feedback 04</a></li>
+						<li><a href="">Recent Feedback 05</a></li>
+					</ul>
+				</div>				
+			</div>
+			<!-- Feedback Section End -->
+
+			<!-- Account Summary Section Start -->
+			<div class="col l6 m6 s12" id="widget">
+				<div id="widget-content">
+					<h6 id="widget-content-h6">Account Summary</h6>
+					<div id="account-summary-box">
+						<h5>Invoice</h5>
+						<div id="account-summary-inner-box">
+							<h6>
+								<b>Last Invoice:</b> ৳3,570&nbsp;||&nbsp;<b>New Invoice:</b> ৳556
+							</h6>
+						</div>					
+					</div>
+
+					<hr>
+
+					<div id="account-summary-box">
+						<h5>Our Balance</h5>
+						<div id="account-summary-inner-box">
+							<h6>
+								<b>Balance:</b> ৳37,570
+							</h6>
+						</div>					
+					</div>
+				</div>				
+			</div>
+			<!-- Account Summary Section End -->
+		</div>
+		<!-- Feedback, Account Summary & Sales Section End -->
 
 		<!-- Body Section End -->
 
