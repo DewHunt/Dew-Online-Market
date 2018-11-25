@@ -105,5 +105,47 @@
 
 			return redirect('Seller/index');
 		}
+
+		public function CreateListing()
+		{
+			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			{
+				return redirect('Seller/index');
+			}
+			else
+			{
+				$result = $this->sm->CheckContact();
+
+				if ($result)
+				{
+					$this->load->view('Seller/contact-info');
+				}
+				else
+				{
+					$this->load->view('Seller/create-listing');
+				}
+			}
+		}
+
+		public function InsertSellerContact()
+		{
+			if ($this->session->userdata('seller-username') == "" && $this->session->userdata('seller_password') == "")
+			{
+				return redirect('Seller/Index');
+			}
+			else
+			{
+				$result = $this->sm->InsertSellerContact();
+
+				if ($result)
+				{
+					return redirect('Seller/Dashboard');
+				}
+				else
+				{
+					$this->load->view('Seller/contact-info');
+				}
+			}
+		}
 	}
 ?>

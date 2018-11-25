@@ -229,7 +229,7 @@
 					<li><a href="#show-listing-menu" class="dropdown-trigger">Listing</a></li>
 					<!-- Listing DropDown Menu Section Start -->
 					<ul class="dropdown-content" id="show-listing-menu">
-						<li><a href="">Create Listing</a></li>
+						<li><a href="<?= base_url('index.php/Seller/CreateListing'); ?>">Create Listing</a></li>
 						<li><a href="">Active</a></li>
 						<li><a href="">Unsold</a></li>
 					</ul>

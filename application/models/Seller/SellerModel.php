@@ -40,5 +40,67 @@
 				return false;
 			}
 		}
+
+		public function CheckContact()
+		{
+			$username = $this->session->userdata('seller_username');
+			$password = $this->session->userdata('seller_password');
+
+			$check_seller = $this->db->get_where('seller',['seller_email'=>$username, 'seller_password'=>$password]);
+
+			if ($check_seller->num_rows() > 0)
+			{
+				$seller_id = $check_seller->row('seller_id');
+
+				$seller_address = $this->db->get_where('seller',['seller_id'=>$seller_id, 'seller_address' => '']);
+
+				if ($seller_address->num_rows() > 0)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		public function InsertSellerContact()
+		{
+			$seller_first_name = $this->input->post('seller-first-name');
+			$seller_last_name = $this->input->post('seller-last-name');
+			$seller_address = $this->input->post('seller-address');
+			$seller_city = $this->input->post('seller-city');
+
+			$username = $this->session->userdata('seller_username');
+			$password = $this->session->userdata('seller_password');
+
+
+			$check_seller = $this->db->get_where('seller',['seller_email'=>$username,'seller_password'=>$password]);
+
+			if ($check_seller->num_rows() > 0)
+			{
+				$seller_id = $check_seller->row('seller_id');
+
+				$update_seller = $this->db->where('seller_id',$seller_id)->update('seller',['seller_fname'=>$seller_first_name,'seller_lname'=>$seller_last_name,'seller_address'=>$seller_address,'seller_city'=>$seller_city]);
+
+				if ($update_seller)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 ?>
