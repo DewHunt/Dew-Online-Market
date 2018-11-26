@@ -147,5 +147,17 @@
 				}
 			}
 		}
+
+		public function MobileUpload()
+		{
+			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password' == ""))
+			{
+				return redirect('Seller/index');
+			}
+			else
+			{
+				$this->load->view('Seller/Listing/mobile');
+			}
+		}
 	}
 ?>

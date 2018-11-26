@@ -404,10 +404,10 @@
 								</div>
 								
 								<div class="col l3 m4 s12">
-									<h6>Jewelery</h6>
+									<h6>Jewelry</h6>
 									<ul id="set-ele-menu">
-										<a href="#">Artificial Jewelery</a>
-										<a href="#">Silver Jewelery</a>
+										<a href="#">Artificial Jewelry</a>
+										<a href="#">Silver Jewelry</a>
 										<a href="#">Rings</a>
 										<a href="#">Earrings</a>
 										<a href="#">pendants</a>
