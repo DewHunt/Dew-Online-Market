@@ -29,6 +29,7 @@
 
 			select{
 				display: block;
+				margin-top: -3px;
 				border-bottom: 1px solid silver;
 				height: 35px;
 				box-shadow: none;
@@ -43,7 +44,12 @@
 				border: 1px solid green;
 				border-radius: 20px 20px 0px 0px;
 				margin: 5px;
-				padding: 0px 20px 5px 20px;				
+				padding: 0px 15px 0px 15px;			
+			}
+
+			#section-heading h5{
+				margin-top: 7px;
+				margin-bottom: 7px;
 			}
 
 			#section{
@@ -51,34 +57,47 @@
 				border: 1px solid green;
 				border-radius: 0px 0px 20px 20px;
 				margin: 5px;
-				padding: 20px;
+				padding: 15px 15px 0px 15px;
 			}
 
 			#section h6{
 				font-size: 14px;
 				font-weight: bold;
 				color: green;
+				margin-top: 0px;
 			}
 
 			#section input{
 				border: 1px solid silver;
 				height: 30px;
 				box-shadow: none;
+				margin: 0px;
 			}
 
 			#section input:focus{
 				border: 1px solid green;
 			}
 
+			#section p{
+				margin: 0px;
+			}
+
+			#section button{
+				width: 100%;
+				margin-top: -10px;
+				margin-bottom: -10px;
+			}
+
 			#show-img{
 				width: 100px;
 				height: 100px;
+				margin-top: 5px;
+				margin-bottom: 5px;
 				border: 1px solid silver;
 			}
 
 			#img-one, #img-two, #img-three, #img-four{
 				width: 195px;
-				margin-top: 5px;
 			}
 		</style>
 	</head>
@@ -386,7 +405,7 @@
 					</div>
 
 					<div class="row">
-						<div class="col l4 m4 s12">
+						<div class="col l3 m3 s12">
 							<h6>Expandable Storage</h6>
 							<p>
 								<label>
@@ -401,7 +420,7 @@
 							</p>
 						</div>
 
-						<div class="col l4 m4 s12">
+						<div class="col l3 m3 s12">
 							<h6>Memory Card Slot</h6>
 							<p>
 								<label>
@@ -416,7 +435,7 @@
 							</p>
 						</div>
 
-						<div class="col l4 m4 s12">
+						<div class="col l6 m6 s12">
 							<h6>Memory Card Type</h6>
 							<select name="memory-card-type" id="memory-card-type">
 								<option>Select Internal Storage</option>
@@ -436,7 +455,7 @@
 				</div>
 				<div id="section">
 					<div class="row">
-						<div class="col l3 m3 s12">
+						<div class="col l4 m4 s12">
 							<h6>Primary Camera</h6>
 							<p>
 								<label>
@@ -451,9 +470,19 @@
 							</p>
 						</div>
 
-						<div class="col l5 m5 s12">
-							<h6>Primary Camera Resolution</h6>
-							<input type="text" name="primary-camera-resolution" id="primary-camera-resolution">
+						<div class="col l4 m4 s12">
+							<h6>Secondary Camera</h6>
+							<p>
+								<label>
+									<input type="radio" name="secondary-camera" value="Yes">
+									<span>Yes</span>
+								</label>
+
+								<label>
+									<input type="radio" name="secondary-camera" value="No">
+									<span>No</span>
+								</label>
+							</p>
 						</div>
 
 						<div class="col l4 m4 s12">
@@ -473,21 +502,12 @@
 					</div>
 
 					<div class="row">
-						<div class="col l3 m3 s12">
-							<h6>Secondary Camera</h6>
-							<p>
-								<label>
-									<input type="radio" name="secondary-camera" value="Yes">
-									<span>Yes</span>
-								</label>
-
-								<label>
-									<input type="radio" name="secondary-camera" value="No">
-									<span>No</span>
-								</label>
-							</p>
+						<div class="col l6 m6 s12">
+							<h6>Primary Camera Resolution</h6>
+							<input type="text" name="primary-camera-resolution" id="primary-camera-resolution">
 						</div>
-						<div class="col l5 m5 s12">
+
+						<div class="col l6 m6 s12">
 							<h6>Secondary Camera Resolution</h6>
 							<input type="text" name="secondary-camera-resolution" id="secondary-camera-resolution">
 						</div>						

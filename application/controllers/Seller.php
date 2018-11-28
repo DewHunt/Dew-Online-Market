@@ -94,7 +94,7 @@
 			}
 			else
 			{
-				$this->load->view('Seller/Dashboard');
+				$this->load->view('Seller/dashboard');
 			}
 		}
 
