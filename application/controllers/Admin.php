@@ -59,5 +59,33 @@
 				$this->load->view('Admin/dashboard');
 			}
 		}
+
+		public function Logout()
+		{
+			$this->session->unset_userdata('admin_username');
+			$this->session->unset_userdata('admin-password');
+			return redirect('Admin/index');
+		}
+
+		public function InsertProductName()
+		{
+			if ($this->session->userdata('admin_username') == "" && $this->session->userdata('admin-password') == "")
+			{
+				return redirect('Admin/index');
+			}
+			else
+			{
+				$result = $this->am->InsertProductName();
+
+				if ($result)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+		}
 	}
 ?>

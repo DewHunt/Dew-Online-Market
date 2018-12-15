@@ -17,5 +17,21 @@
 				return false;
 			}
 		}
+
+		public function InsertProductName()
+		{
+			$product_name = $this->input->post('product_name');
+
+			$insert_product_name = $this->db->insert('items',['item_name' => $product_name]);
+
+			if ($insert_product_name)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 ?>

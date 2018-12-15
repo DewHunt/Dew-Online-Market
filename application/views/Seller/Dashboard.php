@@ -23,7 +23,7 @@
 		<!-- Custom CSS File Include -->
 		<style type="text/css">
 			#show-user-profile{
-				width: 15% !important;
+				width: 25% !important;
 			}
 
 			#show-user-profile li a{

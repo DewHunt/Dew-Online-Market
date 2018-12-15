@@ -97,7 +97,7 @@
 			}
 
 			#img-one, #img-two, #img-three, #img-four{
-				width: 195px;
+				width: 180px;
 			}
 		</style>
 	</head>
