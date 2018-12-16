@@ -159,5 +159,30 @@
 				$this->load->view('Seller/Listing/mobile');
 			}
 		}
+
+		// public function GetAllMobileBrands()
+		// {
+		// 	if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+		// 	{
+		// 		return redirect('Seller/index');
+		// 	}
+		// 	else
+		// 	{
+		// 		$output = '';
+		// 		$result = $this->sm->GetAllMobileBrands();
+
+		// 		if ($result)
+		// 		{
+		// 			$output .= '<select name="brand_id" id="brand_id">';
+		// 			$output .= '<option value="">Select Brand</option>';
+		// 			foreach ($result as $brands)
+		// 			{
+		// 				$output .= '<option value="'.$brands->brand_id.'">'.$brands->brand_name.'</option>';
+		// 			}
+		// 			$output .= '</select>';
+		// 		}
+		// 	}
+		// 	echo $output;
+		// }
 	}
 ?>

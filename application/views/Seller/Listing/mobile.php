@@ -72,6 +72,7 @@
 				height: 30px;
 				box-shadow: none;
 				margin: 0px;
+				padding-left: 10px;
 			}
 
 			#section input:focus{
@@ -106,7 +107,6 @@
 
 		<div class="row">
 			<div class="col s8 m8 s12">
-
 				<!-- General Details Section Start -->
 				<div id="section-heading">
 					<h5>Mobile General Details</h5>
@@ -115,22 +115,23 @@
 					<div class="row">
 						<div class="col l4 m4 s12">
 							<h6>Title</h6>
-							<input type="text" name="mobile-title" id="title">
+							<input type="text" name="mobile-title" id="mobile-title">
 						</div>
 						<div class="col l4 m4 s12">
 							<h6>Model Number</h6>
-							<input type="text" name="mobile-no" id="model-number">
+							<input type="text" name="model-number" id="model-number">
 						</div>
 						<div class="col l4 m4 s12">
 							<h6>Name</h6>
-							<input type="text" name="mobile-name" id="model-name">
+							<input type="text" name="mobile-name" id="mobile-name">
 						</div>						
 					</div>
 
 					<div class="row">
+						<!-- Show Brand Name Section Start -->
 						<div class="col l4 m4 s12">
 							<h6>Brand</h6>
-							<select name="brand" id="brand">
+<!-- 							<select name="brand" id="brand">
 								<option>Select Mobile Brand</option>
 								<option>Brand One</option>
 								<option>Brand Two</option>
@@ -138,8 +139,10 @@
 								<option>Brand Four</option>
 								<option>Brand Five</option>
 								<option>Brand Six</option>
-							</select>							
+							</select> -->
+							<div id="show-select-brand"></div>							
 						</div>
+						<!-- Show Brand Name Section End -->
 
 						<div class="col l8 m8 s12">
 							<h6>Color</h6>
@@ -187,6 +190,7 @@
 								</label>
 							</p>							
 						</div>
+
 						<div class="col l4 m4 s12">
 							<h6>Sim Type</h6>
 							<p>
@@ -206,6 +210,7 @@
 								</label>
 							</p>							
 						</div>
+
 						<div class="col l4 m4 s12">
 							<h6>OTG Support</h6>
 							<p>
@@ -219,6 +224,12 @@
 									<span>No</span>
 								</label>
 							</p>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col l12 m12 s12">
+							<button type="button" class="btn waves-effect waves-light green" id="btn-general-info">Save & Continue</button>
 						</div>
 					</div>
 				</div>
@@ -719,8 +730,88 @@
 		<script type="text/javascript" src="<?= base_url('assets/jquery/jquery-3.3.1.min.js') ?>"></script>
 		<!-- <script type="text/javascript" src="../assets/jquery/jquery-3.3.1.min.js"></script> -->
 
+		<!-- Ajax JS File Include -->
+		<script type="text/javascript" src="<?= base_url('assets/ajax/ajax.js'); ?>"></script>
+
 		<!-- Materialize JS file include -->
 		<script type="text/javascript" src="<?= base_url('assets/materialize/js/materialize.js'); ?>"></script>
 		<!-- <script type="text/javascript" src="../assets/materialize/js/materialize.js"></script> -->
+
+		<!-- Custom Ajax Script Include -->
+		<script type="text/javascript">
+			$(function(){
+				// Get Mobile Brand Data Script Section Start
+				GetMobileBrands();
+				function GetMobileBrands(){
+					$.ajax({
+						type:'ajax',
+						url:'../Admin/GetAllMobileBrands',
+						success:function(data){
+							$('#show-select-brand').html(data);
+						},
+						error:function(){
+							alert('Database Has No Brands Name');
+						}
+					});
+				}
+				// Get Mobile Brand Data Script Section End
+
+				// General Info Script Section Start
+				$('#btn-general-info').click(function(){
+					var mobile_title = $('#mobile-title').val();
+					var model_number = $('#model-number').val();
+					var mobile_name = $('#mobile-name').val();
+
+					var color = $('input[name=color]:checked').val();
+					var sim = $('input[name=sim]:checked').val();
+					var sim_type = $('input[name=sim-type]:checked').val();
+					var otg = $('input[name=otg]:checked').val();
+
+					if (mobile_title == "")
+					{
+						M.toast({html:'Please Enter Mobile Title'});
+						$('#mobile-title').css({'border':'1px solid red'});
+					}
+					else if (model_number == "")
+					{
+						M.toast({html:'Please Enter Model Number'});
+						$('#model-number').css({'border':'1px solid red'});
+						$('#mobile-title').css({'border':'1px solid silver'});
+						$('#mobile-name').css({'border':'1px solid silver'});
+					}
+					else if (mobile_name == "")
+					{
+						M.toast({html:'Please Enter Mobile Name'});
+						$('#mobile-name').css({'border':'1px solid red'});
+						$('#mobile-title').css({'border':'1px solid silver'});
+						$('#model-number').css({'border':'1px solid silver'});
+					}
+					else if (color == null)
+					{
+						M.toast({html:'Please Checked One Color'});
+					}
+					else if (sim == null)
+					{
+						M.toast({html:'Please Checked One Sim'});
+					}
+					else if (sim_type == null)
+					{
+						M.toast({html:'Please Checked One Sim Type'});
+					}
+					else if (otg == null)
+					{
+						M.toast({html:'Please Checked One OTG'});
+					}
+					else
+					{
+						$('#mobile-title').css({'border':'1px solid silver'});
+						$('#model-number').css({'border':'1px solid silver'});
+						$('#mobile-name').css({'border':'1px solid silver'});
+						alert("RUN");
+					}
+				});
+				// General Info Script Section End 
+			});
+		</script>
 	</body>
 </html>
