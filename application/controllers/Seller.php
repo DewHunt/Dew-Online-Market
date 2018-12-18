@@ -160,6 +160,7 @@
 			}
 		}
 
+<<<<<<< HEAD
 		public function InsertMoilesGeneralInformation()
 		{
 			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
@@ -192,5 +193,31 @@
 			}
 			echo $output;
 		}
+=======
+		// public function GetAllMobileBrands()
+		// {
+		// 	if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+		// 	{
+		// 		return redirect('Seller/index');
+		// 	}
+		// 	else
+		// 	{
+		// 		$output = '';
+		// 		$result = $this->sm->GetAllMobileBrands();
+
+		// 		if ($result)
+		// 		{
+		// 			$output .= '<select name="brand_id" id="brand_id">';
+		// 			$output .= '<option value="">Select Brand</option>';
+		// 			foreach ($result as $brands)
+		// 			{
+		// 				$output .= '<option value="'.$brands->brand_id.'">'.$brands->brand_name.'</option>';
+		// 			}
+		// 			$output .= '</select>';
+		// 		}
+		// 	}
+		// 	echo $output;
+		// }
+>>>>>>> 5380a1015a9f416600c5cc7c60566b838c4b7ed1
 	}
 ?>

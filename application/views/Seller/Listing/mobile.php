@@ -126,19 +126,41 @@
 						</div>
 						<div class="col l4 m4 s12">
 							<h6>Model Number</h6>
+<<<<<<< HEAD
 							<input type="text" name="mobile-model-number" id="mobile-model-number">
 						</div>
 						<div class="col l4 m4 s12">
 							<h6>Name</h6>
 							<input type="text" name="mobile-model-name" id="mobile-model-name">
+=======
+							<input type="text" name="model-number" id="model-number">
+						</div>
+						<div class="col l4 m4 s12">
+							<h6>Name</h6>
+							<input type="text" name="mobile-name" id="mobile-name">
+>>>>>>> 5380a1015a9f416600c5cc7c60566b838c4b7ed1
 						</div>						
 					</div>
 
 					<div class="row">
 						<!-- Show Brand Name Section Start -->
 						<div class="col l4 m4 s12">
+<<<<<<< HEAD
 							<h6>Brand</h6>							
 							<div id="show-select-brand"></div>
+=======
+							<h6>Brand</h6>
+<!-- 							<select name="brand" id="brand">
+								<option>Select Mobile Brand</option>
+								<option>Brand One</option>
+								<option>Brand Two</option>
+								<option>Brand Three</option>
+								<option>Brand Four</option>
+								<option>Brand Five</option>
+								<option>Brand Six</option>
+							</select> -->
+							<div id="show-select-brand"></div>							
+>>>>>>> 5380a1015a9f416600c5cc7c60566b838c4b7ed1
 						</div>
 						<!-- Show Brand Name Section End -->
 
@@ -754,6 +776,7 @@
 				}
 				// Get Mobile Brand Data Script Section End
 
+<<<<<<< HEAD
 				// Hide Section Start
 				$('#display-section').hide();
 				$('#processor-section').hide();
@@ -875,6 +898,60 @@
 								alert('Data Not Saved To Database.');
 							}
 						});
+=======
+				// General Info Script Section Start
+				$('#btn-general-info').click(function(){
+					var mobile_title = $('#mobile-title').val();
+					var model_number = $('#model-number').val();
+					var mobile_name = $('#mobile-name').val();
+
+					var color = $('input[name=color]:checked').val();
+					var sim = $('input[name=sim]:checked').val();
+					var sim_type = $('input[name=sim-type]:checked').val();
+					var otg = $('input[name=otg]:checked').val();
+
+					if (mobile_title == "")
+					{
+						M.toast({html:'Please Enter Mobile Title'});
+						$('#mobile-title').css({'border':'1px solid red'});
+					}
+					else if (model_number == "")
+					{
+						M.toast({html:'Please Enter Model Number'});
+						$('#model-number').css({'border':'1px solid red'});
+						$('#mobile-title').css({'border':'1px solid silver'});
+						$('#mobile-name').css({'border':'1px solid silver'});
+					}
+					else if (mobile_name == "")
+					{
+						M.toast({html:'Please Enter Mobile Name'});
+						$('#mobile-name').css({'border':'1px solid red'});
+						$('#mobile-title').css({'border':'1px solid silver'});
+						$('#model-number').css({'border':'1px solid silver'});
+					}
+					else if (color == null)
+					{
+						M.toast({html:'Please Checked One Color'});
+					}
+					else if (sim == null)
+					{
+						M.toast({html:'Please Checked One Sim'});
+					}
+					else if (sim_type == null)
+					{
+						M.toast({html:'Please Checked One Sim Type'});
+					}
+					else if (otg == null)
+					{
+						M.toast({html:'Please Checked One OTG'});
+					}
+					else
+					{
+						$('#mobile-title').css({'border':'1px solid silver'});
+						$('#model-number').css({'border':'1px solid silver'});
+						$('#mobile-name').css({'border':'1px solid silver'});
+						alert("RUN");
+>>>>>>> 5380a1015a9f416600c5cc7c60566b838c4b7ed1
 					}
 				});
 				// General Info Script Section End 

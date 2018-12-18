@@ -157,7 +157,11 @@
 
 			if (count($result))
 			{
+<<<<<<< HEAD
 				$output .= '<select name="mobile-brand-id" id="mobile-brand-id">';
+=======
+				$output .= '<select name="brand_id" id="brand_id">';
+>>>>>>> 5380a1015a9f416600c5cc7c60566b838c4b7ed1
 				$output .= '<option value="">Select Brand</option>';
 				foreach ($result as $brands)
 				{
