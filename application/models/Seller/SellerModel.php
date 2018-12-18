@@ -102,5 +102,19 @@
 				return false;
 			}
 		}
+
+		public function InsertMoilesGeneralInformation($mobile_title,$mobile_brand_id,$mobile_model_number,$mobile_model_name,$mobile_color,$mobile_sim,$mobile_sim_type,$mobile_otg)
+		{
+			$insert_query = $this->db->insert('mobiles',['mobile_title'=>$mobile_title,'mobile_brand_id'=>$mobile_brand_id,'mobile_model_number'=>$mobile_model_number,'mobile_model_name'=>$mobile_model_name,'mobile_color'=>$mobile_color,'mobile_sim'=>$mobile_sim,'mobile_sim_type'=>$mobile_sim_type,'mobile_otg'=>$mobile_otg]);
+
+			if ($insert_query)
+			{
+				return $this->db->insert_id();
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 ?>

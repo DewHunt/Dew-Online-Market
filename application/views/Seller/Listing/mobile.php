@@ -52,7 +52,7 @@
 				margin-bottom: 7px;
 			}
 
-			#section{
+			#general-section,#display-section,#processor-section,#storage-section,#camera-section,#connectivity-section,#warranty-section,#listing-section,#image-section{
 				background: white;
 				border: 1px solid green;
 				border-radius: 0px 0px 20px 20px;
@@ -60,30 +60,35 @@
 				padding: 15px 15px 0px 15px;
 			}
 
-			#section h6{
+			#general-section h6,#display-section h6,#processor-section h6,#storage-section h6,#camera-section h6,#connectivity-section h6,#warranty-section h6,#listing-section h6,#image-section h6{
 				font-size: 14px;
 				font-weight: bold;
 				color: green;
 				margin-top: 0px;
 			}
 
-			#section input{
+			#general-section input,#display-section input,#processor-section input,#storage-section input,#camera-section input,#connectivity-section input,#warranty-section input,#listing-section input,#image-section input{
 				border: 1px solid silver;
 				height: 30px;
 				box-shadow: none;
 				margin: 0px;
+				padding-left: 10px;
 			}
 
-			#section input:focus{
+			#general-section input:focus,#display-section input:focus,#processor-section input:focus,#storage-section input:focus,#camera-section input:focus,#connectivity-section input:focus,#warranty-section input:focus,#listing-section input:focus,#image-section input:focus{
 				border: 1px solid green;
 			}
 
-			#section p{
+			#general-section p,#display-section p,#processor-section p,#storage-section p,#camera-section p,#connectivity-section p,#warranty-section p,#listing-section p,#image-section p{
 				margin: 0px;
 			}
 
-			#section button{
-				width: 100%;
+			#general-section label,#display-section label,#processor-section label,#storage-section label,#camera-section label,#connectivity-section label,#warranty-section label,#listing-section label,#image-section label{
+				color: black;
+			}
+
+			#general-section button,#display-section button,#processor-section button,#storage-section button,#camera-section button,#connectivity-section button,#warranty-section button,#listing-section button,#image-section button{
+				width: 100%; button
 				margin-top: -10px;
 				margin-bottom: -10px;
 			}
@@ -103,69 +108,65 @@
 	</head>
 	<body>
 		<!-- Body Section Start -->
+		<!-- hidden Input Section Start -->
+		<input type="text" name="mobile-id" id="mobile-id" style="display: none;">
+		<!-- hidden Input Section End -->
 
 		<div class="row">
 			<div class="col s8 m8 s12">
-
 				<!-- General Details Section Start -->
 				<div id="section-heading">
 					<h5>Mobile General Details</h5>
 				</div>
-				<div id="section">
+				<div id="general-section">
 					<div class="row">
 						<div class="col l4 m4 s12">
 							<h6>Title</h6>
-							<input type="text" name="mobile-title" id="title">
+							<input type="text" name="mobile-title" id="mobile-title">
 						</div>
 						<div class="col l4 m4 s12">
 							<h6>Model Number</h6>
-							<input type="text" name="mobile-no" id="model-number">
+							<input type="text" name="mobile-model-number" id="mobile-model-number">
 						</div>
 						<div class="col l4 m4 s12">
 							<h6>Name</h6>
-							<input type="text" name="mobile-name" id="model-name">
+							<input type="text" name="mobile-model-name" id="mobile-model-name">
 						</div>						
 					</div>
 
 					<div class="row">
+						<!-- Show Brand Name Section Start -->
 						<div class="col l4 m4 s12">
-							<h6>Brand</h6>
-							<select name="brand" id="brand">
-								<option>Select Mobile Brand</option>
-								<option>Brand One</option>
-								<option>Brand Two</option>
-								<option>Brand Three</option>
-								<option>Brand Four</option>
-								<option>Brand Five</option>
-								<option>Brand Six</option>
-							</select>							
+							<h6>Brand</h6>							
+							<div id="show-select-brand"></div>
 						</div>
+						<!-- Show Brand Name Section End -->
 
 						<div class="col l8 m8 s12">
 							<h6>Color</h6>
-							<p>
+							<p id="color-h6">
 								<label>
-									<input type="radio" name="color" value="Black">
+									<input type="radio" name="mobile-color" value="Black">
 									<span>Black</span>
 								</label>
 
 								<label>
-									<input type="radio" name="color" value="White">
+									<input type="radio" name="mobile-color" value="White">
 									<span>White</span>
 								</label>
 
 								<label>
-									<input type="radio" name="color" value="Red">
+									<input type="radio" name="mobile-color" value="Red">
 									<span>Red</span>
 								</label>
 
 								<label>
-									<input type="radio" name="color" value="Golden">
+									<input type="radio" name="mobile-color" value="Golden">
 									<span>Golden</span>
 								</label>
 
 								<label>
-									<input type="radio" name="color" value="Silver">
+									<input type="radio" name="mobile-color" value="Silver">
 									<span>Silver</span>
 								</label>
 							</p>
@@ -175,50 +176,58 @@
 					<div class="row">
 						<div class="col l4 m4 s12">
 							<h6>Sim</h6>
-							<p>
+							<p id="sim-h6">
 								<label>
-									<input type="radio" name="sim" value="Single Sim">
+									<input type="radio" name="mobile-sim" value="Single Sim">
 									<span>Single Sim</span>
 								</label>
 
 								<label>
-									<input type="radio" name="sim" value="Dual Sim">
+									<input type="radio" name="mobile-sim" value="Dual Sim">
 									<span>Dual Sim</span>
 								</label>
 							</p>							
 						</div>
+
 						<div class="col l4 m4 s12">
 							<h6>Sim Type</h6>
-							<p>
+							<p id="sim-type-h6">
 								<label>
-									<input type="radio" name="sim-type" value="Nano">
+									<input type="radio" name="mobile-sim-type" value="Nano">
 									<span>Nano</span>
 								</label>
 
 								<label>
-									<input type="radio" name="sim-type" value="Pcio">
+									<input type="radio" name="mobile-sim-type" value="Pcio">
 									<span>Pico</span>
 								</label>
 
 								<label>
-									<input type="radio" name="sim-type" value="Micro">
+									<input type="radio" name="mobile-sim-type" value="Micro">
 									<span>Micro</span>
 								</label>
 							</p>							
 						</div>
+
 						<div class="col l4 m4 s12">
 							<h6>OTG Support</h6>
-							<p>
+							<p id="otg-h6">
 								<label>
-									<input type="radio" name="otg" value="Yes">
+									<input type="radio" name="mobile-otg" value="Yes">
 									<span>Yes</span>
 								</label>
 
 								<label>
-									<input type="radio" name="otg" value="No">
+									<input type="radio" name="mobile-otg" value="No">
 									<span>No</span>
 								</label>
 							</p>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col l12 m12 s12">
+							<button type="button" class="btn waves-effect waves-light green" id="btn-general-info">Save & Continue</button>
 						</div>
 					</div>
 				</div>
@@ -230,7 +239,7 @@
 				<div id="section-heading">
 					<h5>Mobile Display Details</h5>
 				</div>
-				<div id="section">
+				<div id="display-section">
 					<div class="row">
 						<div class="col l6 m6 s12">
 							<h6>Display Size</h6>
@@ -323,7 +332,7 @@
 				<div id="section-heading">
 					<h5>Mobile Processor Details</h5>
 				</div>
-				<div id="section">
+				<div id="processor-section">
 					<div class="row">
 						<div class="col l6 m6 s12">
 							<h6>Operating System</h6>
@@ -376,7 +385,7 @@
 				<div id="section-heading">
 					<h5>Mobile Storage Details</h5>
 				</div>
-				<div id="section">
+				<div id="storage-section">
 					<div class="row">
 						<div class="col l6 m6 s12">
 							<h6>Internal Storage</h6>
@@ -453,7 +462,7 @@
 				<div id="section-heading">
 					<h5>Mobile Camera Details</h5>
 				</div>
-				<div id="section">
+				<div id="camera-section">
 					<div class="row">
 						<div class="col l4 m4 s12">
 							<h6>Primary Camera</h6>
@@ -521,7 +530,7 @@
 				<div id="section-heading">
 					<h5>Mobile Connectivity Details</h5>
 				</div>
-				<div id="section">
+				<div id="connectivity-section">
 					<div class="row">
 						<div class="col l6 m6 s12">
 							<h6>Network Type</h6>
@@ -589,7 +598,7 @@
 				<div id="section-heading">
 					<h5>Mobile Warranty Details</h5>
 				</div>
-				<div id="section">
+				<div id="warranty-section">
 					<div class="row">
 						<div class="col l4 m4 s12">
 							<h6>Duration Formate</h6>
@@ -644,27 +653,11 @@
 
 				<br>
 
-				<!-- Listing Price Details Section Start -->
-				<div id="section-heading">
-					<h5>Listing Fees</h5>
-				</div>
-				<div id="section">
-					<div class="row">
-						<div class="col l4 m4 s12">
-							<h6>Listing Fees</h6>
-							<span><b>৳250</b></span>
-						</div>
-					</div>
-				</div>
-				<!-- Listing Price Details Section End -->
-
-				<br>
-
 				<!-- Image Section Start -->
 				<div id="section-heading">
 					<h5>Image</h5>
 				</div>
-				<div id="section">
+				<div id="image-section">
 					<div class="row">
 						<div class="col l3 m3 s12" id="show-img-section">
 							<center>
@@ -696,8 +689,24 @@
 
 				<br>
 
+				<!-- Listing Price Details Section Start -->
+				<div id="section-heading">
+					<h5>Listing Fees</h5>
+				</div>
+				<div id="listing-section">
+					<div class="row">
+						<div class="col l4 m4 s12">
+							<h6>Listing Fees</h6>
+							<span><b>৳250</b></span>
+						</div>
+					</div>
+				</div>
+				<!-- Listing Price Details Section End -->
+
+				<br>
+
 				<!-- Button Section Start -->
-				<div id="section">
+				<div id="-button-section">
 					<div class="row">
 						<div class="col l12 m12 s12 center">
 							<button type="button" name="submit" class="btn waves-effect waves-light">Save</button>
@@ -719,8 +728,157 @@
 		<script type="text/javascript" src="<?= base_url('assets/jquery/jquery-3.3.1.min.js') ?>"></script>
 		<!-- <script type="text/javascript" src="../assets/jquery/jquery-3.3.1.min.js"></script> -->
 
+		<!-- Ajax JS File Include -->
+		<script type="text/javascript" src="<?= base_url('assets/ajax/ajax.js'); ?>"></script>
+
 		<!-- Materialize JS file include -->
 		<script type="text/javascript" src="<?= base_url('assets/materialize/js/materialize.js'); ?>"></script>
 		<!-- <script type="text/javascript" src="../assets/materialize/js/materialize.js"></script> -->
+
+		<!-- Custom Ajax Script Include -->
+		<script type="text/javascript">
+			$(function(){
+				// Get Mobile Brand Data Script Section Start
+				GetMobileBrands();
+				function GetMobileBrands(){
+					$.ajax({
+						type:'ajax',
+						url:'../Admin/GetAllMobileBrands',
+						success:function(data){
+							$('#show-select-brand').html(data);
+						},
+						error:function(){
+							alert('Database Has No Brands Name');
+						}
+					});
+				}
+				// Get Mobile Brand Data Script Section End
+
+				// Hide Section Start
+				$('#display-section').hide();
+				$('#processor-section').hide();
+				$('#storage-section').hide();
+				$('#camera-section').hide();
+				$('#connectivity-section').hide();
+				$('#warranty-section').hide();
+				$('#image-section').hide();
+				// Hide Section End
+
+				// General Info Script Section Start
+				$('#btn-general-info').click(function(){
+					var mobile_title = $('#mobile-title').val();
+					var mobile_model_number = $('#mobile-model-number').val();
+					var mobile_model_name = $('#mobile-model-name').val();
+					var mobile_brand_id = $('#mobile-brand-id').val();
+
+					var mobile_color = $('input[name=mobile-color]:checked').val();
+					var mobile_sim = $('input[name=mobile-sim]:checked').val();
+					var mobile_sim_type = $('input[name=mobile-sim-type]:checked').val();
+					var mobile_otg = $('input[name=mobile-otg]:checked').val();
+
+					if (mobile_title == "" || mobile_model_number == "" || mobile_model_name == "" || mobile_brand_id == "" || mobile_color == null || mobile_sim == null || mobile_sim_type == null || mobile_otg == null)
+					{
+						if (mobile_title == "")
+						{
+							M.toast({html:'Please Enter Mobile Title'});
+							$('#mobile-title').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-title').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_model_number == "")
+						{
+							M.toast({html:'Please Enter Model Number'});
+							$('#mobile-model-number').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-model-number').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_model_name == "")
+						{
+							M.toast({html:'Please Enter Mobile Name'});
+							$('#mobile-model-name').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-model-name').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_brand_id == "")
+						{
+							M.toast({html:'Please Select A Brand Name'});
+							$('#mobile-brand-id').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-brand-id').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_color == null)
+						{
+							M.toast({html:'Please Checked One Color'});
+							$('#color-h6 label').css({'color':'red'});
+						}
+						else
+						{
+							$('#color-h6 label').css({'color':'black'});
+						}
+
+						if (mobile_sim == null)
+						{
+							M.toast({html:'Please Checked One Sim'});
+							$('#sim-h6 label').css({'color':'red'});
+						}
+						else
+						{
+							$('#sim-h6 label').css({'color':'black'});
+						}
+
+						if (mobile_sim_type == null)
+						{
+							M.toast({html:'Please Checked One Sim Type'});
+							$('#sim-type-h6 label').css({'color':'red'});
+						}
+						else
+						{
+							$('#sim-type-h6 label').css({'color':'black'});
+						}
+
+						if (mobile_otg == null)
+						{
+							M.toast({html:'Please Checked One OTG'});
+							$('#otg-h6 label').css({'color':'red'});
+						}
+						else
+						{
+							$('#otg-h6 label').css({'color':'black'});
+						}
+					}
+					else
+					{
+						$.ajax({
+							type:'ajax',
+							method:'POST',
+							url:'InsertMoilesGeneralInformation',
+							data:{mobile_title:mobile_title,mobile_model_number:mobile_model_number,mobile_model_name:mobile_model_name,mobile_brand_id:mobile_brand_id,mobile_color:mobile_color,mobile_sim:mobile_sim,mobile_sim_type:mobile_sim_type,mobile_otg:mobile_otg},
+							success:function(data){
+								var mobile_id = data;
+								$('#mobile-id').val(mobile_id);
+								$('#btn-general-info').prop('disabled',true);
+								$('#display-section').show();
+							},
+							error:function(){
+								alert('Data Not Saved To Database.');
+							}
+						});
+					}
+				});
+				// General Info Script Section End 
+			});
+		</script>
 	</body>
 </html>

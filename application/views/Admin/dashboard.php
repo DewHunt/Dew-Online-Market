@@ -51,6 +51,12 @@
 			#btn-save-product-name{
 				background: green;
 			}
+
+			select{
+				display: block;
+				border: 1px solid silver;
+				outline: none;
+			}
 		</style>
 	</head>
 	<body>
@@ -79,8 +85,8 @@
 			<!-- Left Side Menu Section Start -->
 			<ul>
 				<li><a href="">Overview</a></li>
-				<li><a href="" class="modal-trigger" data-target="show-product-modal">Products</a></li>
-				<li><a href="">Three</a></li>
+				<li><a href="" class="modal-trigger" data-target="show-item-modal">Items</a></li>
+				<li><a href="" class="modal-trigger" data-target="show-brand-modal">Brand</a></li>
 				<li><a href="">Four</a></li>
 				<li><a href="">Five</a></li>
 				<li><a href="">Six</a></li>
@@ -89,20 +95,43 @@
 			<!-- Left Side Menu Section End -->
 		</nav>
 
-		<!-- Brand Modal Section Satrt -->
-		<div class="modal" id="show-product-modal">
+		<!-- Items Modal Section Satrt -->
+		<div class="modal" id="show-item-modal">
 			<div class="modal-content">
 				<h4 id="modal-content-h4">
 					<span class="fa fa-cubes"></span>&nbsp;Add Item
-					<span class="right modal-close">X</span>
+					<span class="right modal-close">×</span>
 				</h4>
 
+				<div id="show-db-code"></div>
+
 				<div class="input-field">
-					<input type="text" name="product-name" id="product-name">
-					<label for="brand-name">Product Name</label>
+					<input type="text" name="item-name" id="item-name">
+					<label for="item-name">Item Name</label>
 				</div>
 
-				<button type="button" class="btn waves-effect waves-light" id="btn-save-product-name">Save</button>
+				<button type="button" class="btn waves-effect waves-light" id="btn-save-item-name">Save</button>
+			</div>
+		</div>
+		<!-- Items Modal Section End -->
+
+		<!-- Brand Modal Section Start -->
+		<div class="modal" id="show-brand-modal">
+			<div class="modal-content">
+				<h4 id="modal-content-h4">
+					<span class="fa fa-cubes"></span>&nbsp;Add Brand
+					<span class="right modal-close">×</span>
+				</h4>
+
+				<div id="show-select-item"></div>
+				<div id="show-db-code1"></div>
+
+				<div class="input-field">
+					<input type="text" name="brand-name" id="brand-name">
+					<label for="brand-name">Brand Name</label>
+				</div>
+
+				<button type="button" class="btn waves-effect waves-light" id="btn-save-brand-name">Save</button>
 			</div>
 		</div>
 		<!-- Brand Modal Section End -->
@@ -114,7 +143,7 @@
 		<!-- <script type="text/javascript" src="../assets/jquery/jquery-3.3.1.min.js"></script> -->
 
 		<!-- Ajax JS File Include -->
-		<!-- <script type="text/javascript" src="<?= base_url('assets/ajax/ajax.js'); ?>"></script> -->
+		<script type="text/javascript" src="<?= base_url('assets/ajax/ajax.js'); ?>"></script>
 
 		<!-- Materialize JS File Include -->
 		<script type="text/javascript" src="<?= base_url('assets/materialize/js/materialize.js'); ?>"></script>
@@ -133,27 +162,80 @@
 		<!-- Ajax Script Section -->
 		<script type="text/javascript">
 			$(function(){
-				$('#btn-save-product-name').click(function(){
-					var product_name = $('#product-name').val();
+				// Add Item Script Section Start
+				$('#btn-save-item-name').click(function(){
+					var item_name = $('#item-name').val();
 
-					if (product_name == "") {
-						M.toast({html:'Please Enter Product Name.'});
+					if (item_name == "") {
+						M.toast({html:'Please Enter Item Name.'});
 					}
 					else {
 						$.ajax({
 							type:'ajax',
 							method:'POST',
-							url:'InsertProductName',
-							data:{product_name:product_name},
+							url:'InsertItemName',
+							// dataType:'json',
+							data:{item_name:item_name},
 							success:function(data){
-								alert('Product Name Saved Successfully');
+								// $('#show-db-code').html(data);
+								alert('Item Name Saved Successfully');
+								$('#item-name').val("");
 							},
 							error:function(){
-								alert('Product Name Not Saved Successfully');
+								// $('#show-db-code').html(data);
+								alert('Item Name Already Saved');
 							}
 						});
 					}
 				});
+				// Add Item Script Section End
+
+				// Get All Items Data Script Section Start
+				GetItems();
+				function GetItems(){
+					$.ajax({
+						type:'ajax',
+						url:'GetAllItems',
+						success:function(data){
+							$('#show-select-item').html(data);
+						},
+						error:function(){
+							alert('Database Has No Items');
+						}
+					});
+				}
+				// Get All Item Data Script Section End
+
+				// Add Brand Script Section Start
+				$('#btn-save-brand-name').click(function(){
+					var item_id = $('#item-id').val();
+					var brand_name = $('#brand-name').val();
+
+					if (brand_name == "") {
+						M.toast({html:'Please Enter Brand Name'});
+					}
+					else if (item_id == "") {
+						M.toast({html:'Please Select Item Name'});
+					}
+					else {
+						$.ajax({
+							type:'ajax',
+							method:'POST',
+							url:'InsertBrandName',
+							data:{item_id:item_id, brand_name:brand_name},
+							success:function(data){
+								// $('#show-db-code1').html(data);
+								alert('Brand Name Saved Successfully');
+								$('#brand-name').val("");
+							},
+							error:function(){
+								// $('#show-db-code1').html(data);
+								alert('Brand Name Already Successfully');
+							}
+						});
+					}
+				});
+				// Add Brand Script Section End
 			});
 		</script>
 	</body>

@@ -159,5 +159,38 @@
 				$this->load->view('Seller/Listing/mobile');
 			}
 		}
+
+		public function InsertMoilesGeneralInformation()
+		{
+			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			{
+				return redirect('Seller/index');
+			}
+			else
+			{
+				$mobile_title = $this->input->post('mobile_title');
+				$mobile_brand_id = $this->input->post('mobile_brand_id');
+				$mobile_model_number = $this->input->post('mobile_model_number');
+				$mobile_model_name = $this->input->post('mobile_model_name');
+				$mobile_color = $this->input->post('mobile_color');
+				$mobile_sim = $this->input->post('mobile_sim');
+				$mobile_sim_type = $this->input->post('mobile_sim_type');
+				$mobile_otg = $this->input->post('mobile_otg');
+
+				$output = "";
+
+				$result = $this->sm->InsertMoilesGeneralInformation($mobile_title,$mobile_brand_id,$mobile_model_number,$mobile_model_name,$mobile_color,$mobile_sim,$mobile_sim_type,$mobile_otg);
+
+				if ($result)
+				{
+					$output .= $result;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			echo $output;
+		}
 	}
 ?>
