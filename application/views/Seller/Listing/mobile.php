@@ -87,8 +87,13 @@
 				color: black;
 			}
 
+<<<<<<< HEAD
 			#button-section button, #btn-general-info, #btn-display-info{
 				width: 100%;
+=======
+			#general-section button,#display-section button,#processor-section button,#storage-section button,#camera-section button,#connectivity-section button,#warranty-section button,#listing-section button,#image-section button{
+				width: 100%; button
+>>>>>>> 4c63f78d8637b635a8e4637efa04baa4aa8d2b34
 				margin-top: -10px;
 				margin-bottom: -10px;
 			}
@@ -127,18 +132,39 @@
 
 						<div class="col l4 m4 s12">
 							<h6>Model Number</h6>
+<<<<<<< HEAD
 							<input type="text" name="mobile-model-number" id="mobile-model-number">
+=======
+<<<<<<< HEAD
+							<input type="text" name="mobile-model-number" id="mobile-model-number">
+						</div>
+						<div class="col l4 m4 s12">
+							<h6>Name</h6>
+							<input type="text" name="mobile-model-name" id="mobile-model-name">
+=======
+							<input type="text" name="model-number" id="model-number">
+>>>>>>> 4c63f78d8637b635a8e4637efa04baa4aa8d2b34
 						</div>
 
 						<div class="col l4 m4 s12">
 							<h6>Name</h6>
+<<<<<<< HEAD
 							<input type="text" name="mobile-model-name" id="mobile-model-name">
 						</div>					
+=======
+							<input type="text" name="mobile-name" id="mobile-name">
+>>>>>>> 5380a1015a9f416600c5cc7c60566b838c4b7ed1
+						</div>						
+>>>>>>> 4c63f78d8637b635a8e4637efa04baa4aa8d2b34
 					</div>
 
 					<div class="row">
 						<!-- Show Brand Name Section Start -->
 						<div class="col l4 m4 s12">
+<<<<<<< HEAD
+							<h6>Brand</h6>							
+							<div id="show-select-brand"></div>
+=======
 							<h6>Brand</h6>
 <!-- 							<select name="brand" id="brand">
 								<option>Select Mobile Brand</option>
@@ -149,13 +175,22 @@
 								<option>Brand Five</option>
 								<option>Brand Six</option>
 							</select> -->
+<<<<<<< HEAD
 							<div id="show-select-brand"></div>	
+=======
+							<div id="show-select-brand"></div>							
+>>>>>>> 5380a1015a9f416600c5cc7c60566b838c4b7ed1
+>>>>>>> 4c63f78d8637b635a8e4637efa04baa4aa8d2b34
 						</div>
 						<!-- Show Brand Name Section End -->
 
 						<div class="col l8 m8 s12">
 							<h6>Color</h6>
+<<<<<<< HEAD
 							<p id="color-p">
+=======
+							<p id="color-h6">
+>>>>>>> 4c63f78d8637b635a8e4637efa04baa4aa8d2b34
 								<label>
 									<input type="radio" name="mobile-color" value="Black">
 									<span>Black</span>
@@ -187,7 +222,11 @@
 					<div class="row">
 						<div class="col l4 m4 s12">
 							<h6>Sim</h6>
+<<<<<<< HEAD
 							<p id="sim-p">
+=======
+							<p id="sim-h6">
+>>>>>>> 4c63f78d8637b635a8e4637efa04baa4aa8d2b34
 								<label>
 									<input type="radio" name="mobile-sim" value="Single Sim">
 									<span>Single Sim</span>
@@ -202,7 +241,11 @@
 
 						<div class="col l4 m4 s12">
 							<h6>Sim Type</h6>
+<<<<<<< HEAD
 							<p id="sim-type-p">
+=======
+							<p id="sim-type-h6">
+>>>>>>> 4c63f78d8637b635a8e4637efa04baa4aa8d2b34
 								<label>
 									<input type="radio" name="mobile-sim-type" value="Nano">
 									<span>Nano</span>
@@ -222,7 +265,11 @@
 
 						<div class="col l4 m4 s12">
 							<h6>OTG Support</h6>
+<<<<<<< HEAD
 							<p id="otg-p">
+=======
+							<p id="otg-h6">
+>>>>>>> 4c63f78d8637b635a8e4637efa04baa4aa8d2b34
 								<label>
 									<input type="radio" name="mobile-otg" value="Yes">
 									<span>Yes</span>
@@ -723,7 +770,11 @@
 				<br>
 
 				<!-- Button Section Start -->
+<<<<<<< HEAD
 				<div id="button-section">
+=======
+				<div id="-button-section">
+>>>>>>> 4c63f78d8637b635a8e4637efa04baa4aa8d2b34
 					<div class="row">
 						<div class="col l12 m12 s12 center">
 							<button type="button" name="submit" class="btn waves-effect waves-light">Save</button>
@@ -772,8 +823,14 @@
 				}
 				// Get Mobile Brand Data Script Section End
 
+<<<<<<< HEAD
 				// Hide Section Start
 				$('#display-section').show();
+=======
+<<<<<<< HEAD
+				// Hide Section Start
+				$('#display-section').hide();
+>>>>>>> 4c63f78d8637b635a8e4637efa04baa4aa8d2b34
 				$('#processor-section').hide();
 				$('#storage-section').hide();
 				$('#camera-section').hide();
@@ -782,6 +839,121 @@
 				$('#image-section').hide();
 				// Hide Section End
 
+<<<<<<< HEAD
+=======
+				// General Info Script Section Start
+				$('#btn-general-info').click(function(){
+					var mobile_title = $('#mobile-title').val();
+					var mobile_model_number = $('#mobile-model-number').val();
+					var mobile_model_name = $('#mobile-model-name').val();
+					var mobile_brand_id = $('#mobile-brand-id').val();
+
+					var mobile_color = $('input[name=mobile-color]:checked').val();
+					var mobile_sim = $('input[name=mobile-sim]:checked').val();
+					var mobile_sim_type = $('input[name=mobile-sim-type]:checked').val();
+					var mobile_otg = $('input[name=mobile-otg]:checked').val();
+
+					if (mobile_title == "" || mobile_model_number == "" || mobile_model_name == "" || mobile_brand_id == "" || mobile_color == null || mobile_sim == null || mobile_sim_type == null || mobile_otg == null)
+					{
+						if (mobile_title == "")
+						{
+							M.toast({html:'Please Enter Mobile Title'});
+							$('#mobile-title').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-title').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_model_number == "")
+						{
+							M.toast({html:'Please Enter Model Number'});
+							$('#mobile-model-number').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-model-number').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_model_name == "")
+						{
+							M.toast({html:'Please Enter Mobile Name'});
+							$('#mobile-model-name').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-model-name').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_brand_id == "")
+						{
+							M.toast({html:'Please Select A Brand Name'});
+							$('#mobile-brand-id').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-brand-id').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_color == null)
+						{
+							M.toast({html:'Please Checked One Color'});
+							$('#color-h6 label').css({'color':'red'});
+						}
+						else
+						{
+							$('#color-h6 label').css({'color':'black'});
+						}
+
+						if (mobile_sim == null)
+						{
+							M.toast({html:'Please Checked One Sim'});
+							$('#sim-h6 label').css({'color':'red'});
+						}
+						else
+						{
+							$('#sim-h6 label').css({'color':'black'});
+						}
+
+						if (mobile_sim_type == null)
+						{
+							M.toast({html:'Please Checked One Sim Type'});
+							$('#sim-type-h6 label').css({'color':'red'});
+						}
+						else
+						{
+							$('#sim-type-h6 label').css({'color':'black'});
+						}
+
+						if (mobile_otg == null)
+						{
+							M.toast({html:'Please Checked One OTG'});
+							$('#otg-h6 label').css({'color':'red'});
+						}
+						else
+						{
+							$('#otg-h6 label').css({'color':'black'});
+						}
+					}
+					else
+					{
+						$.ajax({
+							type:'ajax',
+							method:'POST',
+							url:'InsertMoilesGeneralInformation',
+							data:{mobile_title:mobile_title,mobile_model_number:mobile_model_number,mobile_model_name:mobile_model_name,mobile_brand_id:mobile_brand_id,mobile_color:mobile_color,mobile_sim:mobile_sim,mobile_sim_type:mobile_sim_type,mobile_otg:mobile_otg},
+							success:function(data){
+								var mobile_id = data;
+								$('#mobile-id').val(mobile_id);
+								$('#btn-general-info').prop('disabled',true);
+								$('#display-section').show();
+							},
+							error:function(){
+								alert('Data Not Saved To Database.');
+							}
+						});
+=======
+>>>>>>> 4c63f78d8637b635a8e4637efa04baa4aa8d2b34
 				// General Info Script Section Start
 				$('#btn-general-info').click(function(){
 					var mobile_title = $('#mobile-title').val();
@@ -960,12 +1132,20 @@
 					}
 					else
 					{
+<<<<<<< HEAD
 						$('#mobile-display-size').css({'border':'1px solid silver'});
 						$('#mobile-display-resolution').css({'border':'1px solid silver'});
 						$('#display-type-p label').css({'color':'black'});
 						$('#resolution-type-p label').css({'color':'black'});
 
 						// alert('No Error!');
+=======
+						$('#mobile-title').css({'border':'1px solid silver'});
+						$('#model-number').css({'border':'1px solid silver'});
+						$('#mobile-name').css({'border':'1px solid silver'});
+						alert("RUN");
+>>>>>>> 5380a1015a9f416600c5cc7c60566b838c4b7ed1
+>>>>>>> 4c63f78d8637b635a8e4637efa04baa4aa8d2b34
 					}
 				});
 				// Display Info Script Section End

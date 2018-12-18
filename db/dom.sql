@@ -3,9 +3,15 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Dec 18, 2018 at 06:19 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
+=======
+-- Generation Time: Dec 18, 2018 at 11:34 AM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
+>>>>>>> 4c63f78d8637b635a8e4637efa04baa4aa8d2b34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -115,14 +121,19 @@ CREATE TABLE `mobiles` (
   `mobile_color` text NOT NULL,
   `mobile_sim` text NOT NULL,
   `mobile_sim_type` text NOT NULL,
+<<<<<<< HEAD
   `mobile_otg` text NOT NULL,
   `seller_id` int(10) NOT NULL
+=======
+  `mobile_otg` text NOT NULL
+>>>>>>> 4c63f78d8637b635a8e4637efa04baa4aa8d2b34
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `mobiles`
 --
 
+<<<<<<< HEAD
 INSERT INTO `mobiles` (`mobile_id`, `mobile_title`, `mobile_brand_id`, `mobile_model_number`, `mobile_model_name`, `mobile_color`, `mobile_sim`, `mobile_sim_type`, `mobile_otg`, `seller_id`) VALUES
 (4, 'Mobile', '1', '01', 'Mobile Name', 'Black', 'Single Sim', 'Nano', 'Yes', 0),
 (5, 'Mob', '2', '23', 'Mob Name', 'Black', 'Single Sim', 'Nano', 'Yes', 0),
@@ -134,6 +145,16 @@ INSERT INTO `mobiles` (`mobile_id`, `mobile_title`, `mobile_brand_id`, `mobile_m
 (11, 'sdfsd', '2', 'sdfsdf', 'sdfsdf', 'Black', 'Single Sim', 'Nano', 'Yes', 0),
 (12, 'x', '6', 'y', 'z', 'Black', 'Single Sim', 'Nano', 'Yes', 3),
 (13, 'gff', '2', 'gdf', 'dfgdf', 'Black', 'Dual Sim', 'Nano', 'Yes', 3);
+=======
+INSERT INTO `mobiles` (`mobile_id`, `mobile_title`, `mobile_brand_id`, `mobile_model_number`, `mobile_model_name`, `mobile_color`, `mobile_sim`, `mobile_sim_type`, `mobile_otg`) VALUES
+(4, 'Mobile', '1', '01', 'Mobile Name', 'Black', 'Single Sim', 'Nano', 'Yes'),
+(5, 'Mob', '2', '23', 'Mob Name', 'Black', 'Single Sim', 'Nano', 'Yes'),
+(6, 'Mob', '2', '23', 'Mob Name', 'Black', 'Single Sim', 'Nano', 'Yes'),
+(7, 'asda', '1', 'adsasd', 'hjgh', 'Black', 'Single Sim', 'Nano', 'Yes'),
+(8, 'a', '6', 'b', 'c', 'Black', 'Single Sim', 'Nano', 'Yes'),
+(9, 'a', '6', 'b', 'c', 'Black', 'Single Sim', 'Nano', 'Yes'),
+(10, 'aa', '3', 'bb', 'cc', 'White', 'Dual Sim', 'Nano', 'Yes');
+>>>>>>> 4c63f78d8637b635a8e4637efa04baa4aa8d2b34
 
 -- --------------------------------------------------------
 
@@ -228,7 +249,11 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `mobiles`
 --
 ALTER TABLE `mobiles`
+<<<<<<< HEAD
   MODIFY `mobile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+=======
+  MODIFY `mobile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+>>>>>>> 4c63f78d8637b635a8e4637efa04baa4aa8d2b34
 
 --
 -- AUTO_INCREMENT for table `seller`
