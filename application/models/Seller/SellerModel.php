@@ -103,7 +103,6 @@
 			}
 		}
 
-<<<<<<< HEAD
 		public function GetSellerInformation()
 		{
 			$username = $this->session->userdata('seller_username');
@@ -124,11 +123,6 @@
 		public function InsertMoilesGeneralInformation($mobile_title,$mobile_brand_id,$mobile_model_number,$mobile_model_name,$mobile_color,$mobile_sim,$mobile_sim_type,$mobile_otg,$seller_id)
 		{
 			$insert_query = $this->db->insert('mobiles',['mobile_title'=>$mobile_title,'mobile_brand_id'=>$mobile_brand_id,'mobile_model_number'=>$mobile_model_number,'mobile_model_name'=>$mobile_model_name,'mobile_color'=>$mobile_color,'mobile_sim'=>$mobile_sim,'mobile_sim_type'=>$mobile_sim_type,'mobile_otg'=>$mobile_otg,'seller_id'=>$seller_id]);
-=======
-		public function InsertMoilesGeneralInformation($mobile_title,$mobile_brand_id,$mobile_model_number,$mobile_model_name,$mobile_color,$mobile_sim,$mobile_sim_type,$mobile_otg)
-		{
-			$insert_query = $this->db->insert('mobiles',['mobile_title'=>$mobile_title,'mobile_brand_id'=>$mobile_brand_id,'mobile_model_number'=>$mobile_model_number,'mobile_model_name'=>$mobile_model_name,'mobile_color'=>$mobile_color,'mobile_sim'=>$mobile_sim,'mobile_sim_type'=>$mobile_sim_type,'mobile_otg'=>$mobile_otg]);
->>>>>>> 4c63f78d8637b635a8e4637efa04baa4aa8d2b34
 
 			if ($insert_query)
 			{
@@ -139,5 +133,7 @@
 				return false;
 			}
 		}
+
+		// Update - 181218
 	}
 ?>

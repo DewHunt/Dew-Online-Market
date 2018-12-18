@@ -160,10 +160,6 @@
 			}
 		}
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 4c63f78d8637b635a8e4637efa04baa4aa8d2b34
 		public function InsertMoilesGeneralInformation()
 		{
 			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
@@ -183,14 +179,10 @@
 
 				$output = "";
 
-<<<<<<< HEAD
 				$seller_info = $this->sm->GetSellerInformation();
 				$seller_id = $seller_info->seller_id;
 
 				$result = $this->sm->InsertMoilesGeneralInformation($mobile_title,$mobile_brand_id,$mobile_model_number,$mobile_model_name,$mobile_color,$mobile_sim,$mobile_sim_type,$mobile_otg,$seller_id);
-=======
-				$result = $this->sm->InsertMoilesGeneralInformation($mobile_title,$mobile_brand_id,$mobile_model_number,$mobile_model_name,$mobile_color,$mobile_sim,$mobile_sim_type,$mobile_otg);
->>>>>>> 4c63f78d8637b635a8e4637efa04baa4aa8d2b34
 
 				if ($result)
 				{
@@ -203,34 +195,7 @@
 			}
 			echo $output;
 		}
-<<<<<<< HEAD
-=======
-=======
-		// public function GetAllMobileBrands()
-		// {
-		// 	if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
-		// 	{
-		// 		return redirect('Seller/index');
-		// 	}
-		// 	else
-		// 	{
-		// 		$output = '';
-		// 		$result = $this->sm->GetAllMobileBrands();
 
-		// 		if ($result)
-		// 		{
-		// 			$output .= '<select name="brand_id" id="brand_id">';
-		// 			$output .= '<option value="">Select Brand</option>';
-		// 			foreach ($result as $brands)
-		// 			{
-		// 				$output .= '<option value="'.$brands->brand_id.'">'.$brands->brand_name.'</option>';
-		// 			}
-		// 			$output .= '</select>';
-		// 		}
-		// 	}
-		// 	echo $output;
-		// }
->>>>>>> 5380a1015a9f416600c5cc7c60566b838c4b7ed1
->>>>>>> 4c63f78d8637b635a8e4637efa04baa4aa8d2b34
+		// Update - 181218
 	}
 ?>

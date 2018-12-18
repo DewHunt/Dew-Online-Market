@@ -238,5 +238,7 @@
 				// Add Brand Script Section End
 			});
 		</script>
+
+		<!-- Update - 181218 -->
 	</body>
 </html>
