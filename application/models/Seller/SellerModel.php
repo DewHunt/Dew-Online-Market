@@ -102,5 +102,36 @@
 				return false;
 			}
 		}
+
+		public function GetSellerInformation()
+		{
+			$username = $this->session->userdata('seller_username');
+			$password = $this->session->userdata('seller_password');
+
+			$seller_info = $this->db->get_where('seller',['seller_email'=>$username,'seller_password'=>$password]);
+
+			if ($seller_info->num_rows() > 0)
+			{
+				return $seller_info->row();
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		public function InsertMoilesGeneralInformation($mobile_title,$mobile_brand_id,$mobile_model_number,$mobile_model_name,$mobile_color,$mobile_sim,$mobile_sim_type,$mobile_otg,$seller_id)
+		{
+			$insert_query = $this->db->insert('mobiles',['mobile_title'=>$mobile_title,'mobile_brand_id'=>$mobile_brand_id,'mobile_model_number'=>$mobile_model_number,'mobile_model_name'=>$mobile_model_name,'mobile_color'=>$mobile_color,'mobile_sim'=>$mobile_sim,'mobile_sim_type'=>$mobile_sim_type,'mobile_otg'=>$mobile_otg,'seller_id'=>$seller_id]);
+
+			if ($insert_query)
+			{
+				return $this->db->insert_id();
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 ?>

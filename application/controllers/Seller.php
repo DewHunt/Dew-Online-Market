@@ -160,29 +160,40 @@
 			}
 		}
 
-		// public function GetAllMobileBrands()
-		// {
-		// 	if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
-		// 	{
-		// 		return redirect('Seller/index');
-		// 	}
-		// 	else
-		// 	{
-		// 		$output = '';
-		// 		$result = $this->sm->GetAllMobileBrands();
+		public function InsertMoilesGeneralInformation()
+		{
+			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			{
+				return redirect('Seller/index');
+			}
+			else
+			{
+				$mobile_title = $this->input->post('mobile_title');
+				$mobile_brand_id = $this->input->post('mobile_brand_id');
+				$mobile_model_number = $this->input->post('mobile_model_number');
+				$mobile_model_name = $this->input->post('mobile_model_name');
+				$mobile_color = $this->input->post('mobile_color');
+				$mobile_sim = $this->input->post('mobile_sim');
+				$mobile_sim_type = $this->input->post('mobile_sim_type');
+				$mobile_otg = $this->input->post('mobile_otg');
 
-		// 		if ($result)
-		// 		{
-		// 			$output .= '<select name="brand_id" id="brand_id">';
-		// 			$output .= '<option value="">Select Brand</option>';
-		// 			foreach ($result as $brands)
-		// 			{
-		// 				$output .= '<option value="'.$brands->brand_id.'">'.$brands->brand_name.'</option>';
-		// 			}
-		// 			$output .= '</select>';
-		// 		}
-		// 	}
-		// 	echo $output;
-		// }
+				$output = "";
+
+				$seller_info = $this->sm->GetSellerInformation();
+				$seller_id = $seller_info->seller_id;
+
+				$result = $this->sm->InsertMoilesGeneralInformation($mobile_title,$mobile_brand_id,$mobile_model_number,$mobile_model_name,$mobile_color,$mobile_sim,$mobile_sim_type,$mobile_otg,$seller_id);
+
+				if ($result)
+				{
+					$output .= $result;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			echo $output;
+		}
 	}
 ?>

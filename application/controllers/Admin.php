@@ -157,7 +157,7 @@
 
 			if (count($result))
 			{
-				$output .= '<select name="brand_id" id="brand_id">';
+				$output .= '<select name="mobile-brand-id" id="mobile-brand-id">';
 				$output .= '<option value="">Select Brand</option>';
 				foreach ($result as $brands)
 				{
@@ -167,7 +167,7 @@
 			}
 			else
 			{
-				$output .= '<select disable></select>';
+				$output .= '<select disable>';
 				$output .= '<option>No Brand Found</option>';
 				$output .= '</select>';
 			}
