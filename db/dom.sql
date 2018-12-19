@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2018 at 10:14 AM
+-- Generation Time: Dec 19, 2018 at 11:00 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -137,7 +137,8 @@ INSERT INTO `mobiles` (`mobile_id`, `seller_id`, `mobile_title`, `mobile_brand_i
 (10, 0, 'aa', '3', 'bb', 'cc', 'White', 'Dual Sim', 'Nano', 'Yes', '', '', '', ''),
 (18, 3, 'x', '1', 'y', 'z', 'Black', 'Dual Sim', 'Micro', 'Yes', '6.0 Inch', '1080px', 'AMOLED', 'Full HD'),
 (19, 3, 'x', '1', 'y', 'z', 'Black', 'Dual Sim', 'Micro', 'Yes', '6.0 Inch', '1080px', 'AMOLED', 'Full HD'),
-(20, 3, 'q', '3', 'r', 's', 'Red', 'Dual Sim', 'Micro', 'Yes', '6.0 Inch', '1080px', 'AMOLED', 'Full HD');
+(20, 3, 'q', '3', 'r', 's', 'Red', 'Dual Sim', 'Micro', 'Yes', '6.0 Inch', '1080px', 'AMOLED', 'Full HD'),
+(21, 3, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l');
 
 -- --------------------------------------------------------
 
@@ -232,7 +233,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `mobiles`
 --
 ALTER TABLE `mobiles`
-  MODIFY `mobile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `mobile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `seller`

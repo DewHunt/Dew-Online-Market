@@ -918,7 +918,6 @@
 
 					var mobile_display_type = $('input[name=mobile-display-type]:checked').val();
 					var mobile_resolution_type = $('input[name=mobile-resolution-type]:checked').val();
-
 					var mobile_id = $('#mobile-id').val();
 
 					// alert(mobile_resolution_type);
