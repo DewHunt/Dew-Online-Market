@@ -160,8 +160,7 @@
 			}
 		}
 
-<<<<<<< HEAD
-		public function InsertMoilesGeneralInformation()
+		public function InsertMobilesGeneralInformation()
 		{
 			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
 			{
@@ -180,7 +179,10 @@
 
 				$output = "";
 
-				$result = $this->sm->InsertMoilesGeneralInformation($mobile_title,$mobile_brand_id,$mobile_model_number,$mobile_model_name,$mobile_color,$mobile_sim,$mobile_sim_type,$mobile_otg);
+				$seller_info = $this->sm->GetSellerInformation();
+				$seller_id = $seller_info->seller_id;
+
+				$result = $this->sm->InsertMobilesGeneralInformation($mobile_title,$seller_id,$mobile_brand_id,$mobile_model_number,$mobile_model_name,$mobile_color,$mobile_sim,$mobile_sim_type,$mobile_otg);
 
 				if ($result)
 				{
@@ -193,31 +195,36 @@
 			}
 			echo $output;
 		}
-=======
-		// public function GetAllMobileBrands()
-		// {
-		// 	if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
-		// 	{
-		// 		return redirect('Seller/index');
-		// 	}
-		// 	else
-		// 	{
-		// 		$output = '';
-		// 		$result = $this->sm->GetAllMobileBrands();
 
-		// 		if ($result)
-		// 		{
-		// 			$output .= '<select name="brand_id" id="brand_id">';
-		// 			$output .= '<option value="">Select Brand</option>';
-		// 			foreach ($result as $brands)
-		// 			{
-		// 				$output .= '<option value="'.$brands->brand_id.'">'.$brands->brand_name.'</option>';
-		// 			}
-		// 			$output .= '</select>';
-		// 		}
-		// 	}
-		// 	echo $output;
-		// }
->>>>>>> 5380a1015a9f416600c5cc7c60566b838c4b7ed1
+		public function InsertMobilesDisplayInformation()
+		{
+			if ($this->session->userdata('seller_username') == "" && $this->sesion->userdata('seller_password') == "")
+			{
+				return redirect('Seller/index');
+			}
+			else
+			{
+				$mobile_id = $this->input->post('mobile_id');
+
+				$mobile_display_size = $this->input->post('mobile_display_size');
+				$mobile_display_resolution = $this->input->post('mobile_display_resolution');
+
+				$mobile_display_type = $this->input->post('mobile_display_type');
+				$mobile_resolution_type = $this->input->post('mobile_resolution_type');
+
+				$output = "";
+
+				$result = $this->sm->InsertMobilesDisplayInformation($mobile_id,$mobile_display_size,$mobile_display_resolution,$mobile_display_type,$mobile_resolution_type);
+
+				if ($result)
+				{
+					$output .= $result;
+				}
+				else
+				{
+					return false;
+				}				
+			}
+		}
 	}
 ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2018 at 11:34 AM
+-- Generation Time: Dec 19, 2018 at 10:14 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -108,6 +108,7 @@ INSERT INTO `items` (`item_id`, `item_name`) VALUES
 
 CREATE TABLE `mobiles` (
   `mobile_id` int(11) NOT NULL,
+  `seller_id` int(11) NOT NULL,
   `mobile_title` varchar(255) NOT NULL,
   `mobile_brand_id` text NOT NULL,
   `mobile_model_number` text NOT NULL,
@@ -115,21 +116,28 @@ CREATE TABLE `mobiles` (
   `mobile_color` text NOT NULL,
   `mobile_sim` text NOT NULL,
   `mobile_sim_type` text NOT NULL,
-  `mobile_otg` text NOT NULL
+  `mobile_otg` text NOT NULL,
+  `mobile_display_size` text NOT NULL,
+  `mobile_display_resolution` text NOT NULL,
+  `mobile_display_type` text NOT NULL,
+  `mobile_resolution_type` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `mobiles`
 --
 
-INSERT INTO `mobiles` (`mobile_id`, `mobile_title`, `mobile_brand_id`, `mobile_model_number`, `mobile_model_name`, `mobile_color`, `mobile_sim`, `mobile_sim_type`, `mobile_otg`) VALUES
-(4, 'Mobile', '1', '01', 'Mobile Name', 'Black', 'Single Sim', 'Nano', 'Yes'),
-(5, 'Mob', '2', '23', 'Mob Name', 'Black', 'Single Sim', 'Nano', 'Yes'),
-(6, 'Mob', '2', '23', 'Mob Name', 'Black', 'Single Sim', 'Nano', 'Yes'),
-(7, 'asda', '1', 'adsasd', 'hjgh', 'Black', 'Single Sim', 'Nano', 'Yes'),
-(8, 'a', '6', 'b', 'c', 'Black', 'Single Sim', 'Nano', 'Yes'),
-(9, 'a', '6', 'b', 'c', 'Black', 'Single Sim', 'Nano', 'Yes'),
-(10, 'aa', '3', 'bb', 'cc', 'White', 'Dual Sim', 'Nano', 'Yes');
+INSERT INTO `mobiles` (`mobile_id`, `seller_id`, `mobile_title`, `mobile_brand_id`, `mobile_model_number`, `mobile_model_name`, `mobile_color`, `mobile_sim`, `mobile_sim_type`, `mobile_otg`, `mobile_display_size`, `mobile_display_resolution`, `mobile_display_type`, `mobile_resolution_type`) VALUES
+(4, 0, 'Mobile', '1', '01', 'Mobile Name', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', ''),
+(5, 0, 'Mob', '2', '23', 'Mob Name', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', ''),
+(6, 0, 'Mob', '2', '23', 'Mob Name', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', ''),
+(7, 0, 'asda', '1', 'adsasd', 'hjgh', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', ''),
+(8, 0, 'a', '6', 'b', 'c', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', ''),
+(9, 0, 'a', '6', 'b', 'c', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', ''),
+(10, 0, 'aa', '3', 'bb', 'cc', 'White', 'Dual Sim', 'Nano', 'Yes', '', '', '', ''),
+(18, 3, 'x', '1', 'y', 'z', 'Black', 'Dual Sim', 'Micro', 'Yes', '6.0 Inch', '1080px', 'AMOLED', 'Full HD'),
+(19, 3, 'x', '1', 'y', 'z', 'Black', 'Dual Sim', 'Micro', 'Yes', '6.0 Inch', '1080px', 'AMOLED', 'Full HD'),
+(20, 3, 'q', '3', 'r', 's', 'Red', 'Dual Sim', 'Micro', 'Yes', '6.0 Inch', '1080px', 'AMOLED', 'Full HD');
 
 -- --------------------------------------------------------
 
@@ -224,7 +232,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `mobiles`
 --
 ALTER TABLE `mobiles`
-  MODIFY `mobile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `mobile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `seller`

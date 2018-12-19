@@ -103,13 +103,44 @@
 			}
 		}
 
-		public function InsertMoilesGeneralInformation($mobile_title,$mobile_brand_id,$mobile_model_number,$mobile_model_name,$mobile_color,$mobile_sim,$mobile_sim_type,$mobile_otg)
+		public function GetSellerInformation()
 		{
-			$insert_query = $this->db->insert('mobiles',['mobile_title'=>$mobile_title,'mobile_brand_id'=>$mobile_brand_id,'mobile_model_number'=>$mobile_model_number,'mobile_model_name'=>$mobile_model_name,'mobile_color'=>$mobile_color,'mobile_sim'=>$mobile_sim,'mobile_sim_type'=>$mobile_sim_type,'mobile_otg'=>$mobile_otg]);
+			$username = $this->session->userdata('seller_username');
+			$password = $this->session->userdata('seller_password');
+
+			$seller_info = $this->db->get_where('seller',['seller_email'=>$username,'seller_password'=>$password]);
+
+			if ($seller_info->num_rows() > 0)
+			{
+				return $seller_info->row();
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		public function InsertMobilesGeneralInformation($mobile_title,$seller_id,$mobile_brand_id,$mobile_model_number,$mobile_model_name,$mobile_color,$mobile_sim,$mobile_sim_type,$mobile_otg)
+		{
+			$insert_query = $this->db->insert('mobiles',['mobile_title'=>$mobile_title,'seller_id'=>$seller_id,'mobile_brand_id'=>$mobile_brand_id,'mobile_model_number'=>$mobile_model_number,'mobile_model_name'=>$mobile_model_name,'mobile_color'=>$mobile_color,'mobile_sim'=>$mobile_sim,'mobile_sim_type'=>$mobile_sim_type,'mobile_otg'=>$mobile_otg]);
 
 			if ($insert_query)
 			{
 				return $this->db->insert_id();
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		public function InsertMobilesDisplayInformation($mobile_id,$mobile_display_size,$mobile_display_resolution,$mobile_display_type,$mobile_resolution_type)
+		{
+			$update_query = $this->db->where('mobile_id',$mobile_id)->update('mobiles',['mobile_display_size'=>$mobile_display_size,'mobile_display_resolution'=>$mobile_display_resolution,'mobile_display_type'=>$mobile_display_type,'mobile_resolution_type'=>$mobile_resolution_type]);
+
+			if ($update_query)
+			{
+				return $mobile_id;
 			}
 			else
 			{

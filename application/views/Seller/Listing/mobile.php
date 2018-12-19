@@ -87,7 +87,8 @@
 				color: black;
 			}
 
-			#general-section button,#display-section button,#processor-section button,#storage-section button,#camera-section button,#connectivity-section button,#warranty-section button,#listing-section button,#image-section button{
+			#button-section button, #btn-general-info, #btn-display-info, #btn-processor-info{
+				width: 100%;
 				width: 100%; button
 				margin-top: -10px;
 				margin-bottom: -10px;
@@ -109,7 +110,8 @@
 	<body>
 		<!-- Body Section Start -->
 		<!-- hidden Input Section Start -->
-		<input type="text" name="mobile-id" id="mobile-id" style="display: none;">
+		<!-- <input type="text" name="mobile-id" id="mobile-id" style="display: none;"> -->
+		<input type="text" name="mobile-id" id="mobile-id">
 		<!-- hidden Input Section End -->
 
 		<div class="row">
@@ -124,49 +126,28 @@
 							<h6>Title</h6>
 							<input type="text" name="mobile-title" id="mobile-title">
 						</div>
+
 						<div class="col l4 m4 s12">
 							<h6>Model Number</h6>
-<<<<<<< HEAD
 							<input type="text" name="mobile-model-number" id="mobile-model-number">
 						</div>
 						<div class="col l4 m4 s12">
 							<h6>Name</h6>
 							<input type="text" name="mobile-model-name" id="mobile-model-name">
-=======
-							<input type="text" name="model-number" id="model-number">
-						</div>
-						<div class="col l4 m4 s12">
-							<h6>Name</h6>
-							<input type="text" name="mobile-name" id="mobile-name">
->>>>>>> 5380a1015a9f416600c5cc7c60566b838c4b7ed1
-						</div>						
+						</div>				
 					</div>
 
 					<div class="row">
 						<!-- Show Brand Name Section Start -->
 						<div class="col l4 m4 s12">
-<<<<<<< HEAD
-							<h6>Brand</h6>							
-							<div id="show-select-brand"></div>
-=======
 							<h6>Brand</h6>
-<!-- 							<select name="brand" id="brand">
-								<option>Select Mobile Brand</option>
-								<option>Brand One</option>
-								<option>Brand Two</option>
-								<option>Brand Three</option>
-								<option>Brand Four</option>
-								<option>Brand Five</option>
-								<option>Brand Six</option>
-							</select> -->
-							<div id="show-select-brand"></div>							
->>>>>>> 5380a1015a9f416600c5cc7c60566b838c4b7ed1
+							<div id="show-select-brand"></div>
 						</div>
 						<!-- Show Brand Name Section End -->
 
 						<div class="col l8 m8 s12">
 							<h6>Color</h6>
-							<p id="color-h6">
+							<p id="color-p">
 								<label>
 									<input type="radio" name="mobile-color" value="Black">
 									<span>Black</span>
@@ -198,7 +179,7 @@
 					<div class="row">
 						<div class="col l4 m4 s12">
 							<h6>Sim</h6>
-							<p id="sim-h6">
+							<p id="sim-p">
 								<label>
 									<input type="radio" name="mobile-sim" value="Single Sim">
 									<span>Single Sim</span>
@@ -213,7 +194,7 @@
 
 						<div class="col l4 m4 s12">
 							<h6>Sim Type</h6>
-							<p id="sim-type-h6">
+							<p id="sim-type-p">
 								<label>
 									<input type="radio" name="mobile-sim-type" value="Nano">
 									<span>Nano</span>
@@ -233,7 +214,7 @@
 
 						<div class="col l4 m4 s12">
 							<h6>OTG Support</h6>
-							<p id="otg-h6">
+							<p id="otg-p">
 								<label>
 									<input type="radio" name="mobile-otg" value="Yes">
 									<span>Yes</span>
@@ -265,84 +246,90 @@
 					<div class="row">
 						<div class="col l6 m6 s12">
 							<h6>Display Size</h6>
-							<select name="display-size" id="display-size">
-								<option>Select Display Size</option>
-								<option>4.0 Inch</option>
-								<option>4.5 Inch</option>
-								<option>5.0 Inch</option>
-								<option>5.5 Inch</option>
-								<option>6.0 Inch</option>
-								<option>6.5 Inch</option>
-								<option>7.0 Inch</option>
+							<select name="mobile-display-size" id="mobile-display-size">
+								<option value="">Select Display Size</option>
+								<option value="4.0 Inch">4.0 Inch</option>
+								<option value="4.5 Inch">4.5 Inch</option>
+								<option value="5.0 Inch">5.0 Inch</option>
+								<option value="5.5 Inch">5.5 Inch</option>
+								<option value="6.0 Inch">6.0 Inch</option>
+								<option value="6.5 Inch">6.5 Inch</option>
+								<option value="7.0 Inch">7.0 Inch</option>
 							</select>
 						</div>
 						<div class="col l6 m6 s12">
 							<h6>Display Resolution</h6>
-							<select name="display-resolution" id="display-resolution">
-								<option>Select Display Resolution</option>
-								<option>720px</option>
-								<option>1080px</option>
-								<option>1400px</option>
-								<option>4K</option>
-								<option>8K</option>
+							<select name="mobile-display-resolution" id="mobile-display-resolution">
+								<option value="">Select Display Resolution</option>
+								<option value="720px">720px</option>
+								<option value="1080px">1080px</option>
+								<option value="1400px">1400px</option>
+								<option value="4K">4K</option>
+								<option value="8K">8K</option>
 							</select>
 						</div>						
 					</div>
 
 					<div class="row">
 						<div class="col l6 m6 s12">
-							<h6>Resolution Type</h6>
-							<p>
+							<h6>Display Type</h6>
+							<p id="display-type-p">
 								<label>
-									<input type="radio" name="resolution-type" value="HD">
-									<span>HD</span>
+									<input type="radio" name="mobile-display-type" value="TFT">
+									<span>TFT</span>
 								</label>
 
 								<label>
-									<input type="radio" name="resolution-type" value="Full HD">
-									<span>Full HD</span>
+									<input type="radio" name="mobile-display-type" value="TFD">
+									<span>TFD</span>
 								</label>
 
 								<label>
-									<input type="radio" name="resolution-type" value="2K">
-									<span>2K</span>
+									<input type="radio" name="mobile-display-type" value="LCD">
+									<span>LCD</span>
 								</label>
 
 								<label>
-									<input type="radio" name="resolution-type" value="4k">
-									<span>4K</span>
+									<input type="radio" name="mobile-display-type" value="OLED">
+									<span>OLED</span>
+								</label>
+
+								<label>
+									<input type="radio" name="mobile-display-type" value="AMOLED">
+									<span>AMOLED</span>
 								</label>
 							</p>
 						</div>
 
 						<div class="col l6 m6 s12">
-							<h6>Display Type</h6>
-							<p>
+							<h6>Resolution Type</h6>
+							<p id="resolution-type-p">
 								<label>
-									<input type="radio" name="display-type" value="TFT">
-									<span>TFT</span>
+									<input type="radio" name="mobile-resolution-type" value="HD">
+									<span>HD</span>
 								</label>
 
 								<label>
-									<input type="radio" name="display-type" value="TFD">
-									<span>TFD</span>
+									<input type="radio" name="mobile-resolution-type" value="Full HD">
+									<span>Full HD</span>
 								</label>
 
 								<label>
-									<input type="radio" name="display-type" value="LCD">
-									<span>LCD</span>
+									<input type="radio" name="mobile-resolution-type" value="2K">
+									<span>2K</span>
 								</label>
 
 								<label>
-									<input type="radio" name="display-type" value="OLED">
-									<span>OLED</span>
-								</label>
-
-								<label>
-									<input type="radio" name="display-type" value="AMOLED">
-									<span>AMOLED</span>
+									<input type="radio" name="mobile-resolution-type" value="4k">
+									<span>4K</span>
 								</label>
 							</p>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col l12 m12 s12">
+							<button type="button" class="btn waves-effect waves-light green" id="btn-display-info">Save & Continue</button>
 						</div>
 					</div>
 				</div>
@@ -358,36 +345,37 @@
 					<div class="row">
 						<div class="col l6 m6 s12">
 							<h6>Operating System</h6>
-							<select name="oprating-system" id="oprating-system">
-								<option>Select Operating System</option>
-								<option>Windows</option>
-								<option>Black Berry OS</option>
-								<option>Android</option>
-								<option>iOS</option>
+							<select name="mobile-os" id="mobile-os">
+								<option value="">Select Operating System</option>
+								<option value="Windows">Windows</option>
+								<option value="Black Berry OS">Black Berry OS</option>
+								<option value="Android">Android</option>
+								<option value="iOS">iOS</option>
 							</select>
 						</div>
+
 						<div class="col l6 m6 s12">
 							<h6>Operating System Version</h6>
-							<input type="text" name="os-version" id="os-version">
+							<input type="text" name="mobile-os-version" id="mobile-os-version">
 						</div>						
 					</div>
 
 					<div class="row">
 						<div class="col l6 m6 s12">
 							<h6>Processor Type</h6>
-							<p>
+							<p id="processor-type-p">
 								<label>
-									<input type="radio" name="processor-type" value="Octa Core">
+									<input type="radio" name="mobile-processor-type" value="Octa Core">
 									<span>Octa Core</span>
 								</label>
 
 								<label>
-									<input type="radio" name="processor-type" value="Hexa Core">
+									<input type="radio" name="mobile-processor-type" value="Hexa Core">
 									<span>Hexa Core</span>
 								</label>
 
 								<label>
-									<input type="radio" name="processor-type" value="Snapdragon">
+									<input type="radio" name="mobile-processor-type" value="Snapdragon">
 									<span>Snapdragon</span>
 								</label>
 							</p>
@@ -395,7 +383,13 @@
 
 						<div class="col l6 m6 s12">
 							<h6>Processor Size</h6>
-							<input type="text" name="processor-size" id="processor-size">
+							<input type="text" name="mobile-processor-size" id="mobile-processor-size">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col l12 m12 s12">
+							<button type="button" class="btn waves-effect waves-light green" id="btn-processor-info">Save & Continue</button>
 						</div>
 					</div>
 				</div>
@@ -728,7 +722,7 @@
 				<br>
 
 				<!-- Button Section Start -->
-				<div id="-button-section">
+				<div id="button-section">
 					<div class="row">
 						<div class="col l12 m12 s12 center">
 							<button type="button" name="submit" class="btn waves-effect waves-light">Save</button>
@@ -737,6 +731,7 @@
 				</div>
 				<!-- Button Section End -->
 			</div>
+
 			<div class="col s4 m4 s12">
 				<div style="background: white; border: 1px solid green; margin: 5px; padding: 0px 5px 5px 5px;">
 					<h5>Div 02</h5>
@@ -776,10 +771,9 @@
 				}
 				// Get Mobile Brand Data Script Section End
 
-<<<<<<< HEAD
 				// Hide Section Start
 				$('#display-section').hide();
-				$('#processor-section').hide();
+				$('#processor-section').show();
 				$('#storage-section').hide();
 				$('#camera-section').hide();
 				$('#connectivity-section').hide();
@@ -844,118 +838,230 @@
 						if (mobile_color == null)
 						{
 							M.toast({html:'Please Checked One Color'});
-							$('#color-h6 label').css({'color':'red'});
+							$('#color-p label').css({'color':'red'});
 						}
 						else
 						{
-							$('#color-h6 label').css({'color':'black'});
+							$('#color-p label').css({'color':'black'});
 						}
 
 						if (mobile_sim == null)
 						{
 							M.toast({html:'Please Checked One Sim'});
-							$('#sim-h6 label').css({'color':'red'});
+							$('#sim-p label').css({'color':'red'});
 						}
 						else
 						{
-							$('#sim-h6 label').css({'color':'black'});
+							$('#sim-p label').css({'color':'black'});
 						}
 
 						if (mobile_sim_type == null)
 						{
 							M.toast({html:'Please Checked One Sim Type'});
-							$('#sim-type-h6 label').css({'color':'red'});
+							$('#sim-type-p label').css({'color':'red'});
 						}
 						else
 						{
-							$('#sim-type-h6 label').css({'color':'black'});
+							$('#sim-type-p label').css({'color':'black'});
 						}
 
 						if (mobile_otg == null)
 						{
 							M.toast({html:'Please Checked One OTG'});
-							$('#otg-h6 label').css({'color':'red'});
+							$('#otg-p label').css({'color':'red'});
 						}
 						else
 						{
-							$('#otg-h6 label').css({'color':'black'});
+							$('#otg-p label').css({'color':'black'});
 						}
 					}
 					else
 					{
+						$('#mobile-title').css({'border':'1px solid silver'});
+						$('#mobile-model-number').css({'border':'1px solid silver'});
+						$('#mobile-model-name').css({'border':'1px solid silver'});
+						$('#mobile-brand-id').css({'border':'1px solid silver'});
+						$('#color-p label').css({'color':'black'});
+						$('#sim-p label').css({'color':'black'});
+						$('#sim-type-p label').css({'color':'black'});
+						$('#otg-p label').css({'color':'black'});
+						
 						$.ajax({
 							type:'ajax',
 							method:'POST',
-							url:'InsertMoilesGeneralInformation',
+							url:'InsertMobilesGeneralInformation',
 							data:{mobile_title:mobile_title,mobile_model_number:mobile_model_number,mobile_model_name:mobile_model_name,mobile_brand_id:mobile_brand_id,mobile_color:mobile_color,mobile_sim:mobile_sim,mobile_sim_type:mobile_sim_type,mobile_otg:mobile_otg},
 							success:function(data){
 								var mobile_id = data;
 								$('#mobile-id').val(mobile_id);
+
+								$('#mobile-title').prop('disabled',true);
+								$('#mobile-model-number').prop('disabled',true);
+								$('#mobile-model-name').prop('disabled',true);
+								$('#mobile-brand-id').prop('disabled',true);
 								$('#btn-general-info').prop('disabled',true);
+								$('body,html').animate({scrollTop:$('#general-section').height() + 100},200);
 								$('#display-section').show();
 							},
 							error:function(){
 								alert('Data Not Saved To Database.');
 							}
 						});
-=======
-				// General Info Script Section Start
-				$('#btn-general-info').click(function(){
-					var mobile_title = $('#mobile-title').val();
-					var model_number = $('#model-number').val();
-					var mobile_name = $('#mobile-name').val();
+					}
+				});
+				// General Info Script Section End
 
-					var color = $('input[name=color]:checked').val();
-					var sim = $('input[name=sim]:checked').val();
-					var sim_type = $('input[name=sim-type]:checked').val();
-					var otg = $('input[name=otg]:checked').val();
+				// Display Info Script Section Start
+				$('#btn-display-info').click(function(){
+					var mobile_display_size = $('#mobile-display-size').val();
+					var mobile_display_resolution = $('#mobile-display-resolution').val();
 
-					if (mobile_title == "")
+					var mobile_display_type = $('input[name=mobile-display-type]:checked').val();
+					var mobile_resolution_type = $('input[name=mobile-resolution-type]:checked').val();
+
+					var mobile_id = $('#mobile-id').val();
+
+					// alert(mobile_resolution_type);
+
+					if (mobile_display_size == "" || mobile_display_resolution == "" || mobile_display_type == null || mobile_resolution_type == null)
 					{
-						M.toast({html:'Please Enter Mobile Title'});
-						$('#mobile-title').css({'border':'1px solid red'});
-					}
-					else if (model_number == "")
-					{
-						M.toast({html:'Please Enter Model Number'});
-						$('#model-number').css({'border':'1px solid red'});
-						$('#mobile-title').css({'border':'1px solid silver'});
-						$('#mobile-name').css({'border':'1px solid silver'});
-					}
-					else if (mobile_name == "")
-					{
-						M.toast({html:'Please Enter Mobile Name'});
-						$('#mobile-name').css({'border':'1px solid red'});
-						$('#mobile-title').css({'border':'1px solid silver'});
-						$('#model-number').css({'border':'1px solid silver'});
-					}
-					else if (color == null)
-					{
-						M.toast({html:'Please Checked One Color'});
-					}
-					else if (sim == null)
-					{
-						M.toast({html:'Please Checked One Sim'});
-					}
-					else if (sim_type == null)
-					{
-						M.toast({html:'Please Checked One Sim Type'});
-					}
-					else if (otg == null)
-					{
-						M.toast({html:'Please Checked One OTG'});
+						if (mobile_display_size == "")
+						{
+							M.toast({html:'Please Select Dsiplay Size'});
+							$('#mobile-display-size').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-display-size').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_display_resolution == "")
+						{
+							M.toast({html:'Please Select Display Resolution'});
+							$('#mobile-display-resolution').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-display-resolution').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_display_type == null)
+						{
+							M.toast({html:'Please Select Display Type'});
+							$('#display-type-p label').css({'color':'red'});
+						}
+						else
+						{
+							$('#display-type-p label').css({'color':'black'});
+						}
+
+						if (mobile_resolution_type == null)
+						{
+							M.toast({html:'Please Select Resolution Type'});
+							$('#resolution-type-p label').css({'color':'red'});
+						}
+						else
+						{
+							$('#resolution-type-p label').css({'color':'black'});
+						}
 					}
 					else
 					{
-						$('#mobile-title').css({'border':'1px solid silver'});
-						$('#model-number').css({'border':'1px solid silver'});
-						$('#mobile-name').css({'border':'1px solid silver'});
-						alert("RUN");
->>>>>>> 5380a1015a9f416600c5cc7c60566b838c4b7ed1
+						$('#mobile-display-size').css({'border':'1px solid silver'});
+						$('#mobile-display-resolution').css({'border':'1px solid silver'});
+						$('#display-type-p label').css({'color':'black'});
+						$('#resolution-type-p label').css({'color':'black'});
+
+						$.ajax({
+							type:'ajax',
+							method:'POST',
+							url:'InsertMobilesDisplayInformation',
+							data:{mobile_id:mobile_id,mobile_display_size:mobile_display_size,mobile_display_resolution:mobile_display_resolution,mobile_display_type:mobile_display_type,mobile_resolution_type:mobile_resolution_type},
+							success:function(data){
+								var mobile_id = data;
+								$('#mobile-id').val(mobile_id);
+
+								$('#mobile-display-size').prop('disabled',true);
+								$('#mobile-display-resolution').prop('disabled',true);
+								$('#btn-display-info').prop('disabled',true);
+								$('body,html').animate({scrollTop:$('#general-section').height() + $('#display-section').height() + 200},200);
+								$('#processor-section').show();
+								alert("Mobile Display Saved Successfully" + mobile_id);
+							},
+							error:function(){
+								alert('Mobile Display Information Not Saved Successfully');
+							}
+						});
 					}
 				});
-				// General Info Script Section End 
+				// Display Info Script Section End
+
+				// Processor Info Script Section Start
+				$('#btn-processor-info').click(function(){
+					var mobile_os = $('#mobile-os').val();
+					var mobile_os_version = $('#mobile-os-version').val();
+
+					var mobile_processor_type = $('input[name=mobile-processor-type]:checked').val();
+
+					var mobile_processor_size = $('#mobile-processor-size').val();
+
+					var mobile_id = $('#mobile-id').val();
+
+					if (mobile_os == "" || mobile_os_version == "" || mobile_processor_type == null || mobile_processor_size == "")
+					{
+						if (mobile_os == "")
+						{
+							M.toast({html:'Please Select Operating System'});
+							$('#mobile-os').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-os').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_os_version == "")
+						{
+							M.toast({html:'Please Enter Operating System Version'});
+							$('#mobile-os-version').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-os-version').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_processor_type == null)
+						{
+							M.toast({html:'Please Select Processor Type'});
+							$('#processor-type-p label').css({'color':'red'});
+						}
+						else
+						{
+							$('#processor-type-p label').css({'color':'black'});
+						}
+
+						if (mobile_processor_size == "")
+						{
+							M.toast({html:'Please Enter Processor Size'});
+							$('#mobile-processor-size').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-processor-size').css({'border':'1px solid silver'});
+						}
+					}
+					else
+					{
+						$('#mobile-os').css({'border':'1px solid silver'});
+						$('#mobile-os-version').css({'border':'1px solid silver'});
+						$('#processor-type-p label').css({'color':'black'});
+						$('#mobile-processor-size').css({'border':'1px solid silver'});
+						alert("RUN");
+					}
+				});
+				// Processor Info Script Section End
 			});
 		</script>
+
+		<!-- Update - 181218 -->
 	</body>
 </html>
