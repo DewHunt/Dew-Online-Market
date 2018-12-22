@@ -87,7 +87,7 @@
 				color: black;
 			}
 
-			#button-section button, #btn-general-info, #btn-display-info, #btn-processor-info{
+			#button-section button, #btn-general-info, #btn-display-info, #btn-processor-info, #btn-storage-info{
 				width: 100%;
 				width: 100%; button
 				margin-top: -10px;
@@ -405,26 +405,27 @@
 					<div class="row">
 						<div class="col l6 m6 s12">
 							<h6>Internal Storage</h6>
-							<select name="internal-storage" id="internal-storage">
-								<option>Select Internal Storage</option>
-								<option>8GB</option>
-								<option>16GB</option>
-								<option>32GB</option>
-								<option>64GB</option>
-								<option>126GB</option>
-								<option>256GB</option>
+							<select name="mobile-internal-storage" id="mobile-internal-storage">
+								<option value="">Select Internal Storage</option>
+								<option value="8GB">8GB</option>
+								<option value="16GB">16GB</option>
+								<option value="32GB">32GB</option>
+								<option value="64GB">64GB</option>
+								<option value="128GB">128GB</option>
+								<option value="256GB">256GB</option>
 							</select>
 						</div>
+
 						<div class="col l6 m6 s12">
 							<h6>RAM</h6>
-							<select name="ram" id="ram">
-								<option>Select RAM</option>
-								<option>1GB</option>
-								<option>2GB</option>
-								<option>3GB</option>
-								<option>4GB</option>
-								<option>6GB</option>
-								<option>6GB</option>
+							<select name="mobile-ram" id="mobile-ram">
+								<option value="">Select RAM</option>
+								<option value="1GB">1GB</option>
+								<option value="2GB">2GB</option>
+								<option value="3GB">3GB</option>
+								<option value="4GB">4GB</option>
+								<option value="6GB">6GB</option>
+								<option value="8GB">8GB</option>
 							</select>
 						</div>						
 					</div>
@@ -432,14 +433,14 @@
 					<div class="row">
 						<div class="col l3 m3 s12">
 							<h6>Expandable Storage</h6>
-							<p>
+							<p id="expandable-storage-p">
 								<label>
-									<input type="radio" name="expandable-storage" value="Yes">
+									<input type="radio" name="mobile-expandable-storage" value="Yes">
 									<span>Yes</span>
 								</label>
 
 								<label>
-									<input type="radio" name="expandable-storage" value="No">
+									<input type="radio" name="mobile-expandable-storage" value="No">
 									<span>No</span>
 								</label>
 							</p>
@@ -447,14 +448,14 @@
 
 						<div class="col l3 m3 s12">
 							<h6>Memory Card Slot</h6>
-							<p>
+							<p id="memory-card-slot-p">
 								<label>
-									<input type="radio" name="memory-card-slot" value="Yes">
+									<input type="radio" name="mobile-memory-card-slot" value="Yes">
 									<span>Yes</span>
 								</label>
 
 								<label>
-									<input type="radio" name="memory-card-slot" value="No">
+									<input type="radio" name="mobile-memory-card-slot" value="No">
 									<span>No</span>
 								</label>
 							</p>
@@ -462,11 +463,17 @@
 
 						<div class="col l6 m6 s12">
 							<h6>Memory Card Type</h6>
-							<select name="memory-card-type" id="memory-card-type">
-								<option>Select Internal Storage</option>
-								<option>Mini SD Card</option>
-								<option>Micro SD Card</option>
+							<select name="mobile-memory-card-type" id="mobile-memory-card-type">
+								<option value="">Select Internal Storage</option>
+								<option value="Mini SD Card">Mini SD Card</option>
+								<option value="Micro SD Card">Micro SD Card</option>
 							</select>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col l12 m12 s12">
+							<button type="button" class="btn waves-effect waves-light green" id="btn-storage-info">Save & Continue</button>
 						</div>
 					</div>
 				</div>
@@ -773,8 +780,8 @@
 
 				// Hide Section Start
 				$('#display-section').hide();
-				$('#processor-section').show();
-				$('#storage-section').hide();
+				$('#processor-section').hide();
+				$('#storage-section').show();
 				$('#camera-section').hide();
 				$('#connectivity-section').hide();
 				$('#warranty-section').hide();
@@ -985,7 +992,7 @@
 								$('#btn-display-info').prop('disabled',true);
 								$('body,html').animate({scrollTop:$('#general-section').height() + $('#display-section').height() + 200},200);
 								$('#processor-section').show();
-								alert("Mobile Display Saved Successfully" + mobile_id);
+								alert("Mobile Display Saved Successfully");
 							},
 							error:function(){
 								alert('Mobile Display Information Not Saved Successfully');
@@ -1054,10 +1061,107 @@
 						$('#mobile-os-version').css({'border':'1px solid silver'});
 						$('#processor-type-p label').css({'color':'black'});
 						$('#mobile-processor-size').css({'border':'1px solid silver'});
-						alert("RUN");
+
+						$.ajax({
+							type:'ajax',
+							method:'POST',
+							url:'InsertMobilesProcessorInformation',
+							data:{mobile_os:mobile_os,mobile_os_version:mobile_os_version,mobile_processor_type:mobile_processor_type,mobile_processor_size:mobile_processor_size,mobile_id:mobile_id},
+							success:function(data){
+								var mobile_id = data;
+								$('#mobile-id').val(mobile_id);
+
+								$('#mobile-os-version').prop('disabled',true);
+								$('#mobile-processor-type').prop('disabled',true);
+								$('#mobile-processor-size').prop('disabled',true);
+								$('#btn-processor-info').prop('disabled',true);
+								$('body,html').animate({scrollTop:$('#general-section').height() + $('#display-section').height() + $('#processor-section').height() + 230},200);
+								$('#storage-section').show();
+								alert("Mobile Processor Saved Successfully");
+							},
+							error:function(){
+								alert('Mobile Processor Information Not Saved Successfully');
+							}
+						});
 					}
 				});
 				// Processor Info Script Section End
+
+				// Storage Info Script Section Start
+				$('#btn-storage-info').click(function(){
+					var mobile_internal_storage = $('#mobile-internal-storage').val();
+					var mobile_ram = $('#mobile-ram').val();
+
+					var mobile_expandable_storage = $('input[name=mobile-expandable-storage]:checked').val();
+					var mobile_memory_card_slot = $('input[name=mobile-memory-card-slot]:checked').val();
+
+					var mobile_memory_card_type = $('#mobile-memory-card-type').val();
+
+					var mobile_id = $('#mobile-id').val();
+
+					if (mobile_internal_storage == "" || mobile_ram == "" || mobile_expandable_storage == null || mobile_memory_card_slot == null || mobile_memory_card_type == "")
+					{
+						if (mobile_internal_storage == "")
+						{
+							M.toast({html:'Please Select Internal Storage'});
+							$('#mobile-internal-storage').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-internal-storage').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_ram == "")
+						{
+							M.toast({html:'Please Select RAM'});
+							$('#mobile-ram').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-ram').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_expandable_storage == null)
+						{
+							M.toast({html:'Please Select Expandable Storage'});
+							$('#expandable-storage-p label').css({'color':'red'});
+						}
+						else
+						{
+							$('#expandable-storage-p label').css({'color':'black'});
+						}
+
+						if (mobile_memory_card_slot == null)
+						{
+							M.toast({html:'Please Select Memory Card Slot'});
+							$('#memory-card-slot-p label').css({'color':'red'});
+						}
+						else
+						{
+							$('#memory-card-slot-p label').css({'color':'black'});
+						}
+
+						if (mobile_memory_card_type == "")
+						{
+							M.toast({html:'PLease Select Memory Card Type'});
+							$('#mobile-memory-card-type').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-memory-card-type').css({'border':'1px solid silver'});
+						}
+					}
+					else
+					{
+						$('#mobile-internal-storage').css({'border':'1px solid silver'});
+						$('#mobile-ram').css({'border':'1px solid silver'});
+						$('#expandable-storage-p label').css({'color':'black'});
+						$('##memory-card-slot-p label').css({'color':'black'});
+						$('#mobile-memory-card-type').css({'border':'1px solid silver'});
+						alert("RUN");
+					}
+				});
+				// Storage Info Script Section End
 			});
 		</script>
 

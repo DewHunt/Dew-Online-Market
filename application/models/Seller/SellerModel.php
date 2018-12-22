@@ -148,6 +148,20 @@
 			}
 		}
 
+		public function InsertMobilesProcessorInformation($mobile_id,$mobile_os,$mobile_os_version,$mobile_processor_type,$mobile_processor_size)
+		{
+			$update_query = $this->db->where('mobile_id',$mobile_id)->update('mobiles',['mobile_os'=>$mobile_os,'mobile_os_version'=>$mobile_os_version,'mobile_processor_type'=>$mobile_processor_type,'mobile_processor_size'=>$mobile_processor_size]);
+
+			if ($update_query)
+			{
+				return $mobile_id;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
 		// Update - 181219
 	}
 ?>

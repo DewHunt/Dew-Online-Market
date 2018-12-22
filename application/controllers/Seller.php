@@ -193,6 +193,7 @@
 					return false;
 				}
 			}
+			
 			echo $output;
 		}
 
@@ -225,6 +226,39 @@
 					return false;
 				}				
 			}
+
+			echo $output;
+		}
+
+		public function InsertMobilesProcessorInformation()
+		{
+			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			{
+				return redirect('Seller/index');
+			}
+			else
+			{
+				$mobile_id = $this->input->post('mobile_id');
+				$mobile_os = $this->input->post('mobile_os');
+				$mobile_os_version = $this->input->post('mobile_os_version');
+				$mobile_processor_type = $this->input->post('mobile_processor_type');
+				$mobile_processor_size = $this->input->post('mobile_processor_size');
+
+				$output = "";
+
+				$result = $this->sm->InsertMobilesProcessorInformation($mobile_id,$mobile_os,$mobile_os_version,$mobile_processor_type,$mobile_processor_size);
+
+				if ($result)
+				{
+					$output .= $result;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			
+			echo $output;
 		}
 
 		// Update - 121819
