@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2018 at 11:00 AM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: Dec 22, 2018 at 07:27 PM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -120,25 +120,27 @@ CREATE TABLE `mobiles` (
   `mobile_display_size` text NOT NULL,
   `mobile_display_resolution` text NOT NULL,
   `mobile_display_type` text NOT NULL,
-  `mobile_resolution_type` text NOT NULL
+  `mobile_resolution_type` text NOT NULL,
+  `mobile_os` text NOT NULL,
+  `mobile_os_version` text NOT NULL,
+  `mobile_processor_type` text NOT NULL,
+  `mobile_processor_size` text NOT NULL,
+  `mobile_internal_storage` text NOT NULL,
+  `mobile_ram` text NOT NULL,
+  `mobile_expandable_storage` text NOT NULL,
+  `mobile_memory_card_slot` text NOT NULL,
+  `mobile_memory_card_type` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `mobiles`
 --
 
-INSERT INTO `mobiles` (`mobile_id`, `seller_id`, `mobile_title`, `mobile_brand_id`, `mobile_model_number`, `mobile_model_name`, `mobile_color`, `mobile_sim`, `mobile_sim_type`, `mobile_otg`, `mobile_display_size`, `mobile_display_resolution`, `mobile_display_type`, `mobile_resolution_type`) VALUES
-(4, 0, 'Mobile', '1', '01', 'Mobile Name', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', ''),
-(5, 0, 'Mob', '2', '23', 'Mob Name', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', ''),
-(6, 0, 'Mob', '2', '23', 'Mob Name', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', ''),
-(7, 0, 'asda', '1', 'adsasd', 'hjgh', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', ''),
-(8, 0, 'a', '6', 'b', 'c', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', ''),
-(9, 0, 'a', '6', 'b', 'c', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', ''),
-(10, 0, 'aa', '3', 'bb', 'cc', 'White', 'Dual Sim', 'Nano', 'Yes', '', '', '', ''),
-(18, 3, 'x', '1', 'y', 'z', 'Black', 'Dual Sim', 'Micro', 'Yes', '6.0 Inch', '1080px', 'AMOLED', 'Full HD'),
-(19, 3, 'x', '1', 'y', 'z', 'Black', 'Dual Sim', 'Micro', 'Yes', '6.0 Inch', '1080px', 'AMOLED', 'Full HD'),
-(20, 3, 'q', '3', 'r', 's', 'Red', 'Dual Sim', 'Micro', 'Yes', '6.0 Inch', '1080px', 'AMOLED', 'Full HD'),
-(21, 3, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l');
+INSERT INTO `mobiles` (`mobile_id`, `seller_id`, `mobile_title`, `mobile_brand_id`, `mobile_model_number`, `mobile_model_name`, `mobile_color`, `mobile_sim`, `mobile_sim_type`, `mobile_otg`, `mobile_display_size`, `mobile_display_resolution`, `mobile_display_type`, `mobile_resolution_type`, `mobile_os`, `mobile_os_version`, `mobile_processor_type`, `mobile_processor_size`, `mobile_internal_storage`, `mobile_ram`, `mobile_expandable_storage`, `mobile_memory_card_slot`, `mobile_memory_card_type`) VALUES
+(4, 0, 'Mobile', '1', '01', 'Mobile Name', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(5, 0, 'Mob', '2', '23', 'Mob Name', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(6, 0, 'Mob', '2', '23', 'Mob Name', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(23, 3, 'x', '1', 'y', 'z', 'Black', 'Dual Sim', 'Micro', 'Yes', '6.0 Inch', '1080px', 'AMOLED', 'Full HD', 'Android', '9.0', 'Octa Core', '8', '32GB', '3GB', 'Yes', 'Yes', 'Micro SD Card');
 
 -- --------------------------------------------------------
 
@@ -233,7 +235,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `mobiles`
 --
 ALTER TABLE `mobiles`
-  MODIFY `mobile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `mobile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `seller`

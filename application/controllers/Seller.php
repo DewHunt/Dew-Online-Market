@@ -261,6 +261,38 @@
 			echo $output;
 		}
 
+		public function InsertMobilesStorageInformation()
+		{
+			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			{
+				return redirect('Seller/index');
+			}
+			else
+			{
+				$mobile_id = $this->input->post('mobile_id');
+				$mobile_internal_storage = $this->input->post('mobile_internal_storage');
+				$mobile_ram = $this->input->post('mobile_ram');
+				$mobile_expandable_storage = $this->input->post('mobile_expandable_storage');
+				$mobile_memory_card_slot = $this->input->post('mobile_memory_card_slot');
+				$mobile_memory_card_type = $this->input->post('mobile_memory_card_type');
+
+				$output = "";
+
+				$result = $this->sm->InsertMobilesStorageInformation($mobile_id,$mobile_internal_storage,$mobile_ram,$mobile_expandable_storage,$mobile_memory_card_slot,$mobile_memory_card_type);
+
+				if ($result)
+				{
+					$output .= $result;
+				}
+				else
+				{
+					return false;
+				}
+			}
+
+			echo $output;
+		}
+
 		// Update - 121819
 	}
 ?>

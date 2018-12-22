@@ -464,7 +464,7 @@
 						<div class="col l6 m6 s12">
 							<h6>Memory Card Type</h6>
 							<select name="mobile-memory-card-type" id="mobile-memory-card-type">
-								<option value="">Select Internal Storage</option>
+								<option value="">Select Memory Card Type</option>
 								<option value="Mini SD Card">Mini SD Card</option>
 								<option value="Micro SD Card">Micro SD Card</option>
 							</select>
@@ -779,10 +779,10 @@
 				// Get Mobile Brand Data Script Section End
 
 				// Hide Section Start
-				$('#display-section').hide();
-				$('#processor-section').hide();
+				$('#display-section').show();
+				$('#processor-section').show();
 				$('#storage-section').show();
-				$('#camera-section').hide();
+				$('#camera-section').show();
 				$('#connectivity-section').hide();
 				$('#warranty-section').hide();
 				$('#image-section').hide();
@@ -909,9 +909,10 @@
 								$('#btn-general-info').prop('disabled',true);
 								$('body,html').animate({scrollTop:$('#general-section').height() + 100},200);
 								$('#display-section').show();
+								alert('Mobile General Information Saved Successfully');
 							},
 							error:function(){
-								alert('Data Not Saved To Database.');
+								alert('Mobile General Information Not Saved Successfully');
 							}
 						});
 					}
@@ -990,9 +991,11 @@
 								$('#mobile-display-size').prop('disabled',true);
 								$('#mobile-display-resolution').prop('disabled',true);
 								$('#btn-display-info').prop('disabled',true);
-								$('body,html').animate({scrollTop:$('#general-section').height() + $('#display-section').height() + 200},200);
+
+								$('body,html').animate({scrollTop:$('#general-section').height() + $('#display-section').height() + 240},200);
+
 								$('#processor-section').show();
-								alert("Mobile Display Saved Successfully");
+								alert("Mobile Display Information Saved Successfully");
 							},
 							error:function(){
 								alert('Mobile Display Information Not Saved Successfully');
@@ -1075,9 +1078,11 @@
 								$('#mobile-processor-type').prop('disabled',true);
 								$('#mobile-processor-size').prop('disabled',true);
 								$('#btn-processor-info').prop('disabled',true);
-								$('body,html').animate({scrollTop:$('#general-section').height() + $('#display-section').height() + $('#processor-section').height() + 230},200);
+
+								$('body,html').animate({scrollTop:$('#general-section').height() + $('#display-section').height() + $('#processor-section').height() + 340},200);
+
 								$('#storage-section').show();
-								alert("Mobile Processor Saved Successfully");
+								alert("Mobile Processor Information Saved Successfully");
 							},
 							error:function(){
 								alert('Mobile Processor Information Not Saved Successfully');
@@ -1156,9 +1161,33 @@
 						$('#mobile-internal-storage').css({'border':'1px solid silver'});
 						$('#mobile-ram').css({'border':'1px solid silver'});
 						$('#expandable-storage-p label').css({'color':'black'});
-						$('##memory-card-slot-p label').css({'color':'black'});
+						$('#memory-card-slot-p label').css({'color':'black'});
 						$('#mobile-memory-card-type').css({'border':'1px solid silver'});
-						alert("RUN");
+
+						$.ajax({
+							type:'ajax',
+							method:'POST',
+							url:'InsertMobilesStorageInformation',
+							data:{mobile_internal_storage:mobile_internal_storage,mobile_ram:mobile_ram,mobile_expandable_storage:mobile_expandable_storage,mobile_memory_card_slot:mobile_memory_card_slot,mobile_memory_card_type:mobile_memory_card_type,mobile_id:mobile_id},
+					
+							success:function(data){
+								var mobile_id = data;
+								$('#mobile-id').val(mobile_id);
+
+								$('#mobile-internal-storage').prop('disabled',true);
+								$('#mobile-ram').prop('disabled',true);
+								$('#mobile-memory-card-type').prop('disabled',true);
+								$('#btn-storage-info').prop('disabled',true);
+
+								$('body,html').animate({scrollTop:$('#general-section').height() + $('#display-section').height() + $('#processor-section').height() + $('#storage-section').height() + 550},200);
+
+								$('#camera-section').show();
+								alert("Mobile Storage Information Saved Successfully");
+							},
+							error:function(){
+								alert('Mobile Storage Information Not Saved Successfully');
+							}
+						});
 					}
 				});
 				// Storage Info Script Section End

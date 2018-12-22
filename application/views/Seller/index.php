@@ -87,7 +87,7 @@
 				padding-left: 2px;
 				height: 35px;
 				margin-bottom: 25px;
-				margin-left: 4px;
+				margin-left: 3px;
 			}
 
 			#mobile-number{
@@ -108,28 +108,7 @@
 				padding-left: 2px;
 				height: 35px;
 				margin-bottom: 25px;
-				margin-left: 4px;
-			}
-
-			#mobile-number{
-				width: 48%;
-				border: 1px solid green;
-				border-radius: 3px;
-				box-shadow: none;
-				padding-left: 2px;
-				height: 35px;
-				margin-bottom: 25px;
-			}
-
-			#pin-code{
-				width: 48%;
-				border: 1px solid green;
-				border-radius: 3px;
-				box-shadow: none;
-				padding-left: 2px;
-				height: 35px;
-				margin-bottom: 25px;
-				margin-left: 4px;
+				margin-left: 3px;
 			}
 
 			#company-pan-number{
@@ -150,7 +129,7 @@
 				padding-left: 2px;
 				height: 35px;
 				margin-bottom: 25px;
-				margin-left: 4px;
+				margin-left: 3px;
 			}
 
 			#register-button{
@@ -255,7 +234,7 @@
 					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<br>
-				<button type="submit" class="btn waves-effects waves-light" style="background: green;"> Sell On DOM</button>
+				<button type="submit" class="btn waves-effects waves-light" style="background: green; width: 50%;"> Sell On DOM</button>
 				<br><br><br><br>
 			</div>
 			<div class="col l4 m4 s12 white" id="register-div">

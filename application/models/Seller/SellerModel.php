@@ -162,6 +162,20 @@
 			}
 		}
 
+		public function InsertMobilesStorageInformation($mobile_id,$mobile_internal_storage,$mobile_ram,$mobile_expandable_storage,$mobile_memory_card_slot,$mobile_memory_card_type)
+		{
+			$update_query = $this->db->where('mobile_id',$mobile_id)->update('mobiles',['mobile_internal_storage'=>$mobile_internal_storage,'mobile_ram'=>$mobile_ram,'mobile_expandable_storage'=>$mobile_expandable_storage,'mobile_memory_card_slot'=>$mobile_memory_card_slot,'mobile_memory_card_type'=>$mobile_memory_card_type]);
+
+			if ($update_query)
+			{
+				return $mobile_id;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
 		// Update - 181219
 	}
 ?>
