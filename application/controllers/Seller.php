@@ -13,7 +13,7 @@
 
 		public function index()
 		{
-			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
 			{
 				$this->load->view('Seller/index');
 			}
@@ -88,7 +88,7 @@
 
 		public function Dashboard()
 		{
-			if($this->session->userdata('seller_email') == "" || $this->session->userdata('seller_password') == "")
+			if($this->session->userdata('seller_email') == "" && $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -108,7 +108,7 @@
 
 		public function CreateListing()
 		{
-			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -129,7 +129,7 @@
 
 		public function InsertSellerContact()
 		{
-			if ($this->session->userdata('seller-username') == "" || $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller-username') == "" && $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/Index');
 			}
@@ -150,7 +150,7 @@
 
 		public function MobileUpload()
 		{
-			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password' == ""))
+			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password' == ""))
 			{
 				return redirect('Seller/index');
 			}
@@ -162,7 +162,7 @@
 
 		public function InsertMobilesGeneralInformation()
 		{
-			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -199,7 +199,7 @@
 
 		public function InsertMobilesDisplayInformation()
 		{
-			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -232,7 +232,7 @@
 
 		public function InsertMobilesProcessorInformation()
 		{
-			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -263,7 +263,7 @@
 
 		public function InsertMobilesStorageInformation()
 		{
-			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -295,7 +295,7 @@
 
 		public function InsertMobilesCameraInformation()
 		{
-			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -327,7 +327,7 @@
 
 		public function InsertMobilesConnectivityInformation()
 		{
-			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -358,7 +358,7 @@
 
 		public function InsertMobilesWarrantyInformation()
 		{
-			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}

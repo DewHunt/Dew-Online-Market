@@ -1416,7 +1416,7 @@
 					var mobile_price = $('#mobile-price').val();
 					var mobile_shipping_charge = $('#mobile-shipping-charge').val();
 
-					var mobile_id = $('#mobile_id').val();
+					var mobile_id = $('#mobile-id').val();
 
 					if (mobile_duration_formate == "" || mobile_return_policy == "" || mobile_offers == "" || mobile_price == "" || mobile_shipping_charge == "")
 					{
