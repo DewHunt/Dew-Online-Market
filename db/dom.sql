@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2018 at 07:27 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Generation Time: Dec 23, 2018 at 11:29 AM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -129,18 +129,33 @@ CREATE TABLE `mobiles` (
   `mobile_ram` text NOT NULL,
   `mobile_expandable_storage` text NOT NULL,
   `mobile_memory_card_slot` text NOT NULL,
-  `mobile_memory_card_type` text NOT NULL
+  `mobile_memory_card_type` text NOT NULL,
+  `mobile_primary_camera` text NOT NULL,
+  `mobile_secondary_camera` text NOT NULL,
+  `mobile_flash` text NOT NULL,
+  `mobile_primary_camera_resolution` text NOT NULL,
+  `mobile_secondary_camera_resolution` text NOT NULL,
+  `mobile_network_type` text NOT NULL,
+  `mobile_battery` text NOT NULL,
+  `mobile_bluetooth` text NOT NULL,
+  `mobile_wifi` text NOT NULL,
+  `mobile_usb_slot` text NOT NULL,
+  `mobile_duration_formate` text NOT NULL,
+  `mobile_return_policy` text NOT NULL,
+  `mobile_offers` text NOT NULL,
+  `mobile_price` text NOT NULL,
+  `mobile_shipping_charge` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `mobiles`
 --
 
-INSERT INTO `mobiles` (`mobile_id`, `seller_id`, `mobile_title`, `mobile_brand_id`, `mobile_model_number`, `mobile_model_name`, `mobile_color`, `mobile_sim`, `mobile_sim_type`, `mobile_otg`, `mobile_display_size`, `mobile_display_resolution`, `mobile_display_type`, `mobile_resolution_type`, `mobile_os`, `mobile_os_version`, `mobile_processor_type`, `mobile_processor_size`, `mobile_internal_storage`, `mobile_ram`, `mobile_expandable_storage`, `mobile_memory_card_slot`, `mobile_memory_card_type`) VALUES
-(4, 0, 'Mobile', '1', '01', 'Mobile Name', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(5, 0, 'Mob', '2', '23', 'Mob Name', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(6, 0, 'Mob', '2', '23', 'Mob Name', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(23, 3, 'x', '1', 'y', 'z', 'Black', 'Dual Sim', 'Micro', 'Yes', '6.0 Inch', '1080px', 'AMOLED', 'Full HD', 'Android', '9.0', 'Octa Core', '8', '32GB', '3GB', 'Yes', 'Yes', 'Micro SD Card');
+INSERT INTO `mobiles` (`mobile_id`, `seller_id`, `mobile_title`, `mobile_brand_id`, `mobile_model_number`, `mobile_model_name`, `mobile_color`, `mobile_sim`, `mobile_sim_type`, `mobile_otg`, `mobile_display_size`, `mobile_display_resolution`, `mobile_display_type`, `mobile_resolution_type`, `mobile_os`, `mobile_os_version`, `mobile_processor_type`, `mobile_processor_size`, `mobile_internal_storage`, `mobile_ram`, `mobile_expandable_storage`, `mobile_memory_card_slot`, `mobile_memory_card_type`, `mobile_primary_camera`, `mobile_secondary_camera`, `mobile_flash`, `mobile_primary_camera_resolution`, `mobile_secondary_camera_resolution`, `mobile_network_type`, `mobile_battery`, `mobile_bluetooth`, `mobile_wifi`, `mobile_usb_slot`, `mobile_duration_formate`, `mobile_return_policy`, `mobile_offers`, `mobile_price`, `mobile_shipping_charge`) VALUES
+(4, 0, 'Mobile', '1', '01', 'Mobile Name', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(5, 0, 'Mob', '2', '23', 'Mob Name', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(6, 0, 'Mob', '2', '23', 'Mob Name', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(30, 3, 'x', '1', 'y', 'z', 'White', 'Dual Sim', 'Micro', 'Yes', '6.0 Inch', '1080px', 'AMOLED', 'Full HD', 'Android', '9.0', 'Octa Core', '8', '64GB', '3GB', 'Yes', 'Yes', 'Micro SD Card', 'Yes', 'Yes', 'Yes', '20MP', '16MP', '4G', '4500Amph', 'Yes', 'Yes', 'Yes', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -235,7 +250,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `mobiles`
 --
 ALTER TABLE `mobiles`
-  MODIFY `mobile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `mobile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `seller`

@@ -13,7 +13,7 @@
 
 		public function index()
 		{
-			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
 			{
 				$this->load->view('Seller/index');
 			}
@@ -88,7 +88,7 @@
 
 		public function Dashboard()
 		{
-			if($this->session->userdata('seller_email') == "" && $this->session->userdata('seller_password') == "")
+			if($this->session->userdata('seller_email') == "" || $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -108,7 +108,7 @@
 
 		public function CreateListing()
 		{
-			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -129,7 +129,7 @@
 
 		public function InsertSellerContact()
 		{
-			if ($this->session->userdata('seller-username') == "" && $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller-username') == "" || $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/Index');
 			}
@@ -150,7 +150,7 @@
 
 		public function MobileUpload()
 		{
-			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password' == ""))
+			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password' == ""))
 			{
 				return redirect('Seller/index');
 			}
@@ -162,7 +162,7 @@
 
 		public function InsertMobilesGeneralInformation()
 		{
-			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -199,7 +199,7 @@
 
 		public function InsertMobilesDisplayInformation()
 		{
-			if ($this->session->userdata('seller_username') == "" && $this->sesion->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -232,7 +232,7 @@
 
 		public function InsertMobilesProcessorInformation()
 		{
-			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -263,7 +263,7 @@
 
 		public function InsertMobilesStorageInformation()
 		{
-			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -293,6 +293,97 @@
 			echo $output;
 		}
 
-		// Update - 121819
+		public function InsertMobilesCameraInformation()
+		{
+			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
+			{
+				return redirect('Seller/index');
+			}
+			else
+			{
+				$mobile_id =$this->input->post('mobile_id');
+				$mobile_primary_camera = $this->input->post('mobile_primary_camera');
+				$mobile_secondary_camera = $this->input->post('mobile_secondary_camera');
+				$mobile_flash = $this->input->post('mobile_flash');
+				$mobile_primary_camera_resolution = $this->input->post('mobile_primary_camera_resolution');
+				$mobile_secondary_camera_resolution = $this->input->post('mobile_secondary_camera_resolution');
+
+				$output = "";
+
+				$result = $this->sm->InsertMobilesCameraInformation($mobile_id,$mobile_primary_camera,$mobile_secondary_camera,$mobile_flash,$mobile_primary_camera_resolution,$mobile_secondary_camera_resolution);
+
+				if ($result)
+				{
+					$output .= $result;
+				}
+				else
+				{
+					return false;
+				}
+			}
+
+			echo $output;
+		}
+
+		public function InsertMobilesConnectivityInformation()
+		{
+			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
+			{
+				return redirect('Seller/index');
+			}
+			else
+			{
+				$mobile_id = $this->input->post('mobile_id');
+				$mobile_network_type = $this->input->post('mobile_network_type');
+				$mobile_battery = $this->input->post('mobile_battery');
+				$mobile_bluetooth = $this->input->post('mobile_bluetooth');
+				$mobile_wifi = $this->input->post('mobile_wifi');
+				$mobile_usb_slot = $this->input->post('mobile_usb_slot');
+
+				$output = "";
+
+				$result = $this->sm->InsertMobilesConnectivityInformation($mobile_id,$mobile_network_type,$mobile_battery,$mobile_bluetooth,$mobile_wifi,$mobile_usb_slot);
+
+				if ($result)
+				{
+					$output .= $result;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			echo $output;
+		}
+
+		public function InsertMobilesWarrantyInformation()
+		{
+			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
+			{
+				return redirect('Seller/index');
+			}
+			else
+			{
+				$mobile_id = $this->input->post('mobile_id');
+				$mobile_duration_formate = $this->input->post('mobile_duration_formate');
+				$mobile_return_policy = $this->input->post('mobile_return_policy');
+				$mobile_offers = $this->input->post('mobile_offers');
+				$mobile_price = $this->input->post('mobile_price');
+				$mobile_shipping_charge = $this->input->post('mobile_shipping_charge');
+
+				$output = "";
+
+				$result = $this->sm->InsertMobilesWarrantyInformation($mobile_id,$mobile_duration_formate,$mobile_return_policy,$mobile_offers,$mobile_price,$mobile_shipping_charge);
+
+				if ($result)
+				{
+					return $output .= $result;
+				}
+				else
+				{
+					return false;
+				}
+			}
+		}
 	}
 ?>

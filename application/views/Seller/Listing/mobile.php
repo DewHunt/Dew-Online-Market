@@ -72,6 +72,7 @@
 				height: 30px;
 				box-shadow: none;
 				margin: 0px;
+				margin-left: -5px;
 				padding-left: 10px;
 			}
 
@@ -87,7 +88,7 @@
 				color: black;
 			}
 
-			#button-section button, #btn-general-info, #btn-display-info, #btn-processor-info, #btn-storage-info{
+			#button-section button, #btn-general-info, #btn-display-info, #btn-processor-info, #btn-storage-info, #btn-camera-info, #btn-connectivity-info, #btn-warranty-info{
 				width: 100%;
 				width: 100%; button
 				margin-top: -10px;
@@ -489,14 +490,14 @@
 					<div class="row">
 						<div class="col l4 m4 s12">
 							<h6>Primary Camera</h6>
-							<p>
+							<p id="primary-camera-p">
 								<label>
-									<input type="radio" name="parimary-camera" value="Yes">
+									<input type="radio" name="mobile-primary-camera" value="Yes">
 									<span>Yes</span>
 								</label>
 
 								<label>
-									<input type="radio" name="parimary-camera" value="No">
+									<input type="radio" name="mobile-parimary-camera" value="No">
 									<span>No</span>
 								</label>
 							</p>
@@ -504,14 +505,14 @@
 
 						<div class="col l4 m4 s12">
 							<h6>Secondary Camera</h6>
-							<p>
+							<p id="secondary-camera-p">
 								<label>
-									<input type="radio" name="secondary-camera" value="Yes">
+									<input type="radio" name="mobile-secondary-camera" value="Yes">
 									<span>Yes</span>
 								</label>
 
 								<label>
-									<input type="radio" name="secondary-camera" value="No">
+									<input type="radio" name="mobile-secondary-camera" value="No">
 									<span>No</span>
 								</label>
 							</p>
@@ -519,14 +520,14 @@
 
 						<div class="col l4 m4 s12">
 							<h6>Camera Flash</h6>
-							<p>
+							<p id="camera-flash-p">
 								<label>
-									<input type="radio" name="flash" value="Yes">
+									<input type="radio" name="mobile-flash" value="Yes">
 									<span>Yes</span>
 								</label>
 
 								<label>
-									<input type="radio" name="flash" value="No">
+									<input type="radio" name="mobile-flash" value="No">
 									<span>No</span>
 								</label>
 							</p>
@@ -536,13 +537,19 @@
 					<div class="row">
 						<div class="col l6 m6 s12">
 							<h6>Primary Camera Resolution</h6>
-							<input type="text" name="primary-camera-resolution" id="primary-camera-resolution">
+							<input type="text" name="mobile-primary-camera-resolution" id="mobile-primary-camera-resolution">
 						</div>
 
 						<div class="col l6 m6 s12">
 							<h6>Secondary Camera Resolution</h6>
-							<input type="text" name="secondary-camera-resolution" id="secondary-camera-resolution">
+							<input type="text" name="mobile-secondary-camera-resolution" id="mobile-secondary-camera-resolution">
 						</div>						
+					</div>
+
+					<div class="row">
+						<div class="col l12 m12 s12">
+							<button type="button" class="btn waves-effect waves-light green" id="btn-camera-info">Save & Continue</button>
+						</div>
 					</div>
 				</div>
 				<!-- Camera Details Section End -->
@@ -557,26 +564,26 @@
 					<div class="row">
 						<div class="col l6 m6 s12">
 							<h6>Network Type</h6>
-							<input type="text" name="network-type" id="network-type">
+							<input type="text" name="mobile-network-type" id="mobile-network-type">
 						</div>
 
 						<div class="col l6 m6 s12">
 							<h6>Battery</h6>
-							<input type="text" name="battery" id="battery">
+							<input type="text" name="mobile-battery" id="mobile-battery">
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="col l4 m4 s12">
 							<h6>Bluetooth</h6>
-							<p>
+							<p id="bluetooth-p">
 								<label>
-									<input type="radio" name="bluetooth" value="Yes">
+									<input type="radio" name="mobile-bluetooth" value="Yes">
 									<span>Yes</span>
 								</label>
 
 								<label>
-									<input type="radio" name="bluetooth" value="No">
+									<input type="radio" name="mobile-bluetooth" value="No">
 									<span>No</span>
 								</label>
 							</p>
@@ -584,14 +591,14 @@
 
 						<div class="col l4 m4 s12">
 							<h6>WiFi</h6>
-							<p>
+							<p id="wifi-p">
 								<label>
-									<input type="radio" name="wifi" value="Yes">
+									<input type="radio" name="mobile-wifi" value="Yes">
 									<span>Yes</span>
 								</label>
 
 								<label>
-									<input type="radio" name="wifi" value="No">
+									<input type="radio" name="mobile-wifi" value="No">
 									<span>No</span>
 								</label>
 							</p>
@@ -599,17 +606,23 @@
 
 						<div class="col l4 m4 s12">
 							<h6>Micro USB Slot</h6>
-							<p>
+							<p id="usb-slot-p">
 								<label>
-									<input type="radio" name="usb-slot" value="Yes">
+									<input type="radio" name="mobile-usb-slot" value="Yes">
 									<span>Yes</span>
 								</label>
 
 								<label>
-									<input type="radio" name="usb-slot" value="No">
+									<input type="radio" name="mobile-usb-slot" value="No">
 									<span>No</span>
 								</label>
 							</p>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col l12 m12 s12">
+							<button type="button" class="btn waves-effect waves-light green" id="btn-connectivity-info">Save & Continue</button>
 						</div>
 					</div>
 				</div>
@@ -625,37 +638,37 @@
 					<div class="row">
 						<div class="col l4 m4 s12">
 							<h6>Duration Formate</h6>
-							<select name="duration-formate" id="duration-formate">
-								<option>Select Duration Formate</option>
-								<option>7 Days</option>
-								<option>15 Days</option>
-								<option>30 Days</option>
-								<option>45 Days</option>
-								<option>60 Days</option>
+							<select name="mobile-duration-formate" id="mobile-duration-formate">
+								<option value="">Select Duration Formate</option>
+								<option value="7 Days">7 Days</option>
+								<option value="15 Days">15 Days</option>
+								<option value="30 Days">30 Days</option>
+								<option value="45 Days">45 Days</option>
+								<option value="60 Days">60 Days</option>
 							</select>
 						</div>
 
 						<div class="col l4 m4 s12">
 							<h6>Return Policy</h6>
-							<select name="return-policy" id="return-policy">
-								<option>Select Return Policy</option>
-								<option>1 days</option>
-								<option>5 days</option>
-								<option>7 days</option>
-								<option>10 days</option>
-								<option>15 days</option>
+							<select name="mobile-return-policy" id="mobile-return-policy">
+								<option value="">Select Return Policy</option>
+								<option value="1 days">1 days</option>
+								<option value="5 days">5 days</option>
+								<option value="7 days">7 days</option>
+								<option value="10 days">10 days</option>
+								<option value="15 days">15 days</option>
 							</select>
 						</div>
 
 						<div class="col l4 m4 s12">
 							<h6>Offers</h6>
-							<select class="offers" id="offers">
-								<option>Select Offers</option>
-								<option>5%</option>
-								<option>10%</option>
-								<option>15%</option>
-								<option>20%</option>
-								<option>25%</option>
+							<select class="mobile-offers" id="mobile-offers">
+								<option value="">Select Offers</option>
+								<option value="5%">5%</option>
+								<option value="10%">10%</option>
+								<option value="15%">15%</option>
+								<option value="20%">20%</option>
+								<option value="25%">25%</option>
 							</select>
 						</div>
 					</div>
@@ -663,12 +676,18 @@
 					<div class="row">
 						<div class="col l6 m6 s12">
 							<h6>Price</h6>
-							<input type="text" name="price" id="price">
+							<input type="text" name="mobile-price" id="mobile-price">
 						</div>
 
 						<div class="col l6 m6 s12">
 							<h6>Shipping Charge</h6>
-							<input type="text" name="shipping-charge" id="shipping-charge">
+							<input type="text" name="mobile-shipping-charge" id="mobile-shipping-charge">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col l12 m12 s12">
+							<button type="button" class="btn waves-effect waves-light green" id="btn-warranty-info">Save & Continue</button>
 						</div>
 					</div>
 				</div>
@@ -779,14 +798,16 @@
 				// Get Mobile Brand Data Script Section End
 
 				// Hide Section Start
-				$('#display-section').show();
-				$('#processor-section').show();
-				$('#storage-section').show();
-				$('#camera-section').show();
+				$('#display-section').hide();
+				$('#processor-section').hide();
+				$('#storage-section').hide();
+				$('#camera-section').hide();
 				$('#connectivity-section').hide();
 				$('#warranty-section').hide();
 				$('#image-section').hide();
 				// Hide Section End
+
+								$('body,html').animate({scrollTop:$('#general-section').height() + $('#display-section').height() + $('#processor-section').height() + $('#storage-section').height() + $('#camera-section').height() + $('#connectivity-section').height() + 600},200);
 
 				// General Info Script Section Start
 				$('#btn-general-info').click(function(){
@@ -1168,7 +1189,7 @@
 							type:'ajax',
 							method:'POST',
 							url:'InsertMobilesStorageInformation',
-							data:{mobile_internal_storage:mobile_internal_storage,mobile_ram:mobile_ram,mobile_expandable_storage:mobile_expandable_storage,mobile_memory_card_slot:mobile_memory_card_slot,mobile_memory_card_type:mobile_memory_card_type,mobile_id:mobile_id},
+							data:{mobile_id:mobile_id,mobile_internal_storage:mobile_internal_storage,mobile_ram:mobile_ram,mobile_expandable_storage:mobile_expandable_storage,mobile_memory_card_slot:mobile_memory_card_slot,mobile_memory_card_type:mobile_memory_card_type},
 					
 							success:function(data){
 								var mobile_id = data;
@@ -1179,7 +1200,7 @@
 								$('#mobile-memory-card-type').prop('disabled',true);
 								$('#btn-storage-info').prop('disabled',true);
 
-								$('body,html').animate({scrollTop:$('#general-section').height() + $('#display-section').height() + $('#processor-section').height() + $('#storage-section').height() + 550},200);
+								$('body,html').animate({scrollTop:$('#general-section').height() + $('#display-section').height() + $('#processor-section').height() + $('#storage-section').height() + 450},200);
 
 								$('#camera-section').show();
 								alert("Mobile Storage Information Saved Successfully");
@@ -1191,9 +1212,300 @@
 					}
 				});
 				// Storage Info Script Section End
+
+				// Camera Info Section Start
+				$('#btn-camera-info').click(function(){
+					var mobile_primary_camera = $('input[name=mobile-primary-camera]:checked').val();
+					var mobile_secondary_camera = $('input[name=mobile-secondary-camera]:checked').val();
+					var mobile_flash = $('input[name=mobile-flash]:checked').val();
+
+					var mobile_primary_camera_resolution = $('#mobile-primary-camera-resolution').val();
+					var mobile_secondary_camera_resolution = $('#mobile-secondary-camera-resolution').val();
+
+					var mobile_id = $('#mobile-id').val();
+
+					// alert(mobile_primary_camera_resolution);
+
+					if (mobile_primary_camera == null || mobile_secondary_camera == null || mobile_flash == null || mobile_primary_camera_resolution == "" || mobile_secondary_camera_resolution == "")
+					{
+						if (mobile_primary_camera == null)
+						{
+							M.toast({html:'Please Select Primary Camera'});
+							$('#primary-camera-p label').css({'color':'red'});
+						}
+						else
+						{
+							$('#primary-camera-p label').css({'color':'black'});
+						}
+
+						if (mobile_secondary_camera == null)
+						{
+							M.toast({html:'Please Select Secondary Camera'});
+							$('#secondary-camera-p label').css({'color':'red'});
+						}
+						else
+						{
+							$('#secondary-camera-p label').css({'color':'black'});
+						}
+						
+						if (mobile_flash == null)
+						{
+							M.toast({html:'Please Select Camera Flash'});
+							$('#camera-flash-p label').css({'color':'red'});
+						}
+						else
+						{
+							$('#camera-flash-p label').css({'color':'black'});
+						}
+
+						if (mobile_primary_camera_resolution == "")
+						{
+							M.toast({html:'Please Select Primary Camera Resolution'});
+							$('#mobile-primary-camera-resolution').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-primary-camera-resolution').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_secondary_camera_resolution == "")
+						{
+							M.toast({html:'Please Select Secondary Camera Resolution'});
+							$('#mobile-secondary-camera-resolution').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-secondary-camera-resolution').css({'border':'1px solid silver'});
+						}
+					}
+					else
+					{
+						$('#primary-camera-p label').css({'color':'black'});						
+						$('#secondary-camera-p label').css({'color':'black'});						
+						$('#camera-flash-p label').css({'color':'black'});
+						$('#mobile-primary-camera-resolution').css({'border':'1px solid silver'});
+						$('#mobile-secondary-camera-resolution').css({'border':'1px solid silver'});
+
+						$.ajax({
+							type:'ajax',
+							method:'POST',
+							url:'InsertMobilesCameraInformation',
+							data:{mobile_id:mobile_id,mobile_primary_camera:mobile_primary_camera,mobile_secondary_camera:mobile_secondary_camera,mobile_flash:mobile_flash,mobile_primary_camera_resolution:mobile_primary_camera_resolution,mobile_secondary_camera_resolution:mobile_secondary_camera_resolution},
+							success:function(data){
+								var mobile_id = data;
+								$('#mobile_id').val(mobile_id);
+
+								$('#mobile-primary-camera-resolution').prop('disabled',true);
+								$('#mobile-secondary-camera-resolution').prop('disabled',true);
+								$('#btn-camera-info').prop('disabled',true);
+
+								$('body,html').animate({scrollTop:$('#general-section').height() + $('#display-section').height() + $('#processor-section').height() + $('#storage-section').height() + $('#camera-section').height() + 540},200);
+
+								$('#connectivity-section').show();
+								alert('Mobile Camera Information Section Saved Successfully');
+							},
+							error:function(){
+								alert('Mobile Camera Information Not Saved Successfully');
+							}
+						});
+					}
+				});
+				// Camera Info Section End
+
+				// Connectivity Info Section Start
+				$('#btn-connectivity-info').click(function(){
+					var mobile_network_type = $('#mobile-network-type').val();
+					var mobile_battery = $('#mobile-battery').val();
+
+					var mobile_bluetooth = $('input[name=mobile-bluetooth]:checked').val();
+					var mobile_wifi = $('input[name=mobile-wifi]:checked').val();
+					var mobile_usb_slot = $('input[name=mobile-usb-slot]:checked').val();
+
+					var mobile_id = $('#mobile-id').val();
+
+					if (mobile_network_type == "" || mobile_battery == "" || mobile_bluetooth == null || mobile_wifi == null || mobile_usb_slot == null)
+					{
+						if (mobile_network_type == "")
+						{
+							M.toast({html:'Please Select Network Type'});
+							$('#mobile-network-type').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-network-type').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_battery == "")
+						{
+							M.toast({html:'Please Select Battery'});
+							$('#mobile-battery').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-battery').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_bluetooth == null)
+						{
+							M.toast({html:'Please Select Bluetooth'});
+							$('#bluetooth-p label').css({'color':'red'});
+						}
+						else
+						{
+							$('#bluetooth-p label').css({'color':'black'});
+						}
+
+						if (mobile_wifi == null)
+						{
+							M.toast({html:'Please Select WiFi'});
+							$('#wifi-p label').css({'color':'red'});
+						}
+						else
+						{
+							$('#wifi-p label').css({'color':'black'});
+						}
+
+						if (mobile_usb_slot == null)
+						{
+							M.toast({html:'Please Select USB Slot'});
+							$('#usb-slot-p label').css({'color':'red'});
+						}
+						else
+						{
+							$('#usb-slot-p label').css({'color':'black'});
+						}
+					}
+					else
+					{
+						$('#mobile-network-type').css({'border':'1px solid silver'});
+						$('#mobile-battery').css({'border':'1px solid silver'});
+						$('#bluetooth-p label').css({'color':'black'});
+						$('#wifi-p label').css({'color':'black'});
+						$('#usb-slot-p label').css({'color':'black'});
+
+						$.ajax({
+							type:'ajax',
+							method:'POST',
+							url:'InsertMobilesConnectivityInformation',
+							data:{mobile_id:mobile_id,mobile_network_type:mobile_network_type,mobile_battery:mobile_battery,mobile_bluetooth:mobile_bluetooth,mobile_wifi:mobile_wifi,mobile_usb_slot:mobile_usb_slot},
+							success:function(data){
+								var mobile_id = data;
+								$('#mobile-id').val(mobile_id);
+
+								$('#mobile-network-type').prop('disabled',true);
+								$('#mobile-battery').prop('disabled',true);
+								$('#btn-connectivity-info').prop('disabled',true);
+
+								$('body,html').animate({scrollTop:$('#general-section').height() + $('#display-section').height() + $('#processor-section').height() + $('#storage-section').height() + $('#camera-section').height() + $('#connectivity-section').height() + 640},200);
+								$('#warranty-section').show();
+								alert('Mobile Connectivity Information Saved Successfully');
+							},
+							error:function(){
+								alert('Mobile Connectivity Information Not Saved Successfully');
+							}
+						});
+					}
+				});
+				// Connectivity Info Section End
+
+				// Warranty Info Section Start
+				$('#btn-warranty-info').click(function(){
+					var mobile_duration_formate = $('#mobile-duration-formate').val();
+					var mobile_return_policy = $('#mobile-return-policy').val();
+					var mobile_offers = $('#mobile-offers').val();
+					var mobile_price = $('#mobile-price').val();
+					var mobile_shipping_charge = $('#mobile-shipping-charge').val();
+
+					var mobile_id = $('#mobile_id').val();
+
+					if (mobile_duration_formate == "" || mobile_return_policy == "" || mobile_offers == "" || mobile_price == "" || mobile_shipping_charge == "")
+					{
+						if (mobile_duration_formate == "")
+						{
+							M.toast({html:'Please Select Duration Formate'});
+							$('#mobile-duration-formate').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-duration-formate').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_return_policy == "")
+						{
+							M.toast({html:'Please Select Return Policy'});
+							$('#mobile-return-policy').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-return-policy').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_offers == "")
+						{
+							M.toast({html:'Please Select Offers'});
+							$('#mobile-offers').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-offers').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_price == "")
+						{
+							M.toast({html:'Please Select Price'});
+							$('#mobile-price').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-price').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_shipping_charge == "")
+						{
+							M.toast({html:'Please Select Shipping Charge'});
+							$('#mobile-shipping-charge').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-shipping-charge').css({'border':'1px solid silver'});
+						}
+					}
+					else
+					{
+						$('#mobile-duration-formate').css({'border':'1px solid silver'});
+						$('#mobile-return-policy').css({'border':'1px solid silver'});
+						$('#mobile-offers').css({'border':'1px solid silver'});
+						$('#mobile-price').css({'border':'1px solid silver'});
+						$('#mobile-shipping-charge').css({'border':'1px solid silver'});
+
+						$.ajax({
+							type:'ajax',
+							method:'POST',
+							url:'InsertMobilesWarrantyInformation',
+							data:{mobile_id:mobile_id,mobile_duration_formate:mobile_duration_formate,mobile_return_policy:mobile_return_policy,mobile_offers:mobile_offers,mobile_price:mobile_price,mobile_shipping_charge:mobile_shipping_charge},
+							success:function(data){
+								var mobile_id = data;
+								$('#mobile-id').val(mobile_id);
+
+								$('#mobile-duration-formate').prop('disabled',true);
+								$('#mobile-return-policy').prop('disabled',true);
+								$('#mobile-offers').prop('disabled',true);
+								$('#mobile-price').prop('disabled',true);
+								$('#mobile-shipping-charge').prop('disabled',true);
+								$('#btn-warranty-info').prop('disabled',true);
+
+								$('body,html').animate({scrollTop:$('#general-section').height() + $('#display-section').height() + $('#processor-section').height() + $('#storage-section').height() + $('#camera-section').height() + $('#connectivity-section').height() + $('#warranty-section').height() + 640},200);
+								$('#image-section').show();
+								alert('Mobile Warranty Information Saved Successfully');
+							},
+							error:function(){
+								alert('Mobile Warranty Information Not Saved Successfully');
+							}
+						});
+					}
+				});
+				// Warranty Info Section End
 			});
 		</script>
-
-		<!-- Update - 181219 -->
 	</body>
 </html>

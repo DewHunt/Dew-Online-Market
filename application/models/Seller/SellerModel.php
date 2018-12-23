@@ -176,6 +176,46 @@
 			}
 		}
 
-		// Update - 181219
+		public function InsertMobilesCameraInformation($mobile_id,$mobile_primary_camera,$mobile_secondary_camera,$mobile_flash,$mobile_primary_camera_resolution,$mobile_secondary_camera_resolution)
+		{
+			$update_query = $this->db->where('mobile_id',$mobile_id)->update('mobiles',['mobile_primary_camera'=>$mobile_primary_camera,'mobile_secondary_camera'=>$mobile_secondary_camera,'mobile_flash'=>$mobile_flash,'mobile_primary_camera_resolution'=>$mobile_primary_camera_resolution,'mobile_secondary_camera_resolution'=>$mobile_secondary_camera_resolution]);
+
+			if ($update_query)
+			{
+				return $mobile_id;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		public function InsertMobilesConnectivityInformation($mobile_id,$mobile_network_type,$mobile_battery,$mobile_bluetooth,$mobile_wifi,$mobile_usb_slot)
+		{
+			$update_query = $this->db->where('mobile_id',$mobile_id)->update('mobiles',['mobile_network_type'=>$mobile_network_type,'mobile_battery'=>$mobile_battery,'mobile_bluetooth'=>$mobile_bluetooth,'mobile_wifi'=>$mobile_wifi,'mobile_usb_slot'=>$mobile_usb_slot]);
+
+			if ($update_query)
+			{
+				return $mobile_id;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		public function InsertMobilesWarrantyInformation($mobile_id,$mobile_duration_formate,$mobile_return_policy,$mobile_offers,$mobile_price,$mobile_shipping_charge)
+		{
+			$update_query = $this->db->where('mobile_id',$mobile_id)->update('mobiles',['mobile_duration_formate'=>$mobile_duration_formate,'mobile_return_policy'=>$mobile_return_policy,'mobile_offers'=>$mobile_offers,'mobile_price'=>$mobile_price,'mobile_shipping_charge'=>$mobile_shipping_charge]);
+
+			if ($update_query)
+			{
+				return $mobile_id;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 ?>
