@@ -52,7 +52,7 @@
 				margin-bottom: 7px;
 			}
 
-			#general-section,#display-section,#processor-section,#storage-section,#camera-section,#connectivity-section,#warranty-section,#listing-section,#image-section{
+			#general-section,#display-section,#processor-section,#storage-section,#camera-section,#connectivity-section,#listing-section,#listing-price-section,#image-section{
 				background: white;
 				border: 1px solid green;
 				border-radius: 0px 0px 20px 20px;
@@ -60,14 +60,14 @@
 				padding: 15px 15px 0px 15px;
 			}
 
-			#general-section h6,#display-section h6,#processor-section h6,#storage-section h6,#camera-section h6,#connectivity-section h6,#warranty-section h6,#listing-section h6,#image-section h6{
+			#general-section h6,#display-section h6,#processor-section h6,#storage-section h6,#camera-section h6,#connectivity-section h6,#listing-price-section h6,#listing-section h6,#image-section h6{
 				font-size: 14px;
 				font-weight: bold;
 				color: green;
 				margin-top: 0px;
 			}
 
-			#general-section input,#display-section input,#processor-section input,#storage-section input,#camera-section input,#connectivity-section input,#warranty-section input,#listing-section input,#image-section input{
+			#general-section input,#display-section input,#processor-section input,#storage-section input,#camera-section input,#connectivity-section input,#listing-price-section input,#listing-section input,#image-section input{
 				border: 1px solid silver;
 				height: 30px;
 				box-shadow: none;
@@ -76,19 +76,19 @@
 				padding-left: 10px;
 			}
 
-			#general-section input:focus,#display-section input:focus,#processor-section input:focus,#storage-section input:focus,#camera-section input:focus,#connectivity-section input:focus,#warranty-section input:focus,#listing-section input:focus,#image-section input:focus{
+			#general-section input:focus,#display-section input:focus,#processor-section input:focus,#storage-section input:focus,#camera-section input:focus,#connectivity-section input:focus,#listing-section input:focus,#listing-price-section input:focus,#image-section input:focus{
 				border: 1px solid green;
 			}
 
-			#general-section p,#display-section p,#processor-section p,#storage-section p,#camera-section p,#connectivity-section p,#warranty-section p,#listing-section p,#image-section p{
+			#general-section p,#display-section p,#processor-section p,#storage-section p,#camera-section p,#connectivity-section p,#listing-section p,#listing-price-section p,#image-section p{
 				margin: 0px;
 			}
 
-			#general-section label,#display-section label,#processor-section label,#storage-section label,#camera-section label,#connectivity-section label,#warranty-section label,#listing-section label,#image-section label{
+			#general-section label,#display-section label,#processor-section label,#storage-section label,#camera-section label,#connectivity-section label,#listing-section label,#listing-price-section label,#image-section label{
 				color: black;
 			}
 
-			#button-section button, #btn-general-info, #btn-display-info, #btn-processor-info, #btn-storage-info, #btn-camera-info, #btn-connectivity-info, #btn-warranty-info{
+			#button-section button, #btn-general-info, #btn-display-info, #btn-processor-info, #btn-storage-info, #btn-camera-info, #btn-connectivity-info, #btn-listing-info, #btn-image{
 				width: 100%;
 				width: 100%; button
 				margin-top: -10px;
@@ -103,7 +103,7 @@
 				border: 1px solid silver;
 			}
 
-			#img-one, #img-two, #img-three, #img-four{
+			#mobile-img-one, #mobile-img-two, #mobile-img-three, #mobile-img-four{
 				width: 180px;
 			}
 		</style>
@@ -630,11 +630,11 @@
 
 				<br>
 
-				<!-- Warranty Details Section Start -->
+				<!-- Listing Details Section Start -->
 				<div id="section-heading">
-					<h5>Mobile Warranty Details</h5>
+					<h5>Mobile Listing Details</h5>
 				</div>
-				<div id="warranty-section">
+				<div id="listing-section">
 					<div class="row">
 						<div class="col l4 m4 s12">
 							<h6>Duration Formate</h6>
@@ -687,11 +687,11 @@
 
 					<div class="row">
 						<div class="col l12 m12 s12">
-							<button type="button" class="btn waves-effect waves-light green" id="btn-warranty-info">Save & Continue</button>
+							<button type="button" class="btn waves-effect waves-light green" id="btn-listing-info">Save & Continue</button>
 						</div>
 					</div>
 				</div>
-				<!-- Warranty Details Section End -->
+				<!-- Listing Details Section End -->
 
 				<br>
 
@@ -704,26 +704,32 @@
 						<div class="col l3 m3 s12" id="show-img-section">
 							<center>
 								<div id="show-img"></div>
-								<input type="file" name="img-one" id="img-one">
+								<input type="file" name="mobile-img-one" id="mobile-img-one">
 							</center>
 						</div>
 						<div class="col l3 m3 s12" id="show-img-section">
 							<center>
 								<div id="show-img"></div>
-								<input type="file" name="img-two" id="img-two">
+								<input type="file" name="mobile-img-two" id="mobile-img-two">
 							</center>
 						</div>
 						<div class="col l3 m3 s12" id="show-img-section">
 							<center>
 								<div id="show-img"></div>
-								<input type="file" name="img-three" id="img-three">
+								<input type="file" name="mobile-img-three" id="mobile-img-three">
 							</center>
 						</div>
 						<div class="col l3 m3 s12" id="show-img-section">
 							<center>
 								<div id="show-img"></div>
-								<input type="file" name="img-four" id="img-four">
+								<input type="file" name="mobile-img-four" id="mobile-img-four">
 							</center>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col l12 m12 s12">
+							<button type="button" class="btn waves-effect waves-light green" id="btn-image">Upload & Continue</button>
 						</div>
 					</div>
 				</div>
@@ -735,7 +741,7 @@
 				<div id="section-heading">
 					<h5>Listing Fees</h5>
 				</div>
-				<div id="listing-section">
+				<div id="listing-price-section">
 					<div class="row">
 						<div class="col l4 m4 s12">
 							<h6>Listing Fees</h6>
@@ -803,11 +809,9 @@
 				$('#storage-section').hide();
 				$('#camera-section').hide();
 				$('#connectivity-section').hide();
-				$('#warranty-section').hide();
-				$('#image-section').hide();
+				$('#listing-section').hide();
+				$('#image-section').show();
 				// Hide Section End
-
-								$('body,html').animate({scrollTop:$('#general-section').height() + $('#display-section').height() + $('#processor-section').height() + $('#storage-section').height() + $('#camera-section').height() + $('#connectivity-section').height() + 600},200);
 
 				// General Info Script Section Start
 				$('#btn-general-info').click(function(){
@@ -1397,7 +1401,8 @@
 								$('#btn-connectivity-info').prop('disabled',true);
 
 								$('body,html').animate({scrollTop:$('#general-section').height() + $('#display-section').height() + $('#processor-section').height() + $('#storage-section').height() + $('#camera-section').height() + $('#connectivity-section').height() + 640},200);
-								$('#warranty-section').show();
+
+								$('#listing-section').show();
 								alert('Mobile Connectivity Information Saved Successfully');
 							},
 							error:function(){
@@ -1408,8 +1413,8 @@
 				});
 				// Connectivity Info Section End
 
-				// Warranty Info Section Start
-				$('#btn-warranty-info').click(function(){
+				// Listing Info Section Start
+				$('#btn-listing-info').click(function(){
 					var mobile_duration_formate = $('#mobile-duration-formate').val();
 					var mobile_return_policy = $('#mobile-return-policy').val();
 					var mobile_offers = $('#mobile-offers').val();
@@ -1481,7 +1486,7 @@
 						$.ajax({
 							type:'ajax',
 							method:'POST',
-							url:'InsertMobilesWarrantyInformation',
+							url:'InsertMobilesListingInformation',
 							data:{mobile_id:mobile_id,mobile_duration_formate:mobile_duration_formate,mobile_return_policy:mobile_return_policy,mobile_offers:mobile_offers,mobile_price:mobile_price,mobile_shipping_charge:mobile_shipping_charge},
 							success:function(data){
 								var mobile_id = data;
@@ -1492,19 +1497,19 @@
 								$('#mobile-offers').prop('disabled',true);
 								$('#mobile-price').prop('disabled',true);
 								$('#mobile-shipping-charge').prop('disabled',true);
-								$('#btn-warranty-info').prop('disabled',true);
+								$('#btn-listing-info').prop('disabled',true);
 
-								$('body,html').animate({scrollTop:$('#general-section').height() + $('#display-section').height() + $('#processor-section').height() + $('#storage-section').height() + $('#camera-section').height() + $('#connectivity-section').height() + $('#warranty-section').height() + 640},200);
+								$('body,html').animate({scrollTop:$('#general-section').height() + $('#display-section').height() + $('#processor-section').height() + $('#storage-section').height() + $('#camera-section').height() + $('#connectivity-section').height() + $('#listing-section').height() + 640},200);
 								$('#image-section').show();
-								alert('Mobile Warranty Information Saved Successfully');
+								alert('Mobile Listing Information Saved Successfully');
 							},
 							error:function(){
-								alert('Mobile Warranty Information Not Saved Successfully');
+								alert('Mobile Listing Information Not Saved Successfully');
 							}
 						});
 					}
 				});
-				// Warranty Info Section End
+				// Listing Info Section End
 			});
 		</script>
 	</body>

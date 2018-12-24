@@ -356,7 +356,7 @@
 			echo $output;
 		}
 
-		public function InsertMobilesWarrantyInformation()
+		public function InsertMobilesListingInformation()
 		{
 			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
 			{
@@ -373,7 +373,7 @@
 
 				$output = "";
 
-				$result = $this->sm->InsertMobilesWarrantyInformation($mobile_id,$mobile_duration_formate,$mobile_return_policy,$mobile_offers,$mobile_price,$mobile_shipping_charge);
+				$result = $this->sm->InsertMobilesListingInformation($mobile_id,$mobile_duration_formate,$mobile_return_policy,$mobile_offers,$mobile_price,$mobile_shipping_charge);
 
 				if ($result)
 				{

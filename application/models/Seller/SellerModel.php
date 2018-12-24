@@ -204,9 +204,9 @@
 			}
 		}
 
-		public function InsertMobilesWarrantyInformation($mobile_id,$mobile_duration_formate,$mobile_return_policy,$mobile_offers,$mobile_price,$mobile_shipping_charge)
+		public function InsertMobilesListingInformation($mobile_id,$mobile_duration_formate,$mobile_return_policy,$mobile_offers,$mobile_price,$mobile_shipping_charge)
 		{
-			$update_query = $this->db->where('mobile_id',$mobile_id)->update('mobiles',['mobile_duration_formate'=>$mobile_duration_formate,'mobile_return_policy'=>$mobile_return_policy,'mobile_offers'=>$mobile_offers,'mobile_price'=>$mobile_price,'mobile_shipping_charge'=>$mobile_shipping_charge]);
+			$update_query = $this->db->where('mobile_id',$mobile_id)->update('mobiles',['mobile_duration_formate'=>$mobile_duration_formate,'mobile_return_policy'=>$mobile_return_policy,'mobile_offers'=>$mobile_offers,'mobile_price'=>$mobile_price,'mobile_shipping_charge'=>$mobile_shipping_charge,'mobile_upload_date'=>date('Y-m-d'),'mobile_upload_month'=>date('m'),'mobile_upload_year'=>date('Y'),'mobile_status'=>'Active']);
 
 			if ($update_query)
 			{
