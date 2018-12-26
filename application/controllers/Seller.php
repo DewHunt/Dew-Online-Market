@@ -385,5 +385,26 @@
 				}
 			}
 		}
+
+		public function InsertMobileImageUpload()
+		{
+			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			{
+				return redirect('Seller/index');
+			}
+			else
+			{
+				$result = $this->sm->InsertMobileImageUpload();
+
+				if ($result)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+		}
 	}
 ?>

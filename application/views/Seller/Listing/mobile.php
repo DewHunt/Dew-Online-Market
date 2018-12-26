@@ -700,38 +700,46 @@
 					<h5>Image</h5>
 				</div>
 				<div id="image-section">
-					<div class="row">
-						<div class="col l3 m3 s12" id="show-img-section">
-							<center>
-								<div id="show-img"></div>
-								<input type="file" name="mobile-img-one" id="mobile-img-one">
-							</center>
+					<form method="POST" name="mobile-img-form" id="moble-img-form" enctype="multipart/form-data">
+						<div class="row">
+							<div class="col l3 m3 s12" id="show-img-section">
+								<center>
+									<div id="show-img"></div>
+									<input type="file" name="mobile-img-one" id="mobile-img-one">
+								</center>
+							</div>
+							<div class="col l3 m3 s12" id="show-img-section">
+								<center>
+									<div id="show-img"></div>
+									<input type="file" name="mobile-img-two" id="mobile-img-two">
+								</center>
+							</div>
+							<div class="col l3 m3 s12" id="show-img-section">
+								<center>
+									<div id="show-img"></div>
+									<input type="file" name="mobile-img-three" id="mobile-img-three">
+								</center>
+							</div>
+							<div class="col l3 m3 s12" id="show-img-section">
+								<center>
+									<div id="show-img"></div>
+									<input type="file" name="mobile-img-four" id="mobile-img-four">
+								</center>
+							</div>
 						</div>
-						<div class="col l3 m3 s12" id="show-img-section">
-							<center>
-								<div id="show-img"></div>
-								<input type="file" name="mobile-img-two" id="mobile-img-two">
-							</center>
-						</div>
-						<div class="col l3 m3 s12" id="show-img-section">
-							<center>
-								<div id="show-img"></div>
-								<input type="file" name="mobile-img-three" id="mobile-img-three">
-							</center>
-						</div>
-						<div class="col l3 m3 s12" id="show-img-section">
-							<center>
-								<div id="show-img"></div>
-								<input type="file" name="mobile-img-four" id="mobile-img-four">
-							</center>
-						</div>
-					</div>
 
-					<div class="row">
-						<div class="col l12 m12 s12">
-							<button type="button" class="btn waves-effect waves-light green" id="btn-image">Upload & Continue</button>
+						<div class="row">
+							<div class="col l12 m12 s12">
+								<input type="text" name="mobile-img-id" id="mobile-img-id">
+							</div>
 						</div>
-					</div>
+
+						<div class="row">
+							<div class="col l12 m12 s12">
+								<button type="button" class="btn waves-effect waves-light green" id="btn-image">Upload & Continue</button>
+							</div>
+						</div>
+					</form>
 				</div>
 				<!-- Image Section End -->
 
@@ -1491,6 +1499,7 @@
 							success:function(data){
 								var mobile_id = data;
 								$('#mobile-id').val(mobile_id);
+								$('#mobile--img-id').val(mobile_id);
 
 								$('#mobile-duration-formate').prop('disabled',true);
 								$('#mobile-return-policy').prop('disabled',true);
@@ -1510,6 +1519,84 @@
 					}
 				});
 				// Listing Info Section End
+
+				// Image Upload Section Start
+				$('#btn-image').click(function(e){
+					e.preventDefault();
+
+					var mobile_img_one = $('#mobile-img-one').val();
+					var mobile_img_two = $('#mobile-img-two').val();
+					var mobile_img_three = $('#mobile-img-three').val();
+					var mobile_img_four = $('#mobile-img-four').val();
+
+					var mobile_id = $('#mobile-id').val();
+
+					if (mobile_img_one == "" || mobile_img_two == "" || mobile_img_three == "" || mobile_img_four == "")
+					{
+						if (mobile_img_one == "")
+						{
+							M.toast({html:'Please Select First Image'});
+							$('#mobile-img-one').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-img-one').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_img_two == "")
+						{
+							M.toast({html:'Please Select Second Image'});
+							$('#mobile-img-two').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-img-two').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_img_three == "")
+						{
+							M.toast({html:'Please Select Thrre Image'});
+							$('#mobile-img-three').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-img-three').css({'border':'1px solid silver'});
+						}
+
+						if (mobile_img_four == "")
+						{
+							M.toast({html:'Please Select Four Image'});
+							$('#mobile-img-four').css({'border':'1px solid red'});
+						}
+						else
+						{
+							$('#mobile-img-four').css({'border':'1px solid silver'});
+						}
+					}
+					else
+					{
+						$('#mobile-img-one').css({'border':'1px solid silver'});
+						$('#mobile-img-two').css({'border':'1px solid silver'});
+						$('#mobile-img-three').css({'border':'1px solid silver'});
+						$('#mobile-img-four').css({'border':'1px solid silver'});
+
+						$.ajax({
+							url:'InsertMobileImageUpload',
+							method:'POST',
+							data:new FormData(this),
+							cache:false,
+							ContentType:false,
+							processData:false,
+							success:function(data){
+								$('#image-section').html(data);
+							},
+							error:function(){
+								alert('Mobile Image Not Upload Successfully');
+							}
+						});
+					}
+				});
+				// Image Upload Section End
 			});
 		</script>
 	</body>

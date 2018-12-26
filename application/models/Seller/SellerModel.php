@@ -217,5 +217,19 @@
 				return false;
 			}
 		}
+
+		public function InsertMobileImageUpload()
+		{
+			$config['upload_path'] = "./mobile_image";
+			$config['allowed_types'] = "jpg|jpeg|png|gif";
+			$this->load->library('upload',$config);
+
+			$mobile_id = $this->input->post('mobile_id');
+
+			$this->upload->do_upload('mobile-img-one');
+			$this->upload->do_upload('mobile-img-two');
+			$this->upload->do_upload('mobile-img-three');
+			$this->upload->do_upload('mobile-img-four');
+		}
 	}
 ?>
