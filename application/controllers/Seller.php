@@ -377,7 +377,7 @@
 
 				if ($result)
 				{
-					return $output .= $result;
+					$output .= $result;
 				}
 				else
 				{
@@ -401,16 +401,33 @@
 
 				if ($result)
 				{
-					$output = '';
+					$output = "";
 					$get_all_img = $this->sm->GetAllMobileImage($mobile_id);
 
-					$output .= '<img src="'.base_url().$get_all_img->mobile_img_one.'" class="responsive_img">';
-
-					$output .= '<img src="'.base_url().$get_all_img->mobile_img_two.'" class="responsive_img">';
-
-					$output .= '<img src="'.base_url().$get_all_img->mobile_img_three.'" class="responsive_img">';
-					
-					$output .= '<img src="'.base_url().$get_all_img->mobile_img_four.'" class="responsive_img">';
+					$output .= "
+						<div class='row'>
+							<div class='col l3 m3 s12' id='show-img-section'>
+								<center>
+									<img src='".base_url().$get_all_img->mobile_img_one."' id='show-img' alt='Select First Image'>
+								</center>
+							</div>
+							<div class='col l3 m3 s12' id='show-img-section'>
+								<center>
+									<img src='".base_url().$get_all_img->mobile_img_two."' id='show-img' alt='Select Second Image'>
+								</center>
+							</div>
+							<div class='col l3 m3 s12' id='show-img-section'>
+								<center>
+									<img src='".base_url().$get_all_img->mobile_img_three."' id='show-img' alt='Select Third Image'>
+								</center>
+							</div>
+							<div class='col l3 m3 s12' id='show-img-section'>
+								<center>
+									<img src='".base_url().$get_all_img->mobile_img_four."' id='show-img' alt='Select Fourth Image'>
+								</center>
+							</div>
+						</div>
+						";
 
 					echo $output;
 				}

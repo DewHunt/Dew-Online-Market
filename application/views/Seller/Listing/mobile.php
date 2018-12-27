@@ -111,8 +111,7 @@
 	<body>
 		<!-- Body Section Start -->
 		<!-- hidden Input Section Start -->
-		<!-- <input type="text" name="mobile-id" id="mobile-id" style="display: none;"> -->
-		<input type="text" name="mobile-id" id="mobile-id">
+		<input type="text" name="mobile-id" id="mobile-id" style="display: none;">
 		<!-- hidden Input Section End -->
 
 		<div class="row">
@@ -704,25 +703,29 @@
 						<div class="row">
 							<div class="col l3 m3 s12" id="show-img-section">
 								<center>
-									<div id="show-img"></div>
+									<img src="" id="show-img" alt="Select First Image">
+									<!-- <div id="show-img"></div> -->
 									<input type="file" name="mobile-img-one" id="mobile-img-one">
 								</center>
 							</div>
 							<div class="col l3 m3 s12" id="show-img-section">
 								<center>
-									<div id="show-img"></div>
+									<img src="" id="show-img" alt="Select Second Image">
+									<!-- <div id="show-img"></div> -->
 									<input type="file" name="mobile-img-two" id="mobile-img-two">
 								</center>
 							</div>
 							<div class="col l3 m3 s12" id="show-img-section">
 								<center>
-									<div id="show-img"></div>
+									<img src="" id="show-img" alt="Select Third Image">
+									<!-- <div id="show-img"></div> -->
 									<input type="file" name="mobile-img-three" id="mobile-img-three">
 								</center>
 							</div>
 							<div class="col l3 m3 s12" id="show-img-section">
 								<center>
-									<div id="show-img"></div>
+									<img src="" id="show-img" alt="Select Fourth Image">
+									<!-- <div id="show-img"></div> -->
 									<input type="file" name="mobile-img-four" id="mobile-img-four">
 								</center>
 							</div>
@@ -730,12 +733,7 @@
 
 						<div class="row">
 							<div class="col l12 m12 s12">
-								<input type="text" name="mobile-img-id" id="mobile-img-id" value="34">
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col l12 m12 s12">
+								<input type="text" name="mobile-img-id" id="mobile-img-id" style="display: none;">
 								<button type="submit" class="btn waves-effect waves-light green" id="btn-image">Upload & Continue</button>
 							</div>
 						</div>
@@ -817,7 +815,7 @@
 				$('#storage-section').hide();
 				$('#camera-section').hide();
 				$('#connectivity-section').hide();
-				$('#listing-section').hide();
+				$('#listing-section').show();
 				$('#image-section').show();
 				// Hide Section End
 
@@ -1498,8 +1496,8 @@
 							data:{mobile_id:mobile_id,mobile_duration_formate:mobile_duration_formate,mobile_return_policy:mobile_return_policy,mobile_offers:mobile_offers,mobile_price:mobile_price,mobile_shipping_charge:mobile_shipping_charge},
 							success:function(data){
 								var mobile_id = data;
-								// $('#mobile-id').val(mobile_id);
-								// $('#mobile-img-id').val(mobile_id);
+								$('#mobile-id').val(mobile_id);
+								$('#mobile-img-id').val(mobile_id);
 
 								$('#mobile-duration-formate').prop('disabled',true);
 								$('#mobile-return-policy').prop('disabled',true);
@@ -1587,7 +1585,7 @@
 							processData:false,
 							success:function(data){
 								$('#image-section').html(data);
-								// alert('Mobile Images Upload and Saved Successfully');
+								alert('Mobile Images Upload and Saved Successfully');
 							},
 							error:function(){
 								alert('Mobile Image Not Upload and Saved Successfully');
