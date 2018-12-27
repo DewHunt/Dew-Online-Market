@@ -218,18 +218,50 @@
 			}
 		}
 
-		public function InsertMobileImageUpload()
+		public function InsertMobileImageUpload($mobile_id)
 		{
-			$config['upload_path'] = "./mobile_image";
+			// $config['upload_path'] = base_url('mobile_image')."/";
+			$config['upload_path'] = "mobile_image/";
 			$config['allowed_types'] = "jpg|jpeg|png|gif";
 			$this->load->library('upload',$config);
 
-			$mobile_id = $this->input->post('mobile_id');
+			$mobile_img_one = $this->upload->do_upload('mobile-img-one').$config['upload_path'].$this->upload->data('file_name');
 
-			$this->upload->do_upload('mobile-img-one');
-			$this->upload->do_upload('mobile-img-two');
-			$this->upload->do_upload('mobile-img-three');
-			$this->upload->do_upload('mobile-img-four');
+			$mobile_img_two = $this->upload->do_upload('mobile-img-two').$config['upload_path'].$this->upload->data('file_name');
+
+			$mobile_img_three = $this->upload->do_upload('mobile-img-three').$config['upload_path'].$this->upload->data('file_name');
+			
+			$mobile_img_four = $this->upload->do_upload('mobile-img-four').$config['upload_path'].$this->upload->data('file_name');
+
+			$path_one = substr($mobile_img_one,1);
+			$path_two = substr($mobile_img_two,1);
+			$path_three = substr($mobile_img_three,1);
+			$path_four = substr($mobile_img_four,1);
+
+			$update_query = $this->db->where('mobile_id',$mobile_id)->update('mobiles',['mobile_img_one'=>$path_one,'mobile_img_two'=>$path_two,'mobile_img_three'=>$path_three,'mobile_img_four'=>$path_four]);
+
+			if ($update_query)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		public function GetAllMobileImage($mobile_id)
+		{
+			$get_all_img = $this->db->get_where('mobiles',['mobile_id'=>$mobile_id]);
+
+			if ($get_all_img->num_rows() > 0)
+			{
+				return $get_all_img->row();
+			}
+			else
+			{
+				return false;
+			}
 		}
 	}
 ?>

@@ -384,6 +384,7 @@
 					return false;
 				}
 			}
+			echo $output;
 		}
 
 		public function InsertMobileImageUpload()
@@ -394,11 +395,24 @@
 			}
 			else
 			{
-				$result = $this->sm->InsertMobileImageUpload();
+				$mobile_id = $this->input->post('mobile-img-id');
+
+				$result = $this->sm->InsertMobileImageUpload($mobile_id);
 
 				if ($result)
 				{
-					return true;
+					$output = '';
+					$get_all_img = $this->sm->GetAllMobileImage($mobile_id);
+
+					$output .= '<img src="'.base_url().$get_all_img->mobile_img_one.'" class="responsive_img">';
+
+					$output .= '<img src="'.base_url().$get_all_img->mobile_img_two.'" class="responsive_img">';
+
+					$output .= '<img src="'.base_url().$get_all_img->mobile_img_three.'" class="responsive_img">';
+					
+					$output .= '<img src="'.base_url().$get_all_img->mobile_img_four.'" class="responsive_img">';
+
+					echo $output;
 				}
 				else
 				{

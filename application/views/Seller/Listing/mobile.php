@@ -700,7 +700,7 @@
 					<h5>Image</h5>
 				</div>
 				<div id="image-section">
-					<form method="POST" name="mobile-img-form" id="moble-img-form" enctype="multipart/form-data">
+					<form method="POST" id="mobile-img-form" enctype="multipart/form-data">
 						<div class="row">
 							<div class="col l3 m3 s12" id="show-img-section">
 								<center>
@@ -730,13 +730,13 @@
 
 						<div class="row">
 							<div class="col l12 m12 s12">
-								<input type="text" name="mobile-img-id" id="mobile-img-id">
+								<input type="text" name="mobile-img-id" id="mobile-img-id" value="34">
 							</div>
 						</div>
 
 						<div class="row">
 							<div class="col l12 m12 s12">
-								<button type="button" class="btn waves-effect waves-light green" id="btn-image">Upload & Continue</button>
+								<button type="submit" class="btn waves-effect waves-light green" id="btn-image">Upload & Continue</button>
 							</div>
 						</div>
 					</form>
@@ -1498,8 +1498,8 @@
 							data:{mobile_id:mobile_id,mobile_duration_formate:mobile_duration_formate,mobile_return_policy:mobile_return_policy,mobile_offers:mobile_offers,mobile_price:mobile_price,mobile_shipping_charge:mobile_shipping_charge},
 							success:function(data){
 								var mobile_id = data;
-								$('#mobile-id').val(mobile_id);
-								$('#mobile--img-id').val(mobile_id);
+								// $('#mobile-id').val(mobile_id);
+								// $('#mobile-img-id').val(mobile_id);
 
 								$('#mobile-duration-formate').prop('disabled',true);
 								$('#mobile-return-policy').prop('disabled',true);
@@ -1521,15 +1521,13 @@
 				// Listing Info Section End
 
 				// Image Upload Section Start
-				$('#btn-image').click(function(e){
+				$('#mobile-img-form').on('submit',function(e){
 					e.preventDefault();
 
 					var mobile_img_one = $('#mobile-img-one').val();
 					var mobile_img_two = $('#mobile-img-two').val();
 					var mobile_img_three = $('#mobile-img-three').val();
 					var mobile_img_four = $('#mobile-img-four').val();
-
-					var mobile_id = $('#mobile-id').val();
 
 					if (mobile_img_one == "" || mobile_img_two == "" || mobile_img_three == "" || mobile_img_four == "")
 					{
@@ -1584,14 +1582,15 @@
 							url:'InsertMobileImageUpload',
 							method:'POST',
 							data:new FormData(this),
+							contentType:false,
 							cache:false,
-							ContentType:false,
 							processData:false,
 							success:function(data){
 								$('#image-section').html(data);
+								// alert('Mobile Images Upload and Saved Successfully');
 							},
 							error:function(){
-								alert('Mobile Image Not Upload Successfully');
+								alert('Mobile Image Not Upload and Saved Successfully');
 							}
 						});
 					}
