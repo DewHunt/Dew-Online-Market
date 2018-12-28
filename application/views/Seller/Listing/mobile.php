@@ -52,7 +52,7 @@
 				margin-bottom: 7px;
 			}
 
-			#general-section,#display-section,#processor-section,#storage-section,#camera-section,#connectivity-section,#listing-section,#listing-price-section,#image-section{
+			#general-section,#display-section,#processor-section,#storage-section,#camera-section,#connectivity-section,#listing-section,#listing-price-section,#image-section,#preview-section{
 				background: white;
 				border: 1px solid green;
 				border-radius: 0px 0px 20px 20px;
@@ -60,8 +60,15 @@
 				padding: 15px 15px 0px 15px;
 			}
 
-			#general-section h6,#display-section h6,#processor-section h6,#storage-section h6,#camera-section h6,#connectivity-section h6,#listing-price-section h6,#listing-section h6,#image-section h6{
+			#general-section h6,#display-section h6,#processor-section h6,#storage-section h6,#camera-section h6,#connectivity-section h6,#listing-price-section h6,#listing-section h6,#image-section h6, #preview-section h6{
 				font-size: 14px;
+				font-weight: bold;
+				color: green;
+				margin-top: 0px;
+			}
+
+			#preview-section h6{
+				font-size: 20px;
 				font-weight: bold;
 				color: green;
 				margin-top: 0px;
@@ -80,12 +87,18 @@
 				border: 1px solid green;
 			}
 
-			#general-section p,#display-section p,#processor-section p,#storage-section p,#camera-section p,#connectivity-section p,#listing-section p,#listing-price-section p,#image-section p{
+			#general-section p,#display-section p,#processor-section p,#storage-section p,#camera-section p,#connectivity-section p,#listing-section p,#listing-price-section p,#image-section p,#preview-section p{
 				margin: 0px;
 			}
 
 			#general-section label,#display-section label,#processor-section label,#storage-section label,#camera-section label,#connectivity-section label,#listing-section label,#listing-price-section label,#image-section label{
 				color: black;
+			}
+
+			#preview-section label{
+				font-size: 20px;
+				color: silver;
+				margin-top: 0px;
 			}
 
 			#button-section button, #btn-general-info, #btn-display-info, #btn-processor-info, #btn-storage-info, #btn-camera-info, #btn-connectivity-info, #btn-listing-info, #btn-image{
@@ -115,7 +128,8 @@
 		<!-- hidden Input Section End -->
 
 		<div class="row">
-			<div class="col s8 m8 s12">
+			<!-- Details Form Section Start -->
+			<div class="col l8 m8 s12">
 				<!-- General Details Section Start -->
 				<div id="section-heading">
 					<h5>Mobile General Details</h5>
@@ -769,12 +783,25 @@
 				</div>
 				<!-- Button Section End -->
 			</div>
+			<!-- Details Form Section End -->
 
-			<div class="col s4 m4 s12">
-				<div style="background: white; border: 1px solid green; margin: 5px; padding: 0px 5px 5px 5px;">
-					<h5>Div 02</h5>
+			<!-- Preview Section Start -->
+			<div class="col l4 m4 s12">
+				<div id="section-heading">
+					<h5><span class="fa fa-eye"></span>&nbsp;Preview Section</h5>
+				</div>
+				<div id="preview-section">
+					<h6>Title:&nbsp;<label id="show-mobile-title"></label></h6>
+					<h6>Model Number:&nbsp;<label id="show-model-number"></label></h6>
+					<h6>Name:&nbsp;<label id="show-model-name"></label></h6>
+					<h6>Brand:&nbsp;<label id="show-mobile-brand"></label></h6>
+					<h6>Color:&nbsp;<label id="show-mobile-color"></label></h6>
+					<h6>Sim:&nbsp;<label id="show-mobile-sim"></label></h6>
+					<h6>Sim Type:&nbsp;<label id="show-mobile-sim-type"></label></h6>
+					<h6>OTG:&nbsp;<label id="show-mobile-otg"></label></h6>
 				</div>
 			</div>
+			<!-- Preview Section End -->
 		</div>
 
 		<!-- Body Section End -->
@@ -815,8 +842,8 @@
 				$('#storage-section').hide();
 				$('#camera-section').hide();
 				$('#connectivity-section').hide();
-				$('#listing-section').show();
-				$('#image-section').show();
+				$('#listing-section').hide();
+				$('#image-section').hide();
 				// Hide Section End
 
 				// General Info Script Section Start
@@ -1594,6 +1621,48 @@
 					}
 				});
 				// Image Upload Section End
+
+				// Side Panle Preview Section Script Start
+				$('#mobile-title').keyup(function(){
+					var mobile_title = $('#mobile-title').val();
+					$('#show-mobile-title').html(mobile_title);
+				});
+
+				$('#mobile-model-number').keyup(function(){
+					var mobile_model_number = $('#mobile-model-number').val();
+					$('#show-model-number').html(mobile_model_number);
+				});
+
+				$('#mobile-model-name').keyup(function(){
+					var mobile_model_name = $('#mobile-model-name').val();
+					$('#show-model-name').html(mobile_model_name);
+				});
+
+				$('#show-select-brand').on('change','#mobile-brand-id',function(){
+					var mobile_brand_id = $(this).val();
+					$('#show-mobile-brand').html(mobile_brand_id);
+				});
+
+				$('input:radio[name=mobile-color]').click(function(){
+					var mobile_color = $(this).val();
+					$('#show-mobile-color').html(mobile_color);
+				});
+
+				$('input:radio[name=mobile-sim]').click(function(){
+					var mobile_sim = $(this).val();
+					$('#show-mobile-sim').html(mobile_sim);
+				});
+
+				$('input:radio[name=mobile-sim-type]').click(function(){
+					var mobile_sim_type = $(this).val();
+					$('#show-mobile-sim-type').html(mobile_sim_type);
+				});
+
+				$('input:radio[name=mobile-otg]').click(function(){
+					var mobile_otg = $(this).val();
+					$('#show-mobile-otg').html(mobile_otg);
+				});
+				// Side Panle Preview Section Script End
 			});
 		</script>
 	</body>

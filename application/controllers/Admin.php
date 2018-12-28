@@ -161,7 +161,7 @@
 				$output .= '<option value="">Select Brand</option>';
 				foreach ($result as $brands)
 				{
-					$output .= '<option value="'.$brands->brand_id.'">'.$brands->brand_name.'</option>';
+					$output .= '<option value="'.$brands->brand_name.'">'.$brands->brand_name.'</option>';
 				}
 				$output .= '</select>';
 			}
