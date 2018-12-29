@@ -67,13 +67,6 @@
 				margin-top: 0px;
 			}
 
-			#preview-section h6{
-				font-size: 20px;
-				font-weight: bold;
-				color: green;
-				margin-top: 0px;
-			}
-
 			#general-section input,#display-section input,#processor-section input,#storage-section input,#camera-section input,#connectivity-section input,#listing-price-section input,#listing-section input,#image-section input{
 				border: 1px solid silver;
 				height: 30px;
@@ -95,12 +88,6 @@
 				color: black;
 			}
 
-			#preview-section label{
-				font-size: 20px;
-				color: silver;
-				margin-top: 0px;
-			}
-
 			#button-section button, #btn-general-info, #btn-display-info, #btn-processor-info, #btn-storage-info, #btn-camera-info, #btn-connectivity-info, #btn-listing-info, #btn-image{
 				width: 100%;
 				width: 100%; button
@@ -118,6 +105,17 @@
 
 			#mobile-img-one, #mobile-img-two, #mobile-img-three, #mobile-img-four{
 				width: 180px;
+			}
+
+			th{
+				padding: 0px;
+			}
+
+			td{
+				border: 0px solid;
+				padding: 0px;
+				color: green;
+				font-weight: bold;
 			}
 		</style>
 	</head>
@@ -791,14 +789,83 @@
 					<h5><span class="fa fa-eye"></span>&nbsp;Preview Section</h5>
 				</div>
 				<div id="preview-section">
-					<h6>Title:&nbsp;<label id="show-mobile-title"></label></h6>
-					<h6>Model Number:&nbsp;<label id="show-model-number"></label></h6>
-					<h6>Name:&nbsp;<label id="show-model-name"></label></h6>
-					<h6>Brand:&nbsp;<label id="show-mobile-brand"></label></h6>
-					<h6>Color:&nbsp;<label id="show-mobile-color"></label></h6>
-					<h6>Sim:&nbsp;<label id="show-mobile-sim"></label></h6>
-					<h6>Sim Type:&nbsp;<label id="show-mobile-sim-type"></label></h6>
-					<h6>OTG:&nbsp;<label id="show-mobile-otg"></label></h6>
+					<!-- General Details Preview Section Start -->
+					<table>
+						<tr>
+							<td>Title</td>
+							<td>:</td>
+							<td><p id="show-mobile-title"></p></td>
+						</tr>
+
+						<tr>
+							<td>Model Number</td>
+							<td>:</td>
+							<td><p id="show-model-number"></p></td>
+						</tr>
+
+						<tr>
+							<td>Name</td>
+							<td>:</td>
+							<td><p id="show-model-name"></p></td>
+						</tr>
+
+						<tr>
+							<td>Brand</td>
+							<td>:</td>
+							<td><p id="show-mobile-brand"></p></td>
+						</tr>
+
+						<tr>
+							<td>Color</td>
+							<td>:</td>
+							<td><p id="show-mobile-color"></p></td>
+						</tr>
+
+						<tr>
+							<td>Display Size</td>
+							<td>:</td>
+							<td><p id="show-mobile-display-size"></p></td>
+						</tr>
+
+						<tr>
+							<td>Operating Sytem</td>
+							<td>:</td>
+							<td><p id="show-mobile-os"></p></td>
+						</tr>
+
+						<tr>
+							<td>Processor Size</td>
+							<td>:</td>
+							<td><p id="show-mobile-processor-size"></p></td>
+						</tr>
+
+						<tr>
+							<td>RAM</td>
+							<td>:</td>
+							<td><p id="show-mobile-ram"></p></td>
+						</tr>
+
+						<tr>
+							<td>Primary Camera</td>
+							<td>:</td>
+							<td><p id="show-mobile-primary-camera"></p></td>
+						</tr>
+
+						<tr>
+							<td>Secondary Camera</td>
+							<td>:</td>
+							<td><p id="show-mobile-secondary-camera"></p></td>
+						</tr>
+
+						<tr>
+							<td>Network Type</td>
+							<td>:</td>
+							<td><p id="show-mobile-network-type"></p></td>
+						</tr>
+					</table>
+					<!-- General Details Preview Section End -->
+
+					<br>
 				</div>
 			</div>
 			<!-- Preview Section End -->
@@ -1648,19 +1715,39 @@
 					$('#show-mobile-color').html(mobile_color);
 				});
 
-				$('input:radio[name=mobile-sim]').click(function(){
-					var mobile_sim = $(this).val();
-					$('#show-mobile-sim').html(mobile_sim);
+				$('#mobile-display-size').on('change',function(){
+					var mobile_display_size = $('#mobile-display-size').val();
+					$('#show-mobile-display-size').html(mobile_display_size);
 				});
 
-				$('input:radio[name=mobile-sim-type]').click(function(){
-					var mobile_sim_type = $(this).val();
-					$('#show-mobile-sim-type').html(mobile_sim_type);
+				$('#mobile-os').on('change',function(){
+					var mobile_os = $('#mobile-os').val();
+					$('#show-mobile-os').html(mobile_os);
 				});
 
-				$('input:radio[name=mobile-otg]').click(function(){
-					var mobile_otg = $(this).val();
-					$('#show-mobile-otg').html(mobile_otg);
+				$('#mobile-processor-size').keyup(function(){
+					var mobile_processor_size = $('#mobile-processor-size').val();
+					$('#show-mobile-processor-size').html(mobile_processor_size);
+				});
+
+				$('#mobile-ram').on('change',function(){
+					var mobile_ram = $('#mobile-ram').val();
+					$('#show-mobile-ram').html(mobile_ram);
+				});
+
+				$('input:radio[name=mobile-primary-camera]').click(function(){
+					var mobile_primary_camera = $(this).val();
+					$('#show-mobile-primary-camera').html(mobile_primary_camera);
+				});
+
+				$('input:radio[name=mobile-secondary-camera]').click(function(){
+					var mobile_secondary_camera = $(this).val();
+					$('#show-mobile-secondary-camera').html(mobile_secondary_camera);
+				});
+
+				$('#mobile-network-type').keyup(function(){
+					var mobile_network_type = $('#mobile-network-type').val();
+					$('#show-mobile-network-type').html(mobile_network_type);
 				});
 				// Side Panle Preview Section Script End
 			});

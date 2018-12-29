@@ -57,6 +57,42 @@
 				border: 1px solid silver;
 				outline: none;
 			}
+
+			#main-row{
+				border: 0px solid;
+				margin-top: 10px;
+			}
+
+			#main-box{
+				border: 1px solid green;
+				background: green;
+				border-radius: 15px;
+			}
+
+			#icon-text-row{
+				padding: 0px;
+				margin: 0px;
+			}
+
+			#text{
+				margin: 0px;
+				padding: 10px;
+				border: 0px solid;
+				text-align: center;
+				color: white;
+			}
+
+			#text h4,#text h6,#icon h4{
+				margin: 0px;
+			}
+
+			#icon{
+				margin: 0px;
+				padding: 19px;
+				border: 0px solid;
+				text-align: center;
+				color: white;
+			}
 		</style>
 	</head>
 	<body>
@@ -136,6 +172,27 @@
 		</div>
 		<!-- Brand Modal Section End -->
 		<!-- Menu Bar Section End -->
+
+		<!-- Main Section Start -->
+		<div class="row" id="main-row">
+			<div class="col l3 m6 s12">
+				<div id="main-box">
+					<!-- Icon & Text Section Start -->
+					<div class="row" id="icon-text-row">
+						<div class="col s8 m8 s8" id="text">
+							<h4>1,25,000</h4>
+							<h6>Seller</h6>
+						</div>
+						<div class="col s4 m4 s4" id="icon">
+							<h4><span class="fa fa-users"></span></h4>
+						</div>
+					</div>
+					<!-- Icon & Text Section End -->
+				</div>
+			</div>
+		</div>
+		<!-- Main Section End -->
+
 		<!-- Body Section End -->
 
 		<!-- JQuery JS file include -->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2018 at 10:37 AM
+-- Generation Time: Dec 29, 2018 at 11:05 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -160,10 +160,8 @@ CREATE TABLE `mobiles` (
 --
 
 INSERT INTO `mobiles` (`mobile_id`, `seller_id`, `mobile_title`, `mobile_brand_id`, `mobile_model_number`, `mobile_model_name`, `mobile_color`, `mobile_sim`, `mobile_sim_type`, `mobile_otg`, `mobile_display_size`, `mobile_display_resolution`, `mobile_display_type`, `mobile_resolution_type`, `mobile_os`, `mobile_os_version`, `mobile_processor_type`, `mobile_processor_size`, `mobile_internal_storage`, `mobile_ram`, `mobile_expandable_storage`, `mobile_memory_card_slot`, `mobile_memory_card_type`, `mobile_primary_camera`, `mobile_secondary_camera`, `mobile_flash`, `mobile_primary_camera_resolution`, `mobile_secondary_camera_resolution`, `mobile_network_type`, `mobile_battery`, `mobile_bluetooth`, `mobile_wifi`, `mobile_usb_slot`, `mobile_duration_formate`, `mobile_return_policy`, `mobile_offers`, `mobile_price`, `mobile_shipping_charge`, `mobile_upload_date`, `mobile_upload_month`, `mobile_upload_year`, `mobile_status`, `mobile_img_one`, `mobile_img_two`, `mobile_img_three`, `mobile_img_four`) VALUES
-(4, 0, 'Mobile', '1', '01', 'Mobile Name', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '0', '0', '0', '', '', '', '', ''),
-(5, 0, 'Mob', '2', '23', 'Mob Name', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '0', '0', '0', '', '', '', '', ''),
-(6, 0, 'Mob', '2', '23', 'Mob Name', 'Black', 'Single Sim', 'Nano', 'Yes', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '0', '0', '0', '', '', '', '', ''),
-(34, 3, 'x', '1', 'y', 'z', 'Black', 'Dual Sim', 'Micro', 'Yes', '6.0 Inch', '1080px', 'AMOLED', 'Full HD', 'Android', '9.0', 'Octa Core', '8', '64GB', '3GB', 'Yes', 'Yes', 'Micro SD Card', 'Yes', 'Yes', 'Yes', '20MP', '16MP', '4G', '4500AmpH', 'Yes', 'Yes', 'Yes', '7 Days', '5 days', 5, 49990, 1500, '2018-12-24', '12', '2018', 'Active', '', '', '', '');
+(36, 3, 'Samsung S9', 'Samsung', 'S127896', 'Samsung', 'Red', 'Dual Sim', 'Micro', 'Yes', '6.0 Inch', '1080px', 'AMOLED', 'Full HD', 'Android', '9.0', 'Octa Core', '2.69 GHz', '128GB', '4GB', 'Yes', 'Yes', 'Micro SD Card', 'Yes', 'Yes', 'Yes', '25MP', '16MP', 'GSM', '4500 mAp', 'Yes', 'Yes', 'Yes', '7 Days', '5 days', 5, 49990, 1200, '2018-12-29', '12', '2018', 'Active', 'mobile_image/pic_04.jpg', 'mobile_image/pic_05.jpg', 'mobile_image/pic_06.jpg', 'mobile_image/pic_07.jpg'),
+(37, 4, 'Apple iPhone X', 'Apple', 'A1901', 'iPhone X', 'Golden', 'Single Sim', 'Micro', 'Yes', '6.5 Inch', '1080px', 'AMOLED', 'Full HD', 'iOS', '11.1.1', 'Hexa Core', '2.5 GHz', '256GB', '4GB', 'Yes', 'Yes', 'Micro SD Card', 'Yes', 'Yes', 'Yes', '20MP', '12MP', 'GSM', '4800 mAh', 'Yes', 'Yes', 'Yes', '7 Days', '5 days', 10, 89990, 1500, '2018-12-29', '12', '2018', 'Active', 'mobile_image/pic_00.jpg', 'mobile_image/pic_01.jpg', 'mobile_image/pic_02.png', 'mobile_image/pic_03.png');
 
 -- --------------------------------------------------------
 
@@ -195,7 +193,7 @@ CREATE TABLE `seller` (
 
 INSERT INTO `seller` (`seller_id`, `seller_company_name`, `seller_email`, `seller_password`, `seller_mobile_number`, `seller_pin_code`, `seller_company_pan_number`, `seller_gst_number`, `create_date`, `seller_month`, `seller_year`, `seller_fname`, `seller_lname`, `seller_address`, `seller_city`) VALUES
 (3, 'Diamond World', 'info@dw.com', '12345', '01766328322', 1216, 'DW123AB456', 'A123B456C789', '', 0, 0, 'Dew', 'Hunt', 'Mirpur - 11', 'Dhaka'),
-(4, 'Beca Kina', 'becakina@gmail.com', '123456', '01766322328', 1217, 'DW321AB654', 'A321B654C987', '', 0, 0, '', '', '', ''),
+(4, 'Beca Kina', 'becakina@gmail.com', '123456', '01766322328', 1217, 'DW321AB654', 'A321B654C987', '', 0, 0, 'Salman', 'Sabbir', 'Gulshan 1', 'Dhaka'),
 (7, 'Jems Arcade', 'jemsarc@gmail.com', '123456', '01766328321', 1218, 'DW311AB656', 'A311B644C988', '2018-11-17', 11, 2018, '', '', '', '');
 
 --
@@ -258,7 +256,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `mobiles`
 --
 ALTER TABLE `mobiles`
-  MODIFY `mobile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `mobile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `seller`
