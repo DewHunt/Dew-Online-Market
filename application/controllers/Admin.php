@@ -174,6 +174,55 @@
 			echo $output;
 		}
 
-		// Update - 181219
+		public function GetAllSellers()
+		{
+			if ($this->session->userdata('admin_username') == "" || $this->session->userdata('admin_password') == "")
+			{
+				return redirect('Admin/index');
+			}
+			else
+			{
+				$output = "";
+				$result = $this->am->GetAllSellers();
+
+				if ($result)
+				{
+					$output = count($result);
+				}
+				else
+				{
+					return false;
+				}
+			}
+			echo $output;
+		}
+
+		public function Sellers()
+		{
+			if ($this->session->userdata('admin_username') == "" || $this->session->userdata('admin_password') == "")
+			{
+				return redirect('Admin/index');
+			}
+			else
+			{
+				$result = $this->am->GetAllSellers();
+				$this->load->view('Admin/sellers',['seller'=>$result]);;
+			}
+		}
+
+		public function Products()
+		{
+			echo "This Is PRODUCTS Information Page";
+		}
+
+		public function Users()
+		{
+			echo "This Is USERS Information Page";
+		}
+
+		public function Income()
+		{
+			echo "This Is INCOME Information Page";
+		}
 	}
 ?>

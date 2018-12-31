@@ -64,7 +64,7 @@
 			}
 
 			#main-box{
-				border: 1px solid green;
+				border: 3px solid blue;
 				background: green;
 				border-radius: 15px;
 			}
@@ -74,7 +74,7 @@
 				margin: 0px;
 			}
 
-			#text{
+			#text, #text a{
 				margin: 0px;
 				padding: 10px;
 				border: 0px solid;
@@ -175,21 +175,69 @@
 
 		<!-- Main Section Start -->
 		<div class="row" id="main-row">
+			<!-- Seller Text & Icon Section Start -->
 			<div class="col l3 m6 s12">
 				<div id="main-box">
-					<!-- Icon & Text Section Start -->
+					<div class="row" id="icon-text-row">
+						<div class="col s8 m8 s8" id="text">
+							<h4><span id="show-sellers-number">0</span></h4>
+							<h6><a href="<?= base_url('index.php/Admin/Sellers') ?>" target="_balnk">Seller</a></h6>
+						</div>
+						<div class="col s4 m4 s4" id="icon">
+							<h4><span class="fa fa-user"></span></h4>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Seller Text & Icon Section End -->
+			
+			<!-- Products Text & Icon Section Start -->
+			<div class="col l3 m6 s12">
+				<div id="main-box">
 					<div class="row" id="icon-text-row">
 						<div class="col s8 m8 s8" id="text">
 							<h4>1,25,000</h4>
-							<h6>Seller</h6>
+							<h6><a href="<?= base_url('index.php/Admin/Products'); ?>" target="_blank">Products</a></h6>
+						</div>
+						<div class="col s4 m4 s4" id="icon">
+							<h4><span class="fa fa-cubes"></span></h4>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Products Text & Icon Section End -->
+
+			<!-- Users Text & Icon Section Start -->
+			<div class="col l3 m6 s12">
+				<div id="main-box">
+					<div class="row" id="icon-text-row">
+						<div class="col s8 m8 s8" id="text">
+							<h4>1,25,000</h4>
+							<h6><a href="<?= base_url('index.php/Admin/Users'); ?>" target="_blank">Users</a></h6>
 						</div>
 						<div class="col s4 m4 s4" id="icon">
 							<h4><span class="fa fa-users"></span></h4>
 						</div>
 					</div>
-					<!-- Icon & Text Section End -->
 				</div>
 			</div>
+			<!-- Users Text & Icon Section End -->
+
+			<!-- Income Text & Icon Section Start -->
+			<div class="col l3 m6 s12">
+				<div id="main-box">
+					<div class="row" id="icon-text-row">
+						<div class="col s8 m8 s8" id="text">
+							<h4>1,25,000</h4>
+							<h6><a href="<?= base_url('index.php/Admin/Income'); ?>" target="_blank">Income</a></h6>
+						</div>
+						<div class="col s4 m4 s4" id="icon">
+							<h4><span class="fa fa-dollar"></span></h4>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Income Tect & Icon Section End -->
 		</div>
 		<!-- Main Section End -->
 
@@ -293,9 +341,28 @@
 					}
 				});
 				// Add Brand Script Section End
+
+				// Get Seller Script Section Start
+				GetAllSellers();
+
+				function GetAllSellers()
+				{
+					$.ajax({
+						type:'ajax',
+						url:'<?= base_url('index.php/admin/GetAllSellers') ?>',
+						beforeSend:function(data){
+							$('#show-sellers-number').text('Waiting')
+						},
+						success:function(data){
+							$('#show-sellers-number').html(data);
+						},
+						error:function(){
+							M.toast({html:'Data Has No Seller Information'});
+						}
+					});
+				}
+				// Get Seller Script Section End
 			});
 		</script>
-
-		<!-- Update - 181219 -->
 	</body>
 </html>

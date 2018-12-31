@@ -113,6 +113,18 @@
 			}
 		}
 
-		// Update - 181219
+		public function GetAllSellers()
+		{
+			$seller_query = $this->db->select()->from('seller')->order_by('seller_id','desc')->get();
+
+			if ($seller_query->num_rows() > 0)
+			{
+				return $seller_query->result();
+			}
+			else
+			{
+				return $seller_query->result();
+			}
+		}
 	}
 ?>
