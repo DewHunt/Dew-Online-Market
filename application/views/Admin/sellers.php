@@ -102,14 +102,14 @@
 							<td><?= $data->seller_gst_number; ?></td>
 							<td><?= $data->seller_create_date; ?></td>
 							<td>
-								<?php if($data->seller_status == "Verify"): ?>
+								<?php if($data->seller_status == "Verified"): ?>
 									<span class="center badge green white-text">Verified</span>
 									<?php else: ?>
-										<a href="" class="btn waves-effect waves-light" id="verify-button">Verify</a>
+										<a href='<?= base_url("index.php/Admin/SellerStatus/{$data->seller_id}"); ?>' class="btn waves-effect waves-light" id="verify-button">Verify</a>
 								<?php endif; ?>
 							</td>
 							<td>
-								<?php if($data->seller_status == "Verify"): ?>
+								<?php if($data->seller_status == "Verified"): ?>
 									<button type="button" class="btn waves-effect waves-light" id="more-button">More</button>
 									<?php else: ?>
 										<button type="button" class="btn waves-effect waves-light" disabled id="more-button"="">More</button>
@@ -138,3 +138,12 @@
 		<!-- <script type="text/javascript" src="../assets/materialize/js/materialize.js"></script> -->
 	</body>
 </html>
+
+<!-- PHP Message Section Start -->
+<?php
+	if ($msg = $this->session->flashdata('message'))
+	{
+		echo "<script>M.toast({html:'$msg'})</script>";
+	}
+?>
+<!-- PHP Message Section End -->

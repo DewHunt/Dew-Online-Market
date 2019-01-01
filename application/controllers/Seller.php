@@ -88,13 +88,20 @@
 
 		public function Dashboard()
 		{
-			if($this->session->userdata('seller_email') == "" && $this->session->userdata('seller_password') == "")
+			$user_name = $this->session->userdata('seller_username');
+			$user_password = $this->session->userdata('seller_password');
+
+			if($user_name == "" && $user_password == "")
 			{
 				return redirect('Seller/index');
 			}
 			else
 			{
-				$this->load->view('Seller/dashboard');
+				$gal_result = $this->sm->GetAuctionListing($user_name,$user_password);
+
+				$gscal_result = $this->sm->GetUsedCurrentAuctionListing($user_name,$user_password);
+
+				$this->load->view('Seller/dashboard',['auction_listing'=>$gal_result,'used_auction_listing'=>$gscal_result]);
 			}
 		}
 

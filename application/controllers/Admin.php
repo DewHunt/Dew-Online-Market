@@ -176,7 +176,7 @@
 
 		public function GetAllSellers()
 		{
-			if ($this->session->userdata('admin_username') == "" || $this->session->userdata('admin_password') == "")
+			if ($this->session->userdata('admin_username') == "" && $this->session->userdata('admin_password') == "")
 			{
 				return redirect('Admin/index');
 			}
@@ -199,7 +199,7 @@
 
 		public function Sellers()
 		{
-			if ($this->session->userdata('admin_username') == "" || $this->session->userdata('admin_password') == "")
+			if ($this->session->userdata('admin_username') == "" && $this->session->userdata('admin_password') == "")
 			{
 				return redirect('Admin/index');
 			}
@@ -207,6 +207,28 @@
 			{
 				$result = $this->am->GetAllSellers();
 				$this->load->view('Admin/sellers',['seller'=>$result]);;
+			}
+		}
+
+		public function SellerStatus($seller_id)
+		{
+			if ($this->session->userdata('admin_username') == "" && $this->session->userdata('admin_password') == "")
+			{
+				return redirect('Admin/index');
+			}
+			else
+			{
+				$result = $this->am->SellerStatus($seller_id);
+
+				if ($result)
+				{
+					$this->session->set_flashdata('message','Selected Seller Verified Succesfully');
+					return redirect('Admin/Sellers');
+				}
+				else
+				{
+					return redirect('Admin/Sellers');
+				}
 			}
 		}
 

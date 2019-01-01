@@ -126,5 +126,37 @@
 				return $seller_query->result();
 			}
 		}
+
+		public function SellerStatus($seller_id)
+		{
+			$check_status = $this->db->get_where('seller',['seller_id'=>$seller_id,'seller_status'=>'']);
+
+			if ($check_status->num_rows() > 0)
+			{
+				$seller_status_query = $this->db->where('seller_id',$seller_id)->update('seller',['seller_status'=>'Verified']);
+
+				if ($seller_status_query)
+				{
+					$insert_listing = $this->db->insert('seller_listing',['seller_id'=>$seller_id,'sl_start_date'=>date('Y-m-d'),'sl_last_date'=>date('Y-m-d',strtotime('7 days')),'sl_month'=>date('m'),'sl_year'=>date('Y'),'sl_number'=>'2','sl_type'=>'Auction']);
+
+					if ($insert_listing)
+					{
+						return true;
+					}
+					else
+					{
+						return false;
+					}
+				}
+				else
+				{
+					return false;
+				}
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 ?>

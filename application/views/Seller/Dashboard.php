@@ -427,21 +427,21 @@
 						<h5>Fixed Price Listing</h5>
 						<div id="promotional-inner-box">
 							<h6>
-								<b>Start Date:</b> 2018-5-20&nbsp;||&nbsp;<b>End Date:</b> 2018-6-25
+								<b>Start Date:</b>&nbsp;2018-5-20&nbsp;||&nbsp;<b>End Date:</b>&nbsp;2018-6-25
 							</h6>
-							<h6><b>Used/Left:</b> <a href="">250</a>/250</h6>
+							<h6><b>Used/Total:</b> <a href="">250</a>/250</h6>
 						</div>					
 					</div>
 
 					<hr>
 
 					<div id="promotional-box">
-						<h5>Fixed Price Listing</h5>
+						<h5>Auction Price Listing</h5>
 						<div id="promotional-inner-box">
 							<h6>
-								<b>Start Date:</b> 2018-5-20&nbsp;||&nbsp;<b>End Date:</b> 2018-6-25
+								<b>Start Date:</b>&nbsp;<?= date('d-M-Y',strtotime($auction_listing->sl_start_date)); ?>&nbsp;||&nbsp;<b>End Date:</b>&nbsp;<?= date('d-M-Y',strtotime($auction_listing->sl_last_date)); ?>
 							</h6>
-							<h6><b>Used/Left:</b> <a href="">250</a>/250</h6>
+							<h6><b>Used/Total:</b> <a href=""><?= count($used_auction_listing); ?></a>/<?= $auction_listing->sl_number; ?></h6>
 						</div>					
 					</div>
 				</div>

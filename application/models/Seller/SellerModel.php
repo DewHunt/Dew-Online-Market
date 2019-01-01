@@ -263,5 +263,72 @@
 				return false;
 			}
 		}
+
+		public function GetSellerID($seller_email,$seller_password)
+		{
+			$seller_query = $this->db->get_where('seller',['seller_email'=>$seller_email,'seller_password'=>$seller_password]);
+
+			if ($seller_query->num_rows() > 0)
+			{
+				return $seller_query->row('seller_id');
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		public function GetAuctionListing($seller_email,$seller_password)
+		{
+			$seller_id = $this->GetSellerID($seller_email,$seller_password);
+
+			if ($seller_id)
+			{
+				$seller_listing_query = $this->db->get_where('seller_listing',['seller_id'=>$seller_id,'sl_type'=>'Auction']);
+
+				if ($seller_listing_query->num_rows() > 0)
+				{
+					return $seller_listing_query->row();
+				}
+				else
+				{
+					return false;
+				}
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		public function GetUsedCurrentAuctionListing($seller_email,$seller_password)
+		{
+			$seller_listing_data = $this->GetAuctionListing($seller_email,$seller_password);
+
+			if ($seller_listing_data)
+			{
+				$seller_id = $seller_listing_data->seller_id;
+				$start_date = $seller_listing_data->sl_start_date;
+				$last_date = $seller_listing_data->sl_last_date;
+
+				// echo "Seller Id = ".$seller_id."<br>".$start_date." to ".$last_date;
+				// exit();
+
+				$get_mobile_data = $this->db->get_where('mobiles',['seller_id'=>$seller_id,'mobile_upload_date>='=>$start_date,'mobile_upload_date<='=>$last_date]);
+
+				if ($get_mobile_data->num_rows() > 0)
+				{
+					return $get_mobile_data->result();
+				}
+				else
+				{
+					return $get_mobile_data->result();
+				}
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 ?>
