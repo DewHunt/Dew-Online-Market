@@ -429,7 +429,7 @@
 							<h6>
 								<b>Start Date:</b>&nbsp;2018-5-20&nbsp;||&nbsp;<b>End Date:</b>&nbsp;2018-6-25
 							</h6>
-							<h6><b>Used/Total:</b> <a href="">250</a>/250</h6>
+							<h6><b>Used / Left:</b> <a href="">250</a> / 250</h6>
 						</div>					
 					</div>
 
@@ -441,7 +441,22 @@
 							<h6>
 								<b>Start Date:</b>&nbsp;<?= date('d-M-Y',strtotime($auction_listing->sl_start_date)); ?>&nbsp;||&nbsp;<b>End Date:</b>&nbsp;<?= date('d-M-Y',strtotime($auction_listing->sl_last_date)); ?>
 							</h6>
-							<h6><b>Used/Total:</b> <a href=""><?= count($used_auction_listing); ?></a>/<?= $auction_listing->sl_number; ?></h6>
+							<h6>
+								<b>Used / Left:</b>
+								<a href=""><?= count($used_auction_listing); ?></a> /
+								<?php
+									$left_listing = $auction_listing->sl_number - count($used_auction_listing);
+									if ($left_listing <= 0)
+									{
+										echo "0";
+									}
+									else
+									{
+										echo $left_listing;
+									}
+								?>
+								<!-- <?= $auction_listing->sl_number-count($used_auction_listing); ?> -->
+							</h6>
 						</div>					
 					</div>
 				</div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2019 at 11:48 AM
+-- Generation Time: Jan 02, 2019 at 12:14 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -161,9 +161,9 @@ CREATE TABLE `mobiles` (
 --
 
 INSERT INTO `mobiles` (`mobile_id`, `seller_id`, `mobile_title`, `mobile_brand_id`, `mobile_model_number`, `mobile_model_name`, `mobile_color`, `mobile_sim`, `mobile_sim_type`, `mobile_otg`, `mobile_display_size`, `mobile_display_resolution`, `mobile_display_type`, `mobile_resolution_type`, `mobile_os`, `mobile_os_version`, `mobile_processor_type`, `mobile_processor_size`, `mobile_internal_storage`, `mobile_ram`, `mobile_expandable_storage`, `mobile_memory_card_slot`, `mobile_memory_card_type`, `mobile_primary_camera`, `mobile_secondary_camera`, `mobile_flash`, `mobile_primary_camera_resolution`, `mobile_secondary_camera_resolution`, `mobile_network_type`, `mobile_battery`, `mobile_bluetooth`, `mobile_wifi`, `mobile_usb_slot`, `mobile_duration_formate`, `mobile_return_policy`, `mobile_offers`, `mobile_price`, `mobile_shipping_charge`, `mobile_upload_date`, `mobile_upload_month`, `mobile_upload_year`, `mobile_status`, `mobile_img_one`, `mobile_img_two`, `mobile_img_three`, `mobile_img_four`) VALUES
-(36, 3, 'Samsung S9', 'Samsung', 'S127896', 'Samsung', 'Red', 'Dual Sim', 'Micro', 'Yes', '6.0 Inch', '1080px', 'AMOLED', 'Full HD', 'Android', '9.0', 'Octa Core', '2.69 GHz', '128GB', '4GB', 'Yes', 'Yes', 'Micro SD Card', 'Yes', 'Yes', 'Yes', '25MP', '16MP', 'GSM', '4500 mAp', 'Yes', 'Yes', 'Yes', '7 Days', '5 days', 5, 49990, 1200, '2019-01-01', '01', '2019', 'Active', 'mobile_image/pic_04.jpg', 'mobile_image/pic_05.jpg', 'mobile_image/pic_06.jpg', 'mobile_image/pic_07.jpg'),
-(37, 4, 'Apple iPhone X', 'Apple', 'A1901', 'iPhone X', 'Golden', 'Single Sim', 'Micro', 'Yes', '6.5 Inch', '1080px', 'AMOLED', 'Full HD', 'iOS', '11.1.1', 'Hexa Core', '2.5 GHz', '256GB', '4GB', 'Yes', 'Yes', 'Micro SD Card', 'Yes', 'Yes', 'Yes', '20MP', '12MP', 'GSM', '4800 mAh', 'Yes', 'Yes', 'Yes', '7 Days', '5 days', 10, 89990, 1500, '2019-01-01', '01', '2019', 'Active', 'mobile_image/pic_00.jpg', 'mobile_image/pic_01.jpg', 'mobile_image/pic_02.png', 'mobile_image/pic_03.png'),
-(38, 3, 'Primo X5', 'Walton', 'X5', 'Primo', 'Silver', 'Dual Sim', 'Nano', 'Yes', '6.0 Inch', '1080px', 'AMOLED', 'Full HD', 'Android', 'Android Oreo 8.1', 'Octa Core', '64bit 2.0 GHz', '64GB', '6GB', 'Yes', 'Yes', 'Micro SD Card', 'Yes', 'Yes', 'Yes', 'BSI 13+5MP Dual Auto Focus rear camera', 'BSI 16MP Front camera', 'LTE (4G)/UMTS (3G)/GSM (2G)', 'Li-polymer 3450mAh', 'Yes', 'Yes', 'Yes', '30 Days', '15 days', 5, 24990, 250, '2019-01-01', '01', '2019', 'Active', 'mobile_image/pic_08.jpg', 'mobile_image/pic_09.jpg', 'mobile_image/pic_10.jpg', 'mobile_image/pic_11.jpg');
+(36, 3, 'Samsung S9', 'Samsung', 'S127896', 'Samsung', 'Red', 'Dual Sim', 'Micro', 'Yes', '6.0 Inch', '1080px', 'AMOLED', 'Full HD', 'Android', '9.0', 'Octa Core', '2.69 GHz', '128GB', '4GB', 'Yes', 'Yes', 'Micro SD Card', 'Yes', 'Yes', 'Yes', '25MP', '16MP', 'GSM', '4500 mAp', 'Yes', 'Yes', 'Yes', '7 Days', '5 Days', 5, 49990, 1200, '2019-01-01', '01', '2019', 'Active', 'mobile_image/pic_04.jpg', 'mobile_image/pic_05.jpg', 'mobile_image/pic_06.jpg', 'mobile_image/pic_07.jpg'),
+(37, 4, 'Apple iPhone X', 'Apple', 'A1901', 'iPhone X', 'Golden', 'Single Sim', 'Micro', 'Yes', '6.5 Inch', '1080px', 'AMOLED', 'Full HD', 'iOS', '11.1.1', 'Hexa Core', '2.5 GHz', '256GB', '4GB', 'Yes', 'Yes', 'Micro SD Card', 'Yes', 'Yes', 'Yes', '20MP', '12MP', 'GSM', '4800 mAh', 'Yes', 'Yes', 'Yes', '7 Days', '5 Days', 10, 89990, 1500, '2019-01-01', '01', '2019', 'Active', 'mobile_image/pic_00.jpg', 'mobile_image/pic_01.jpg', 'mobile_image/pic_02.png', 'mobile_image/pic_03.png'),
+(38, 3, 'Primo X5', 'Walton', 'X5', 'Primo', 'Silver', 'Dual Sim', 'Nano', 'Yes', '6.0 Inch', '1080px', 'AMOLED', 'Full HD', 'Android', 'Android Oreo 8.1', 'Octa Core', '64bit 2.0 GHz', '64GB', '6GB', 'Yes', 'Yes', 'Micro SD Card', 'Yes', 'Yes', 'Yes', 'BSI 13+5MP Dual Auto Focus rear camera', 'BSI 16MP Front camera', 'LTE (4G)/UMTS (3G)/GSM (2G)', 'Li-polymer 3450mAh', 'Yes', 'Yes', 'Yes', '30 Days', '15 Days', 5, 24990, 250, '2019-01-01', '01', '2019', 'Active', 'mobile_image/pic_08.jpg', 'mobile_image/pic_09.jpg', 'mobile_image/pic_10.jpg', 'mobile_image/pic_11.jpg');
 
 -- --------------------------------------------------------
 
@@ -221,7 +221,7 @@ CREATE TABLE `seller_listing` (
 --
 
 INSERT INTO `seller_listing` (`sl_id`, `seller_id`, `sl_start_date`, `sl_last_date`, `sl_month`, `sl_year`, `sl_number`, `sl_type`) VALUES
-(4, 3, '2019-01-01', '2019-01-08', 1, 2019, 2, 'Auction'),
+(4, 3, '2019-01-01', '2019-01-08', 1, 2019, 3, 'Auction'),
 (5, 4, '2019-01-01', '2019-01-08', 1, 2019, 2, 'Auction');
 
 --

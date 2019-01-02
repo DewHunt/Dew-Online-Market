@@ -278,13 +278,13 @@
 			}
 		}
 
-		public function GetAuctionListing($seller_email,$seller_password)
+		public function GetListing($seller_email,$seller_password,$sl_type)
 		{
 			$seller_id = $this->GetSellerID($seller_email,$seller_password);
 
 			if ($seller_id)
 			{
-				$seller_listing_query = $this->db->get_where('seller_listing',['seller_id'=>$seller_id,'sl_type'=>'Auction']);
+				$seller_listing_query = $this->db->get_where('seller_listing',['seller_id'=>$seller_id,'sl_type'=>$sl_type]);
 
 				if ($seller_listing_query->num_rows() > 0)
 				{
@@ -303,7 +303,7 @@
 
 		public function GetUsedCurrentAuctionListing($seller_email,$seller_password)
 		{
-			$seller_listing_data = $this->GetAuctionListing($seller_email,$seller_password);
+			$seller_listing_data = $this->GetListing($seller_email,$seller_password,'Auction');
 
 			if ($seller_listing_data)
 			{
@@ -311,10 +311,8 @@
 				$start_date = $seller_listing_data->sl_start_date;
 				$last_date = $seller_listing_data->sl_last_date;
 
-				// echo "Seller Id = ".$seller_id."<br>".$start_date." to ".$last_date;
-				// exit();
-
 				$get_mobile_data = $this->db->get_where('mobiles',['seller_id'=>$seller_id,'mobile_upload_date>='=>$start_date,'mobile_upload_date<='=>$last_date]);
+				$this->db->or_where(['mobile_duration_formate'=>'7 Days','mobile_duration_formate'=>'10 Days']);
 
 				if ($get_mobile_data->num_rows() > 0)
 				{
@@ -328,6 +326,59 @@
 			else
 			{
 				return false;
+			}
+		}
+
+		public function CheckAuctionOrFixedPriceListingFees($mobile_duration_formate,$seller_email,$seller_password)
+		{
+			if ($mobile_duration_formate == '7 Days' || $mobile_duration_formate == '10 Days')
+			{
+				$auction_listing_data = $this->GetAuctionListing($seller_email,$seller_password,'Auction');
+
+				if ($auction_listing_data)
+				{
+					$seller_id = $auction_listing_data->seller_id;
+					$start_date = $auction_listing_data->sl_start_date;
+					$last_date = $auction_listing_data->sl_last_date;
+					$total_listing = $auction_listing_data->sl_number;
+
+					$auction_mobile_data = $this->db->get_where('mobiles',['seller_id'=>$seller_id,'mobile_upload_date>='=>$start_date,'mobile_upload_date<='=>$last_date]);
+
+					if ($auction_mobile_data->num_rows() > 0)
+					{
+						$count_mobile_data = $auction_mobile_data->row();
+
+						if ($count_mobile_data > $total_listing)
+						{
+							$listing_fees = 50;
+						}
+						else
+						{
+							$listing_fees = 0;
+						}
+					}
+					else
+					{
+						return false;
+					}
+				}
+				else
+				{
+					return false;
+				}
+			}
+			else
+			{
+				$fixed_listing_data = $this->GetAuctionListing($seller_email,$seller_password,'Fixed');
+
+				if ($fixed_listing_data)
+				{
+					# code...
+				}
+				else
+				{
+					return false;
+				}
 			}
 		}
 	}

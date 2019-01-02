@@ -663,11 +663,11 @@
 							<h6>Return Policy</h6>
 							<select name="mobile-return-policy" id="mobile-return-policy">
 								<option value="">Select Return Policy</option>
-								<option value="1 days">1 days</option>
-								<option value="5 days">5 days</option>
-								<option value="7 days">7 days</option>
-								<option value="10 days">10 days</option>
-								<option value="15 days">15 days</option>
+								<option value="1 days">1 Days</option>
+								<option value="5 days">5 Days</option>
+								<option value="7 days">7 Days</option>
+								<option value="10 days">10 Days</option>
+								<option value="15 days">15 Days</option>
 							</select>
 						</div>
 
@@ -763,7 +763,24 @@
 					<div class="row">
 						<div class="col l4 m4 s12">
 							<h6>Listing Fees</h6>
-							<span><b>৳250</b></span>
+							<span id="show-listing-fees">
+								<b>
+									৳
+									<?php
+										if (count($used_auction_listing) > $auction_listing->sl_number)
+										{
+											$fees = 50;
+										}
+										else
+										{
+											$fees = 0;
+										}
+
+										echo $fees;
+									?>
+									<input type="text" name="fees" id="fees" value="<?= $fees; ?>" style="display: block;">
+								</b>
+							</span>
 						</div>
 					</div>
 				</div>
@@ -909,7 +926,7 @@
 				$('#storage-section').hide();
 				$('#camera-section').hide();
 				$('#connectivity-section').hide();
-				$('#listing-section').hide();
+				$('#listing-section').show();
 				$('#image-section').hide();
 				// Hide Section End
 
@@ -1750,6 +1767,25 @@
 					$('#show-mobile-network-type').html(mobile_network_type);
 				});
 				// Side Panle Preview Section Script End
+
+				// Check Auction and Fixed Price Listing Section Script Start
+				$('#mobile-duration-formate').change(function(){
+					var mobile_duration_formate = $(this).val();
+
+					$.ajax({
+						type:'ajax',
+						method:'POST',
+						url:'CheckAuctionOrFixedPriceListingFees',
+						data:{mobile_duration_formate:mobile_duration_formate},
+						success:function(data){
+							alert(data);
+						},
+						error:function(){
+							alert('Error! Shoe Listing Fees');
+						}
+					});
+				});
+				// Check Auction and Fixed Price Listing Section Script End
 			});
 		</script>
 	</body>

@@ -279,15 +279,12 @@
 							type:'ajax',
 							method:'POST',
 							url:'InsertItemName',
-							// dataType:'json',
 							data:{item_name:item_name},
 							success:function(data){
-								// $('#show-db-code').html(data);
 								alert('Item Name Saved Successfully');
 								$('#item-name').val("");
 							},
 							error:function(){
-								// $('#show-db-code').html(data);
 								alert('Item Name Already Saved');
 							}
 						});
@@ -329,12 +326,10 @@
 							url:'InsertBrandName',
 							data:{item_id:item_id, brand_name:brand_name},
 							success:function(data){
-								// $('#show-db-code1').html(data);
 								alert('Brand Name Saved Successfully');
 								$('#brand-name').val("");
 							},
 							error:function(){
-								// $('#show-db-code1').html(data);
 								alert('Brand Name Already Successfully');
 							}
 						});

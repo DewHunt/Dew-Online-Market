@@ -13,7 +13,7 @@
 
 		public function index()
 		{
-			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
 			{
 				$this->load->view('Seller/index');
 			}
@@ -91,13 +91,13 @@
 			$user_name = $this->session->userdata('seller_username');
 			$user_password = $this->session->userdata('seller_password');
 
-			if($user_name == "" && $user_password == "")
+			if($user_name == "" || $user_password == "")
 			{
 				return redirect('Seller/index');
 			}
 			else
 			{
-				$gal_result = $this->sm->GetAuctionListing($user_name,$user_password);
+				$gal_result = $this->sm->GetListing($user_name,$user_password,'Auction');
 
 				$gscal_result = $this->sm->GetUsedCurrentAuctionListing($user_name,$user_password);
 
@@ -115,7 +115,7 @@
 
 		public function CreateListing()
 		{
-			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -136,7 +136,7 @@
 
 		public function InsertSellerContact()
 		{
-			if ($this->session->userdata('seller-username') == "" && $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller-username') == "" || $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/Index');
 			}
@@ -157,19 +157,24 @@
 
 		public function MobileUpload()
 		{
-			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password' == ""))
+			$user_name = $this->session->userdata('seller_username');
+			$user_password = $this->session->userdata('seller_password');
+			if ($user_name == "" || $user_password == "")
 			{
 				return redirect('Seller/index');
 			}
 			else
 			{
-				$this->load->view('Seller/Listing/mobile');
+				$gal_result = $this->sm->GetListing($user_name,$user_password,'Auction');
+
+				$gscal_result = $this->sm->GetUsedCurrentAuctionListing($user_name,$user_password);
+				$this->load->view('Seller/Listing/mobile',['auction_listing'=>$gal_result,'used_auction_listing'=>$gscal_result]);
 			}
 		}
 
 		public function InsertMobilesGeneralInformation()
 		{
-			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -206,7 +211,7 @@
 
 		public function InsertMobilesDisplayInformation()
 		{
-			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -239,7 +244,7 @@
 
 		public function InsertMobilesProcessorInformation()
 		{
-			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -270,7 +275,7 @@
 
 		public function InsertMobilesStorageInformation()
 		{
-			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -302,7 +307,7 @@
 
 		public function InsertMobilesCameraInformation()
 		{
-			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -334,7 +339,7 @@
 
 		public function InsertMobilesConnectivityInformation()
 		{
-			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -365,7 +370,7 @@
 
 		public function InsertMobilesListingInformation()
 		{
-			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -396,7 +401,7 @@
 
 		public function InsertMobileImageUpload()
 		{
-			if ($this->session->userdata('seller_username') == "" && $this->session->userdata('seller_password') == "")
+			if ($this->session->userdata('seller_username') == "" || $this->session->userdata('seller_password') == "")
 			{
 				return redirect('Seller/index');
 			}
@@ -437,6 +442,32 @@
 						";
 
 					echo $output;
+				}
+				else
+				{
+					return false;
+				}
+			}
+		}
+
+		public function CheckAuctionOrFixedPriceListingFees()
+		{
+			$user_name = $this->session->userdata('seller_username');
+			$user_password = $this->session->userdata('seller_password');
+
+			if ($user_name == "" || $user_password == "")
+			{
+				return redirect('Seller/index');
+			}
+			else
+			{
+
+				$mobile_duration_formate = $this->input->post('mobile_duration_formate');
+				$result = $this->sm->CheckAuctionOrFixedPriceListingFees($mobile_duration_formate,$user_name,$user_password);
+
+				if ($result)
+				{
+					return true;
 				}
 				else
 				{
