@@ -652,6 +652,7 @@
 							<select name="mobile-duration-formate" id="mobile-duration-formate">
 								<option value="">Select Duration Formate</option>
 								<option value="7 Days">7 Days</option>
+								<option value="10 Days">10 Days</option>
 								<option value="15 Days">15 Days</option>
 								<option value="30 Days">30 Days</option>
 								<option value="45 Days">45 Days</option>
@@ -763,24 +764,24 @@
 					<div class="row">
 						<div class="col l4 m4 s12">
 							<h6>Listing Fees</h6>
-							<span id="show-listing-fees">
-								<b>
-									৳
+							<b>
+								৳
+								<span id="show-listing-fees">									
 									<?php
-										if (count($used_auction_listing) > $auction_listing->sl_number)
-										{
-											$fees = 50;
-										}
-										else
-										{
-											$fees = 0;
-										}
+									if (count($used_auction_listing) > $auction_listing->sl_number)
+									{
+										$fees = 50;
+									}
+									else
+									{
+										$fees = 0;
+									}
 
-										echo $fees;
+									echo $fees;
 									?>
-									<input type="text" name="fees" id="fees" value="<?= $fees; ?>" style="display: block;">
-								</b>
-							</span>
+								</span>
+							</b>
+							<input type="text" name="fees" id="fees" value="<?= $fees; ?>" style="display: block;">
 						</div>
 					</div>
 				</div>
@@ -1778,10 +1779,11 @@
 						url:'CheckAuctionOrFixedPriceListingFees',
 						data:{mobile_duration_formate:mobile_duration_formate},
 						success:function(data){
-							alert(data);
+							$('#show-listing-fees').html(data);
+							$('#fees').val(data);
 						},
 						error:function(){
-							alert('Error! Shoe Listing Fees');
+							alert('Error! Show Listing Fees');
 						}
 					});
 				});

@@ -333,7 +333,7 @@
 		{
 			if ($mobile_duration_formate == '7 Days' || $mobile_duration_formate == '10 Days')
 			{
-				$auction_listing_data = $this->GetAuctionListing($seller_email,$seller_password,'Auction');
+				$auction_listing_data = $this->GetListing($seller_email,$seller_password,'Auction');
 
 				if ($auction_listing_data)
 				{
@@ -342,11 +342,11 @@
 					$last_date = $auction_listing_data->sl_last_date;
 					$total_listing = $auction_listing_data->sl_number;
 
-					$auction_mobile_data = $this->db->get_where('mobiles',['seller_id'=>$seller_id,'mobile_upload_date>='=>$start_date,'mobile_upload_date<='=>$last_date]);
+					$auction_mobile_data = $this->db->get_where('mobiles',['seller_id'=>$seller_id,'mobile_upload_date>='=>$start_date,'mobile_upload_date<='=>$last_date,'mobile_duration_formate<='=>10]);
 
 					if ($auction_mobile_data->num_rows() > 0)
 					{
-						$count_mobile_data = $auction_mobile_data->row();
+						$count_mobile_data = $auction_mobile_data->num_rows();
 
 						if ($count_mobile_data > $total_listing)
 						{
@@ -369,17 +369,42 @@
 			}
 			else
 			{
-				$fixed_listing_data = $this->GetAuctionListing($seller_email,$seller_password,'Fixed');
+				$fixed_listing_data = $this->GetListing($seller_email,$seller_password,'Fixed');
 
 				if ($fixed_listing_data)
 				{
-					# code...
+					$seller_id = $fixed_listing_data->seller_id;
+					$start_date = $fixed_listing_data->sl_start_date;
+					$last_date = $fixed_listing_data->sl_last_date;
+					$total_listing = $fixed_listing_data->sl_number;
+
+					$fixed_mobile_data = $this->db->get_where('mobiles',['seller_id'=>$seller_id,'mobile_upload_date>='=>$start_date,'mobile_upload_date<='=>$last_date,'mobile_duration_formate>'=>10]);
+
+					if ($fixed_mobile_data->num_rows() > 0)
+					{
+						$count_mobile_data = $fixed_mobile_data->num_rows();
+
+						if ($count_mobile_data > $total_listing)
+						{
+							$listing_fees = 500;
+						}
+						else
+						{
+							$listing_fees = 0;
+						}
+					}
+					else
+					{
+						return false;
+					}
 				}
 				else
 				{
 					return false;
 				}
 			}
+
+			echo $listing_fees;
 		}
 	}
 ?>

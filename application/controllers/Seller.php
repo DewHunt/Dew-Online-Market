@@ -461,19 +461,20 @@
 			}
 			else
 			{
-
 				$mobile_duration_formate = $this->input->post('mobile_duration_formate');
+				$output = "";
 				$result = $this->sm->CheckAuctionOrFixedPriceListingFees($mobile_duration_formate,$user_name,$user_password);
 
 				if ($result)
 				{
-					return true;
+					$output .= $result;
 				}
 				else
 				{
 					return false;
 				}
 			}
+			echo $output;
 		}
 	}
 ?>
